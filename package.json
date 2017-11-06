@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NawarYossef/flyway.git"
+    "url": "git+https://github.com/NawarYossef/grub-n-grapes.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/NawarYossef/flyway/issues"
+    "url": "https://github.com/NawarYossef/grub-n-grapes/issues"
   },
-  "homepage": "https://github.com/NawarYossef/flyway#readme",
+  "homepage": "https://github.com/NawarYossef/grub-n-grapes#readme",
   "dependencies": {
     "animate.css": "^3.5.2",
     "express": "^4.15.3",
