@@ -11,10 +11,11 @@ body {
 }
 
 header {
-  background-image: url('../images/background4.jpg');
+  background-image: url('../images/background2.jpg');
   width: 100%;
-  height: 500px;
+  height: 680px;
   background-size: cover;
+  text-align: center;
 }
 
 .container {
@@ -46,16 +47,32 @@ h1 {
 }
 
 .container-form {
-  width: 100%;
-  margin-top: 15%;
+  width: 25%;
+  margin: 15% auto 0 auto;
   text-align: center;
+  background: rgba(0,0,0,0.31);
+}
+
+.container-buttons {
+  width: 100%;
+  margin: 5px auto 0 auto;
+  padding-bottom: 10px;
+}
+
+.food-btn, .wine-btn {
+  font-size: 1em;
+  background-color: #C9171E;
+  width: 40%;
+  height: 40px;
+  border-radius: 10px 10px; 
+  outline: none;
+  border: none;
 }
 
 form {
-  width: 25%;
+  width: 100%;
   height: 80px;
   display: inline-block;
-  background: rgba(0,0,0,0.31);
 }
 
 input {
@@ -74,14 +91,30 @@ button {
   background-color: #C9171E;
   width: 25%;
   height: 55px;
-  border-radius: 15px 15px; 
+  border-radius: 4px 4px; 
   outline: none;
   border: none;
 }
 
+/* venues */
+.venue-type {
+  display: inline;
+}
+.container-for-rating {
+  display: inline-block;
+  width: 10%;
+  text-align: center;
+}
+.rating {
+  border-radius: 55px 55px;
+}
+
+.price {
+  font: italic .75em sans-serif;
+}
 /*  */
 .row {
-  max-width: 1000px;  
+  max-width: 1400px;  
   padding-left: 20px;
   padding-right: 20px;
   margin: 0 auto;
@@ -155,10 +188,11 @@ button {
 
   /* 6 columns */
   .col-6 {
-
+    width: 50%;
   }
 
   /* 12 columns */
   .col-12 {
+    width: 100%;
   }
 }
