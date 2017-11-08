@@ -1,5 +1,4 @@
 "use strict";
-// let script = require('./another-script.js');
 
 function FoodDataFromApi(cityName) {
 	const url = "https://api.foursquare.com/v2/venues/explore";
@@ -89,6 +88,30 @@ function clearInputVal() {
 }
 
 
+// page behavior
+function slideImage() {
+	$('header').vegas({
+			slides: [
+				{ src: 'images/background1.jpg' },
+				{ src: 'images/background2.jpg'  },
+				{ src: 'images/background3.jpg'  },
+				{ src: 'images/background4.jpg'  }
+		],
+		
+		delay: 3000,
+		transition: 'blur',
+		timer: false
+    });
+}
+
+function chnangeHeaderHeight() {
+	$("button").click( e => {
+		$("header").css("height", "500px")
+	})
+}
+
+$(slideImage)
+$(chnangeHeaderHeight)
 $(getSearchTerm)
 
 

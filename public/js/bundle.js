@@ -1,6 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
-// let script = require('./another-script.js');
 
 function FoodDataFromApi(cityName) {
 	const url = "https://api.foursquare.com/v2/venues/explore";
@@ -90,6 +89,30 @@ function clearInputVal() {
 }
 
 
+// page behavior
+function slideImage() {
+	$('header').vegas({
+			slides: [
+				{ src: 'images/background1.jpg' },
+				{ src: 'images/background2.jpg'  },
+				{ src: 'images/background3.jpg'  },
+				{ src: 'images/background4.jpg'  }
+		],
+		
+		delay: 3000,
+		transition: 'blur',
+		timer: false
+    });
+}
+
+function chnangeHeaderHeight() {
+	$("button").click( e => {
+		$("header").css("height", "500px")
+	})
+}
+
+$(slideImage)
+$(chnangeHeaderHeight)
 $(getSearchTerm)
 
 
