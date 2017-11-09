@@ -50,11 +50,44 @@ h1 {
 }
 
 .container-form {
-  width: 25%;
+  width: 32%;
   margin: 15% auto 0 auto;
   text-align: center;
-  background: rgba(0,0,0,0.31);
+  background: rgba(0,0,0,0.5);
 }
+ 
+/* toggle switch */
+.switch input {
+  position: absolute;
+  opacity: 0;
+}
+
+.switch {
+  display: inline-block;
+  font-size: 20px;
+  height: 1em;
+  width: 2em;
+  background-color: #c5b14e;
+  border-radius: 1em;
+}
+
+.switch div {
+  height: 1em;
+  width: 1em;
+  border-radius: 1em;
+  background: #FFF;
+  box-shadow: 0 0.1em 0.3em rgba(0,0,0,0.3);
+  -webkit-transition: all 300ms;
+  -moz-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.switch input:checked + div {
+  -webkit-transform: translate3d(100%, 0, 0);
+  -moz-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+/*  */
 
 .container-buttons {
   width: 100%;
@@ -62,16 +95,37 @@ h1 {
   padding-bottom: 10px;
 }
 
+.wine-btn {
+  color: #ea3535;
+}
+
+.food-btn {
+  color: #FFffff;
+}
 .food-btn, .wine-btn {
-  font-size: 1em;
-  background-color: #C9171E;
+  font: bold 2em 'Audiowide', cursive, sans-serif;
+  display: inline-block;
   width: 40%;
   height: 40px;
   border-radius: 10px 10px; 
   outline: none;
   border: none;
+
 }
 
+.food-btn {
+  -webkit-animation: neon 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon 1.5s ease-in-out infinite alternate;
+  animation: neon  1.5s ease-in-out infinite alternate;
+}
+@keyframes neon {
+  0% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
+  }
+  100% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
+  }
+}
 form {
   width: 100%;
   height: 80px;

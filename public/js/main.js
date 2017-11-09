@@ -110,9 +110,11 @@ function chnangeHeaderHeight() {
 	})
 }
 
+
 $(slideImage)
 $(chnangeHeaderHeight)
 $(getSearchTerm)
+
 
 
 // display address
