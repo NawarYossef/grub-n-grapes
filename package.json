@@ -18,10 +18,12 @@
   },
   "homepage": "https://github.com/NawarYossef/grub-n-grapes#readme",
   "dependencies": {
+    "@google/maps": "^0.4.5",
     "animate.css": "^3.5.2",
     "express": "^4.15.3",
     "hover.css": "^2.2.1",
     "jq-flip-switch": "^1.0.0",
+    "jquery-sticky": "^1.0.4",
     "lodash": "^4.17.4",
     "vegas": "^2.4.0"
   },

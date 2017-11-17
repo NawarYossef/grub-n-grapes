@@ -1,6 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
-const venues = require("./venues.js")
+const venues = require("./venues.js")	
 
 class Main {
 	getDataFromApi(cityName, venueType) {
@@ -19,13 +19,13 @@ class Main {
 				radius:	500,
 				section: venueType,	
 				query: venueType,		
-				limit:	16,
+				limit:	15 ,
 				time:	"any",
 				venuePhotos: true,
 			},
 			success: data => {
 				const results = data.response.groups[0].items;
-	
+				console.log(results)
 				venues.renderResult(results);
 			}
 		}) 
@@ -132,7 +132,10 @@ class Main {
 	
 	defaultFoodOptionColor() {
 		$(".food").addClass("neon-effect");
-	}	
+	}
+	
+
+	
 }
 
 let app = new Main()
@@ -143,6 +146,14 @@ app.changeImageForWineSelect();
 app.addNeonColorForFoodWord();
 app.addNeonColorForWineWord();
 app.defaultFoodOptionColor();
+
+$(document).ready(function(){
+	$(".sticker").sticky({topSpacing:0});
+});
+
+
+$('.sticker').on('sticky-start', function() { console.log("Ended"); });
+
 
 
 },{"./venues.js":2}],2:[function(require,module,exports){
@@ -168,10 +179,10 @@ const venues = {
 											<p class="price">Price: <span class="price-description">${venues.getVenuePrice(item)}</span></p>
 										</div>
 										<div class="address">
-										<p class="address-desc">
-											${venues.printFormattedAddress(item)}
-										</p>
-									</div>
+											<p class="address-desc">
+												${venues.printFormattedAddress(item)}
+											</p>
+										</div>	
 									</div>
 								</div>
 							</div>
@@ -182,15 +193,18 @@ const venues = {
 	},
 
 	getVenuePrice: (item) => {
+		console.log(Object.keys(item.venue).includes("price"))
 		if (Object.keys(item.venue).includes("price")) {
 			return item.venue.price.message;
 		} 
-		// $(".price-description").hide();
+		$(".price").hide();
 	},
 	
 	printFormattedAddress: (item) => {
 		return item.venue.location.formattedAddress.join("").split(",").join(" ");
 	}
+
+	
 }
 
 module.exports = venues;

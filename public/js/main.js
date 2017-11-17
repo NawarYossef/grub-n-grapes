@@ -1,5 +1,5 @@
 "use strict";
-const venues = require("./venues.js")
+const venues = require("./venues.js")	
 
 class Main {
 	getDataFromApi(cityName, venueType) {
@@ -18,13 +18,13 @@ class Main {
 				radius:	500,
 				section: venueType,	
 				query: venueType,		
-				limit:	16,
+				limit:	15 ,
 				time:	"any",
 				venuePhotos: true,
 			},
 			success: data => {
 				const results = data.response.groups[0].items;
-	
+				console.log(results)
 				venues.renderResult(results);
 			}
 		}) 
@@ -131,7 +131,10 @@ class Main {
 	
 	defaultFoodOptionColor() {
 		$(".food").addClass("neon-effect");
-	}	
+	}
+	
+
+	
 }
 
 let app = new Main()
@@ -142,4 +145,12 @@ app.changeImageForWineSelect();
 app.addNeonColorForFoodWord();
 app.addNeonColorForWineWord();
 app.defaultFoodOptionColor();
+
+// $(document).ready(function(){
+// 	$(".sticker").sticky({topSpacing:0});
+// });
+
+
+// $('.sticker').on('sticky-start', function() { console.log("Ended"); });
+
 

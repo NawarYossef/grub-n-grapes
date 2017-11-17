@@ -20,10 +20,10 @@ const venues = {
 											<p class="price">Price: <span class="price-description">${venues.getVenuePrice(item)}</span></p>
 										</div>
 										<div class="address">
-										<p class="address-desc">
-											${venues.printFormattedAddress(item)}
-										</p>
-									</div>
+											<p class="address-desc">
+												${venues.printFormattedAddress(item)}
+											</p>
+										</div>	
 									</div>
 								</div>
 							</div>
@@ -34,15 +34,18 @@ const venues = {
 	},
 
 	getVenuePrice: (item) => {
+		console.log(Object.keys(item.venue).includes("price"))
 		if (Object.keys(item.venue).includes("price")) {
 			return item.venue.price.message;
 		} 
-		// $(".price-description").hide();
+		$(".price").hide();
 	},
 	
 	printFormattedAddress: (item) => {
 		return item.venue.location.formattedAddress.join("").split(",").join(" ");
 	}
+
+	
 }
 
 module.exports = venues;
