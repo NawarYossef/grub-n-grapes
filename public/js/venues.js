@@ -16,9 +16,7 @@ const venues = {
 										<div class="container-for-rating">
 											<p class="rating" style="background-color: #${item.venue.ratingColor};">${item.venue.rating}</p>
 										</div>
-										<div class="container-for-price">
-											<p class="price">Price: <span class="price-description">${venues.getVenuePrice(item)}</span></p>
-										</div>
+										${venues.getVenuePrice(item)}
 										<div class="address">
 											<p class="address-desc">
 												${venues.printFormattedAddress(item)}
@@ -35,11 +33,12 @@ const venues = {
 	},
 
 	getVenuePrice: (item) => {
-		console.log(Object.keys(item.venue).includes("price"))
 		if (Object.keys(item.venue).includes("price")) {
-			return item.venue.price.message;
+			return `<div class="container-for-price">
+			<p class="price">Price: <span class="price-description">${item.venue.price.message}</span></p>
+		</div>`
 		} 
-		$(".price").hide();
+		return ''
 	},
 	
 	printFormattedAddress: (item) => {
@@ -61,7 +60,7 @@ const venues = {
 		let marker
 
 		let mapOptions = {
-			zoom: 15,
+			zoom: 13,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		}
 

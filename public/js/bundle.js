@@ -1,7 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 "use strict";
 const venues = require("./venues.js")	
-// const particles = require("./particles.js")
+
 class Main {
 	getDataFromApi(cityName, venueType) {
 		const url = "https://api.foursquare.com/v2/venues/explore";
@@ -21,6 +21,7 @@ class Main {
 				query: venueType,		
 				limit:	15 ,
 				time:	"any",
+				tips: 4,
 				venuePhotos: true,
 			},
 			success: data => {
@@ -41,7 +42,8 @@ class Main {
 
 			// delete last rendered results
 			this.clearBody()
-			this.whichVenueTypeToSearch(searchQuery)
+			this.getDataFromApi(searchQuery, "wine")
+			// this.whichVenueTypeToSearch(searchQuery)
 			
 			// clear input value for new search
 			// clearInputVal()
@@ -122,9 +124,10 @@ class Main {
 	defaultFoodOptionColor() {
 		$(".food").addClass("neon-effect");
 	}
-	
 
-	
+	bounceHeaderArrow() {
+		$('.arrow-wrapper').addClass('animated bounce');
+	}
 }
 
 let app = new Main()
@@ -135,74 +138,7 @@ app.changeImageForWineSelect();
 app.addNeonColorForFoodWord();
 app.addNeonColorForWineWord();
 app.defaultFoodOptionColor();
-
-
-
-
-
-
-
-// "use strict";
-// var options = {
-//   particles: {
-//     number: {
-//       value: 999,
-//       density: { enable: true, value_area: 552.4033491425909 }
-//     },
-//     color: { value: "#ffffff" },
-//     shape: {
-//       type: "circle",
-//       stroke: { width: 0, color: "#000000" },
-//       polygon: { nb_sides: 3 },
-//       image: { src: "img/github.svg", width: 70, height: 100 }
-//     },
-//     opacity: {
-//       value: 1,
-//       random: true,
-//       anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
-//     },
-//     size: {
-//       value: 2,
-//       random: true,
-//       anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
-//     },
-//     line_linked: {
-//       enable: false,
-//       distance: 150,
-//       color: "#ffffff",
-//       opacity: 0.4,
-//       width: 1
-//     },
-//     move: {
-//       enable: true,
-//       speed: 1.5782952832645452,
-//       direction: "none",
-//       random: true,
-//       straight: false,
-//       out_mode: "out",
-//       bounce: false,
-//       attract: { enable: false, rotateX: 600, rotateY: 1200 }
-//     }
-//   },
-//   interactivity: {
-//     detect_on: "canvas",
-//     events: {
-//       onhover: { enable: false, mode: "repulse" },
-//       onclick: { enable: true, mode: "repulse" },
-//       resize: true
-//     },
-//     modes: {
-//       grab: { distance: 400, line_linked: { opacity: 1 } },
-//       bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
-//       repulse: { distance: 200, duration: 0.4 },
-//       push: { particles_nb: 4 },
-//       remove: { particles_nb: 2 }
-//     }
-//   },
-//   retina_detect: false
-// };
-// particlesJS("particle", options);
-
+app.bounceHeaderArrow();
 
 
 },{"./venues.js":2}],2:[function(require,module,exports){
@@ -224,9 +160,7 @@ const venues = {
 										<div class="container-for-rating">
 											<p class="rating" style="background-color: #${item.venue.ratingColor};">${item.venue.rating}</p>
 										</div>
-										<div class="container-for-price">
-											<p class="price">Price: <span class="price-description">${venues.getVenuePrice(item)}</span></p>
-										</div>
+										${venues.getVenuePrice(item)}
 										<div class="address">
 											<p class="address-desc">
 												${venues.printFormattedAddress(item)}
@@ -243,37 +177,40 @@ const venues = {
 	},
 
 	getVenuePrice: (item) => {
-		console.log(Object.keys(item.venue).includes("price"))
 		if (Object.keys(item.venue).includes("price")) {
-			return item.venue.price.message;
+			return `<div class="container-for-price">
+			<p class="price">Price: <span class="price-description">${item.venue.price.message}</span></p>
+		</div>`
 		} 
-		$(".price").hide();
+		return ''
 	},
 	
 	printFormattedAddress: (item) => {
 		return item.venue.location.formattedAddress.join("").split(",").join(" ");
 	},
 
-	// store all venue coordinates the API response. 
+	// store all venue coordinates from API response. 
 	GeocodeForAllAddresses: (results) => {
 		let latLangArray = results.map((item) =>  [
 			item.venue.location.lat, 
 			item.venue.location.lng
 		])
 
+		// call function to initialize google maps API
 		venues.initializeMap(latLangArray)
 	},
 
 	initializeMap: (latLangArray) => {
+		let marker
+
 		let mapOptions = {
-			zoom: 15,
+			zoom: 13,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		}
+
 		let map = new google.maps.Map(document.getElementById('map'), mapOptions);
 		
-		let marker
 		latLangArray.forEach((VenueLatLang, idx) => {
-			
 			let myLatlng = new google.maps.LatLng(VenueLatLang[0],VenueLatLang[1]);
 			// set the view port on coordinates for the last venue 
 			map.setCenter(myLatlng);
@@ -287,21 +224,8 @@ const venues = {
 			});
 		})
 	}
-
-	// mapShowMarkers: () => {
-	// 	let marker = new google.maps.Marker({
-  //     position: myLatlng,
-  //     map: map,
-  //     title: 'Hello World!'
- 	// 	});
-	// },
-	
-	// showMap: () => {
-	// 	$('button').on('click',venues.initializeMap)
-	// }
 	
 }
-// venues.showMap()
 
 module.exports = venues;
 

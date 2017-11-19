@@ -20,6 +20,7 @@ class Main {
 				query: venueType,		
 				limit:	15 ,
 				time:	"any",
+				tips: 4,
 				venuePhotos: true,
 			},
 			success: data => {
@@ -40,7 +41,8 @@ class Main {
 
 			// delete last rendered results
 			this.clearBody()
-			this.whichVenueTypeToSearch(searchQuery)
+			this.getDataFromApi(searchQuery, "wine")
+			// this.whichVenueTypeToSearch(searchQuery)
 			
 			// clear input value for new search
 			// clearInputVal()
@@ -122,6 +124,9 @@ class Main {
 		$(".food").addClass("neon-effect");
 	}
 
+	bounceHeaderArrow() {
+		$('.arrow-wrapper').addClass('animated bounce');
+	}
 }
 
 let app = new Main()
@@ -132,3 +137,5 @@ app.changeImageForWineSelect();
 app.addNeonColorForFoodWord();
 app.addNeonColorForWineWord();
 app.defaultFoodOptionColor();
+app.bounceHeaderArrow();
+

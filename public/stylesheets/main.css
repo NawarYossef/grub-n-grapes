@@ -7,8 +7,9 @@
 body {
   width: 100%; 
   background-color: #efefef;
-  /* overflow: hidden; */
 }
+
+body { scroll-behavior: smooth }
 
 /* floating particles */
 
@@ -136,8 +137,36 @@ button {
   width: 13%;
   vertical-align: middle;
 }
-/* venues */
 
+/* arrow bounce iteration */
+.arrow-wrapper {
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s;
+  -webkit-animation-duration: 5s;
+  -moz-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-iteration-count: 3;
+  -moz-animation-iteration-count: 3;
+  animation-iteration-count: 3;
+}
+
+/* arrow scroll down */
+
+.fa-arrow-circle-down {
+  /* background-color: #ffffff; */
+  color: white;
+  margin-top: 80px;
+  font-size: 4em;
+  
+}
+
+/* main page */
+.img-places {
+  width: 60%;
+}
+
+/* venues */
 .container-for-data {
   background-color: #f5f5f5;
   border: solid 1px rgb(211, 211, 211);
@@ -168,6 +197,10 @@ button {
 
 .venue-type {
   display: inline;
+}
+
+h5 {
+  font-size: 1em;
 }
 .container-for-rating {
   display: inline-block;
@@ -203,22 +236,6 @@ button {
   padding-top: 30px;
 }
 
-.black {
-  background-color: black;
-  color: white;
-}
-
-.green {
-  background-color: green;
-}
-
-.orange {
-  background-color: orange;
-}
-
-.blue {
-  background-color: blue;
-}
 
 
 /* Clearfix */
