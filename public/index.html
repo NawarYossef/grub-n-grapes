@@ -14,6 +14,7 @@
 	
 </head>
 <body>
+		<div id="particle">
 	<header>
 		<div class="container">
 			<div class="cont-for-h1">
@@ -33,9 +34,8 @@
 
 			<form class="options">
 				<div class="food" >
-					<label>
-						<img class="food-option select-img" src="images/option-selected.png">
-						<span class="">Grub</span>
+					<img class="food-option select-img" src="images/option-selected.png">
+					<span class="">Grub</span>
 				</div>
 				<div class="wine">
 					<img class="wine-option select-img" src="images/option-unselected.png">
@@ -44,8 +44,8 @@
 			</form>
 		</div>
 	</header>
-
-	<main role="main"> 
+	
+	<main role="main" id=""> 
 		<div class="row col-6">
 	
 		</div>
@@ -57,29 +57,11 @@
 		</div>
 	</main>
 
-	<script>
-		function initMap() {
-			var uluru = {lat: -25.363, lng: 131.044};
-			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 4,
-				center: uluru
-			});
-			var marker = new google.maps.Marker({
-				position: uluru,
-				map: map
-			});
-		}
-
-		
-	</script>
-		
 	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.js"></script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxbrnP5jd_Uq6TwZ9frPsnqhD2_wgIAnU&callback=initMap">
-</script>
-<!-- <script src="jquery.js"></script> --> 
+	<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxbrnP5jd_Uq6TwZ9frPsnqhD2_wgIAnU"></script>
 	<script src="js/vegas/vegas.min.js"></script>
 	<script type="text/javascript" src="js/bundle.js"></script> 
-	
+</div>
 </body>

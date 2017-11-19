@@ -15,7 +15,7 @@ class Main {
 				client_secret: secret,
 				v: Date.now(),
 				near: cityName,
-				radius:	500,
+				radius:	1000,
 				section: venueType,	
 				query: venueType,		
 				limit:	15 ,
@@ -26,6 +26,8 @@ class Main {
 				const results = data.response.groups[0].items;
 				console.log(results)
 				venues.renderResult(results);
+				venues.GeocodeForAllAddresses(results)
+				// particles.init()
 			}
 		}) 
 	}
@@ -33,21 +35,29 @@ class Main {
 	getSearchQuery() {
 		$("button").click( (e) =>  {
 			// check for toggle button value
-			let getSearchQuery = $('form :input').val();
+			let searchQuery = $('form :input').val();
 			e.preventDefault();
 
 			// delete last rendered results
-			this.clearBody()	
-			this.wineOptionChosen()
-			// 
-			if(this.wineOptionChosen()) {
-				this.getDataFromApi(getSearchQuery, "wine")
-			} else {
-				this.getDataFromApi(getSearchQuery, "wine")
-			}
+			this.clearBody()
+			this.whichVenueTypeToSearch(searchQuery)
+			
 			// clear input value for new search
 			// clearInputVal()
 		})
+	}
+
+	whichVenueTypeToSearch(searchQuery) {
+		$('.wine, .food').click(function () {
+			if (this.className == 'wine') {
+				console.log(this.className)
+				this.getDataFromApi(searchQuery, "wine")
+			}
+			else if (this.className == 'food') {
+				console.log(this.className)
+				this.getDataFromApi(searchQuery, "food")
+			}
+	 });
 	}
 	
 	clearBody() {
@@ -73,6 +83,7 @@ class Main {
 		});
 	}
 	
+	// display image for radio button when option is selected 
 	changeImageForWineSelect() {
 		$(".wine").click(() => {
 			$(this).data('clicked', true);
@@ -81,28 +92,6 @@ class Main {
 				$(".food-option").attr("src", "images/option-unselected.png");
 			}
 		})
-	}
-	
-	wineOptionChosen() {
-		let funReturnVal = false;
-		$(".wine").click(() => {
-			$(this).data('clicked', true);
-			if (($(this).data('clicked'))) {
-				funReturnVal = true;
-			}
-		})
-		return funReturnVal;
-	}
-
-	foodOptionChosen() {
-		let funReturnVal = false;
-		$(".food").click(() => {
-			$(this).data('clicked', true);
-			if (($(this).data('clicked'))) {
-				funReturnVal = true;
-			}
-		})
-		return funReturnVal;
 	}
 
 	changeImageForFoodSelect() {
@@ -132,9 +121,7 @@ class Main {
 	defaultFoodOptionColor() {
 		$(".food").addClass("neon-effect");
 	}
-	
 
-	
 }
 
 let app = new Main()
@@ -145,12 +132,3 @@ app.changeImageForWineSelect();
 app.addNeonColorForFoodWord();
 app.addNeonColorForWineWord();
 app.defaultFoodOptionColor();
-
-// $(document).ready(function(){
-// 	$(".sticker").sticky({topSpacing:0});
-// });
-
-
-// $('.sticker').on('sticky-start', function() { console.log("Ended"); });
-
-

@@ -29,6 +29,7 @@ const venues = {
 							</div>
 						</div>`
 				)	
+				
 		})
 		$(".row").append(allVenues);
 	},
@@ -43,9 +44,46 @@ const venues = {
 	
 	printFormattedAddress: (item) => {
 		return item.venue.location.formattedAddress.join("").split(",").join(" ");
-	}
+	},
 
+	// store all venue coordinates from API response. 
+	GeocodeForAllAddresses: (results) => {
+		let latLangArray = results.map((item) =>  [
+			item.venue.location.lat, 
+			item.venue.location.lng
+		])
+
+		// call function to initialize google maps API
+		venues.initializeMap(latLangArray)
+	},
+
+	initializeMap: (latLangArray) => {
+		let marker
+
+		let mapOptions = {
+			zoom: 15,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		}
+
+		let map = new google.maps.Map(document.getElementById('map'), mapOptions);
+		
+		latLangArray.forEach((VenueLatLang, idx) => {
+			let myLatlng = new google.maps.LatLng(VenueLatLang[0],VenueLatLang[1]);
+			// set the view port on coordinates for the last venue 
+			map.setCenter(myLatlng);
+
+				marker = new google.maps.Marker({
+					position: new google.maps.LatLng(VenueLatLang[0],VenueLatLang[1]),
+					draggable: false,
+					animation: google.maps.Animation.DROP,
+					map: map,
+					title: 'Hello World!'
+			});
+		})
+	}
 	
 }
 
 module.exports = venues;
+
+
