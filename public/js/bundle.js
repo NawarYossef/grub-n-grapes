@@ -43,12 +43,7 @@ class Main {
 			this.clearBody();
 			// this.validateInput();
 			// get API response based on venue type choosed (wine of food)
-			// this.whichVenueTypeToSearch(searchQuery);
-			if ($(".food").hasClass("neon-effect")) {
-				this.getDataFromApi(searchQuery, "food")
-			} else if ($(".wine").hasClass("neon-effect")) {
-				this.getDataFromApi(searchQuery, "wine")
-			}
+			this.whichVenueTypeToSearch(searchQuery);
 			
 			// clear input value for new search
 			this.clearInputVal()
@@ -59,7 +54,11 @@ class Main {
 		// if()
 	}
 	whichVenueTypeToSearch(searchQuery) {
-		
+		if ($(".food").hasClass("neon-effect")) {
+			this.getDataFromApi(searchQuery, "food")
+		} else if ($(".wine").hasClass("neon-effect")) {
+			this.getDataFromApi(searchQuery, "wine")
+		}
 	}
 	
 	clearBody() {
@@ -127,6 +126,24 @@ class Main {
 	bounceHeaderArrow() {
 		$('.arrow-wrapper').addClass('animated bounce');
 	}
+
+	smoothScrollEffect() {
+		 $(".arrow").on('click', function(event) {
+			if (this.hash !== "") {
+				// Prevent default anchor click behavior
+				event.preventDefault();
+	
+				// Using jQuery's animate() method to add smooth page scroll
+				// The number (800) specifies the number of milliseconds it takes to scroll to the specified area
+				$('html, body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 800, () => {
+		 
+					window.location.hash = this.hash;
+				});
+			} 
+		});
+	}
 }
 
 let app = new Main()
@@ -138,7 +155,10 @@ app.addNeonColorForFoodWord();
 app.addNeonColorForWineWord();
 app.defaultFoodOptionColor();
 app.bounceHeaderArrow();
+app.smoothScrollEffect();
 
+
+ 
 
 },{"./venues.js":2}],2:[function(require,module,exports){
 "use strict";
