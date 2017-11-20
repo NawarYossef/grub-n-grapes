@@ -42,7 +42,12 @@ class Main {
 			this.clearBody();
 			// this.validateInput();
 			// get API response based on venue type choosed (wine of food)
-			this.whichVenueTypeToSearch(searchQuery);
+			// this.whichVenueTypeToSearch(searchQuery);
+			if ($(".food").hasClass("neon-effect")) {
+				this.getDataFromApi(searchQuery, "food")
+			} else if ($(".wine").hasClass("neon-effect")) {
+				this.getDataFromApi(searchQuery, "wine")
+			}
 			
 			// clear input value for new search
 			this.clearInputVal()
@@ -53,11 +58,7 @@ class Main {
 		// if()
 	}
 	whichVenueTypeToSearch(searchQuery) {
-		if ($(".food").hasClass("neon-effect")) {
-			this.getDataFromApi(searchQuery, "food")
-		} else if ($(".wine").hasClass("neon-effect")) {
-			this.getDataFromApi(searchQuery, "wine")
-		}
+		
 	}
 	
 	clearBody() {
