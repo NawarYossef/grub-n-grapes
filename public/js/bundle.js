@@ -39,35 +39,33 @@ class Main {
 			// check for toggle button value
 			let searchQuery = $('form :input').val();
 			e.preventDefault();
-
 			// delete last rendered results
-			this.clearBody()
-			this.getDataFromApi(searchQuery, "wine")
-			// this.whichVenueTypeToSearch(searchQuery)
+			this.clearBody();
+			// this.validateInput();
+			// get API response based on venue type choosed (wine of food)
+			this.whichVenueTypeToSearch(searchQuery);
 			
 			// clear input value for new search
-			// clearInputVal()
+			this.clearInputVal()
 		})
 	}
 
+	validateInput() {
+		// if()
+	}
 	whichVenueTypeToSearch(searchQuery) {
-		$('.wine, .food').click(function () {
-			if (this.className == 'wine') {
-				console.log(this.className)
-				this.getDataFromApi(searchQuery, "wine")
-			}
-			else if (this.className == 'food') {
-				console.log(this.className)
-				this.getDataFromApi(searchQuery, "food")
-			}
-	 });
+		if ($(".food").hasClass("neon-effect")) {
+			this.getDataFromApi(searchQuery, "food")
+		} else if ($(".wine").hasClass("neon-effect")) {
+			this.getDataFromApi(searchQuery, "wine")
+		}
 	}
 	
 	clearBody() {
 		$(".row").empty();
 	}
 	clearInputVal() {
-		$('form').trigger("reset");
+		$("form :input").val("");
 	}
 	
 	

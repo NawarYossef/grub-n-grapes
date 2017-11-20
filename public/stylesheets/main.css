@@ -146,9 +146,9 @@ button {
   -webkit-animation-duration: 5s;
   -moz-animation-duration: 5s;
   animation-duration: 5s;
-  -webkit-animation-iteration-count: 3;
-  -moz-animation-iteration-count: 3;
-  animation-iteration-count: 3;
+  -webkit-animation-iteration-count: 2;
+  -moz-animation-iteration-count: 2;
+  animation-iteration-count: 2;
 }
 
 /* arrow scroll down */
@@ -162,9 +162,32 @@ button {
 }
 
 /* main page */
-.img-places {
-  width: 60%;
+.h2-wrapper {
+  width: 100%;
+  text-align: center; 
 }
+.place-image {
+  position: relative;
+}
+
+.img-places {
+  width: 100%;
+}
+
+h3 {
+  width: 100%; 
+  text-align: center;
+  position: absolute;
+  top: 40px;
+  left: 0; 
+}
+
+h3 span {
+  background-color:  rgba(0,0,0,0.5);
+  color: white;
+  padding: 5px 05px;
+}
+
 
 /* venues */
 .container-for-data {
