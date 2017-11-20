@@ -11,7 +11,7 @@ const venues = {
 										<img src="${item.venue.photos.groups[0].items[0].prefix}120x120${item.venue.photos.groups[0].items[0].suffix}" class="venue-img"/>
 									</div>
 									<div class="data-container">
-										<h3 class="venue-name">${item.venue.name}</h3>
+										<h4 class="venue-name">${item.venue.name}</h4>
 										<h5 class="venue-type">${item.venue.categories[0].name}</h5>
 										<div class="container-for-rating">
 											<p class="rating" style="background-color: #${item.venue.ratingColor};">${item.venue.rating}</p>
@@ -38,7 +38,7 @@ const venues = {
 			<p class="price">Price: <span class="price-description">${item.venue.price.message}</span></p>
 		</div>`
 		} 
-		return ''
+		return '';
 	},
 	
 	printFormattedAddress: (item) => {
@@ -57,7 +57,7 @@ const venues = {
 	},
 
 	initializeMap: (latLangArray) => {
-		let marker
+		let marker;
 
 		let mapOptions = {
 			zoom: 13,
