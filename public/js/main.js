@@ -1,3 +1,25 @@
+//handle invalid inputs 
+// animated text for header 
+// finish welcome page section
+// city auto complete
+
+// add get directions
+// add modal
+// progressive rendering for search
+// scroll to results 
+// create button for map for mobile devices
+
+
+// hover on selection should show map window
+// hover on selection should change background color
+// hover on selection should change mouse to cursor
+
+///////////////////
+
+// add padding right for venue address
+// add photo to map window
+
+
 "use strict";
 const venues = require("./venues.js")	
 
@@ -15,17 +37,18 @@ class Main {
 				client_secret: secret,
 				v: Date.now(),
 				near: cityName,
-				radius:	1000,
+				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	15 ,
+				limit:	25 ,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
 			},
 			success: data => {
-				const results = data.response.groups[0].items;
-				console.log(results)
+				// console.log(data.response.groups[0].items)
+				const results = data.response.groups[0].items;	
+				// console.log(results)
 				venues.renderResult(results);
 				venues.GeocodeForAllAddresses(results)
 				// particles.init()
@@ -33,31 +56,82 @@ class Main {
 		}) 
 	}
 	
-	getSearchQuery() {
+	handleSearchQuery() {
 		$("button").click( (e) =>  {
-			// check for toggle button value
-			let searchQuery = $('form :input').val();
+			// store search query
+			let searchQuery = this.parseQuery();
 			e.preventDefault();
+
+			// this.validateInput(searchQuery);
+
 			// delete last rendered results
 			this.clearBody();
-			// this.validateInput();
+
+			// hide elements from welcome page
+			this.hideWelcomePageInfo()
+
 			// get API response based on venue type choosed (wine of food)
 			this.whichVenueTypeToSearch(searchQuery);
+
+			//show map
+			this.showMap();
 			
 			// clear input value for new search
 			this.clearInputVal()
 		})
 	}
 
-	validateInput() {
-		// if()
+	parseQuery() {
+		let searchQuery = $('form :input').val();
+		searchQuery = searchQuery.split(', ');
+		let query = searchQuery[0] + ', ' + searchQuery[searchQuery.length - 1];
+		return query;
 	}
+
+	validateInput(searchQuery) {
+		// if()
+		const text = `<p>Sorry! No results for: ${searchQuery}</p>`
+		$("form").append(text);
+	}
+
 	whichVenueTypeToSearch(searchQuery) {
 		if ($(".food").hasClass("neon-effect")) {
 			this.getDataFromApi(searchQuery, "food")
 		} else if ($(".wine").hasClass("neon-effect")) {
 			this.getDataFromApi(searchQuery, "wine")
 		}
+	}
+
+	handleSearchForCityFromMainPage() {
+		$(".city").on('click', (e) => {
+			let $this = $(e.currentTarget);
+			const cityName = $this.children().text();
+
+			this.validateInput();
+			
+			// delete last rendered results
+			this.clearBody();
+
+			// hide elements from welcome page
+			this.hideWelcomePageInfo()
+
+			this.whichVenueTypeToSearch(cityName);
+
+			//show map
+			this.showMap();
+		})
+	}
+
+	hideWelcomePageInfo() {
+		$(".welcome-page-info").fadeOut(300).hide()
+	}
+
+	hideMap() {
+		$(".map-container").hide();	
+	}
+
+	showMap() {
+		$(".map-container").show();
 	}
 	
 	clearBody() {
@@ -68,7 +142,7 @@ class Main {
 	}
 	
 	
-	// page behavior
+	//=============== Handle page behavior =====================
 	headerImageSlideShow() {
 		$('header').vegas({
 			slides: [
@@ -143,10 +217,30 @@ class Main {
 			} 
 		});
 	}
+
+	setupMapFixedPositionOnScroll() {
+    let $cache = $('#map');
+    if ($(window).scrollTop() > 700)
+      $cache.css({
+        'position': 'fixed',
+        'top': '10px'
+      });
+    else
+    	$cache.css({
+				'position': 'relative',
+				'top': 'auto'
+    });
+	}
+	
+	runFixedMapOnScroll() {
+		$(window).scroll(app.setupMapFixedPositionOnScroll);
+	}
 }
 
 let app = new Main()
-app.getSearchQuery()
+app.hideMap();
+app.handleSearchQuery();
+app.handleSearchForCityFromMainPage();
 app.headerImageSlideShow();
 app.changeImageForFoodSelect();
 app.changeImageForWineSelect();
@@ -155,6 +249,6 @@ app.addNeonColorForWineWord();
 app.defaultFoodOptionColor();
 app.bounceHeaderArrow();
 app.smoothScrollEffect();
+app.runFixedMapOnScroll();
 
 
- 

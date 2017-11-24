@@ -29,7 +29,7 @@
 
 		<div class="container-form">
 			<form class="form-main">
-				<input type="text" name="city" placeholder="Type a city name..." />
+				<input type="text" name="city" id="user-input" placeholder="Type a city name..." />
 				<button class="search-btn">Go</button>
 		  </form>
 
@@ -50,33 +50,37 @@
 	</header>
 	
 	<main role="main" id="main"> 
-		<div class="h2-wrapper">
-			<h2>Anywhere You Want</h2>
-		</div>	
-		<div class="row col-12">
-			<div class="place-image col-3">
-				<img class="img-places" src="./images/new-york-places.jpeg">
-				<h3><span>New York</span></h3>
-			</div>
-			<div class="place-image col-3">
-				<img class="img-places" src="./images/cape-town-places.jpeg">
-				<h3><span>Cape Town</span></h3>
-			</div>
-			<div class="place-image col-3">
-				<img class="img-places" src="./images/dubai-places.jpeg">
-				<h3><span>Dubai</span></h3>
-			</div>
-			<div class="place-image col-3">
-				<img class="img-places" src="./images/berlin-places.jpeg">
-				<h3><span>Berlin</span></h3>
-			</div>
-		</div>
+		<script>
+			$( document ).ready(function() {
+				function init() {
+					const input = document.getElementById('user-input');
+					const autocomplete = new google.maps.places.Autocomplete(input);
+				}
 
-		<!-- <div class="col-12 venue-examples-wrapper"> -->
-			<div class="col-12 examples">
+				google.maps.event.addDomListener(window, 'load', init);	
+			});
+		</script>
+		<section class="welcome-page-info">
+			<!-- <div class="col-12 examples">
 				<div class="h2-wrapper">
 					<h2>Get the Details and Ratings</h2>
+				</div> -->
+				
+				<!-- <div class="food-place place-image col-6">
+					<div class="img-venue-wrapper">
+						<div>
+							<img src="./images/food-img1.png">
+						</div>
+					</div>
+					<div class="img-venue-wrapper">
+						<img class="img-venue-example" src="./images/san-francisco-food.png">
+					</div>
+					<div class="details-wrapper">
+						<h4><span>Rich Table</h4>
+						<h5>New American Restaurant</h5>
+					</div>
 				</div>
+		
 				<div class="place-image col-6">
 					<div class="img-venue-wrapper">
 						<div>
@@ -84,29 +88,75 @@
 						</div>
 					</div>
 					<div class="img-venue-wrapper">
-						<img class="img-venue-example" src="./images/san-fransisco-food.png">
-					</div>
-					<h4><span>Rich Table</h4>
-					<h5>New American Restaurant</h5>
-					<p class="address-for-venue">199 Gough St (at Oak St)San Francisco CA 94102United States</p>
-				</div>
-				<div class="place-image col-6">
-					<div class="img-venue-wrapper">
-						<div>
-							<img src="./images/food-img1.png">
-						</div>
-					</div>
-					<div class="img-venue-wrapper">
 						<img class="img-venue-example" src="./images/london-wine.jpg">
 					</div>
-					<h4>Vetro by Dalla Terra</h4>
-					<h5>Wine Bar</h5>
-					<p class="address-for-venue">53-55 Beak StSohoGreater LondonW1F 9SHUnited Kingdom</p>
+					<div class="details-wrapper">
+						<h4>Vetro by Dalla Terra</h4>
+						<h5>Wine Bar</h5>
+					</div>
+				</div>
+			</div> -->
+			
+			<div class="main-page-places col-12">
+				<div class="h2-wrapper">
+					<h2>Anywhere You Want</h2>
+				</div>	
+				<div class="row col-12">
+					<div class="city place-image col-3">
+						<img class="img-places" src="./images/new-york-places.jpeg">
+						<h3><span>New York</span></h3>
+					</div>
+					<div class="city place-image col-3">
+						<img class="img-places" src="./images/cape-town-places.jpeg">
+						<h3><span>Cape Town</span></h3>
+					</div>
+					<div class="city place-image col-3">
+						<img class="img-places" src="./images/dubai-places.jpeg">
+						<h3><span>Dubai</span></h3>
+					</div>
+					<div class="city place-image col-3">
+						<img class="img-places" src="./images/berlin-places.jpeg">
+						<h3><span>Berlin</span></h3>
+					</div>
+		
+					<div class="city place-image col-3">
+						<img class="img-places" src="./images/tokyo-places.jpg">
+						<h3><span>Tokyo</span></h3>
+					</div>
+					<div class="city place-image col-3">
+						<img class="img-places" src="./images/san-francisco-places.jpg">
+						<h3><span>San Francisco</span></h3>
+					</div>
+					<div class="city place-image col-3">
+						<img class="img-places" src="./images/melbourne-places.jpg">
+						<h3><span>Melbourne</span></h3>
+					</div>
+					<div class="city place-image col-3">
+						<img class="img-places" src="./images/moscow-places.jpg">
+						<h3><span>Moscow</span></h3>
+					</div>
+
+					<div class="city place-image col-3">
+						<img class="img-places" src="./images/boulder-places.jpg">
+						<h3><span>Boulder</span></h3>
+					</div>
+					<div class="city place-image col-3">
+						<img class="img-places" src="./images/madrid-places.jpg">
+						<h3><span>Madrid</span></h3>
+					</div>
+					<div class="city place-image col-3">
+						<img class="img-places" src="./images/copenhagen-places.jpeg">
+						<h3><span>Copenhagen</span></h3>
+					</div>
+					<div class="city place-image col-3">
+						<img class="img-places" src="./images/paris-places.jpg">
+						<h3><span>Paris</span></h3>
+					</div>
 				</div>
 			</div>
-		<!-- </div>	 -->
+		</section>
 
-
+		<!-- search results -->
 		<div class="row col-6">
 			
 		</div>
@@ -118,9 +168,11 @@
 		</div>
 	</main>
 
-	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js?"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.js"></script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxbrnP5jd_Uq6TwZ9frPsnqhD2_wgIAnU"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxbrnP5jd_Uq6TwZ9frPsnqhD2_wgIAnU&v=3.exp&libraries=places"></script>
+	
+	<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxbrnP5jd_Uq6TwZ9frPsnqhD2_wgIAnU"></script> -->
 	<script src="js/vegas/vegas.min.js"></script>
 	<script type="text/javascript" src="js/bundle.js"></script> 
 </body>

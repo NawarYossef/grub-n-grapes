@@ -47,37 +47,57 @@ const venues = {
 
 	// store all venue coordinates from API response. 
 	GeocodeForAllAddresses: (results) => {
-		let latLangArray = results.map((item) =>  [
-			item.venue.location.lat, 
-			item.venue.location.lng
-		])
+		// let latLangArray = results.map((item) =>  [
+		// 	item.venue.location.lat, 
+		// 	item.venue.location.lng
+		// ])
 
 		// call function to initialize google maps API
-		venues.initializeMap(latLangArray)
+		venues.initializeMap(results)
 	},
 
-	initializeMap: (latLangArray) => {
-		let marker;
-
+	initializeMap: (results) => {
 		let mapOptions = {
 			zoom: 13,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		}
 
 		let map = new google.maps.Map(document.getElementById('map'), mapOptions);
-		
-		latLangArray.forEach((VenueLatLang, idx) => {
-			let myLatlng = new google.maps.LatLng(VenueLatLang[0],VenueLatLang[1]);
-			// set the view port on coordinates for the last venue 
-			map.setCenter(myLatlng);
+		venues.setMarkers(map, results)
+	},
 
-				marker = new google.maps.Marker({
-					position: new google.maps.LatLng(VenueLatLang[0],VenueLatLang[1]),
-					draggable: false,
-					animation: google.maps.Animation.DROP,
-					map: map,
-					title: 'Hello World!'
+	setMarkers: (map, results) => {
+		let marker, latlngset, content, infoWindow;
+
+		results.forEach((item, idx) => {
+			latlngset = new google.maps.LatLng(item.venue.location.lat, item.venue.location.lng);
+
+			marker = new google.maps.Marker({  
+				map: map, 
+				title: item.venue.name, 
+				position: latlngset,
+				draggable: false,
+				animation: google.maps.Animation.DROP  
 			});
+
+			map.setCenter(marker.getPosition())
+
+			content = `<div class="data-container">
+									<h4 class="venue-name">${item.venue.name}</h4>
+									<h5 class="venue-type">${item.venue.categories[0].name}</h5>
+								</div>`
+			infoWindow = new google.maps.InfoWindow()
+
+			// $(".venue").hover(() => {
+			// 	alert(item.venue.name)
+			// })
+
+			google.maps.event.addListener(marker, 'click', (function(marker, content, infoWindow){ 
+        return function() {
+           infoWindow.setContent(content);
+           infoWindow.open(map,marker);
+        };
+    	})(marker, content, infoWindow)); 
 		})
 	}
 	

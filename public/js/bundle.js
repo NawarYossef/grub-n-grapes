@@ -1,4 +1,26 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+//handle invalid inputs 
+// animated text for header 
+// finish welcome page section
+// city auto complete
+
+// add get directions
+// add modal
+// progressive rendering for search
+// scroll to results 
+// create button for map for mobile devices
+
+
+// hover on selection should show map window
+// hover on selection should change background color
+// hover on selection should change mouse to cursor
+
+///////////////////
+
+// add padding right for venue address
+// add photo to map window
+
+
 "use strict";
 const venues = require("./venues.js")	
 
@@ -16,17 +38,18 @@ class Main {
 				client_secret: secret,
 				v: Date.now(),
 				near: cityName,
-				radius:	1000,
+				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	15 ,
+				limit:	25 ,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
 			},
 			success: data => {
-				const results = data.response.groups[0].items;
-				console.log(results)
+				// console.log(data.response.groups[0].items)
+				const results = data.response.groups[0].items;	
+				// console.log(results)
 				venues.renderResult(results);
 				venues.GeocodeForAllAddresses(results)
 				// particles.init()
@@ -34,31 +57,82 @@ class Main {
 		}) 
 	}
 	
-	getSearchQuery() {
+	handleSearchQuery() {
 		$("button").click( (e) =>  {
-			// check for toggle button value
-			let searchQuery = $('form :input').val();
+			// store search query
+			let searchQuery = this.parseQuery();
 			e.preventDefault();
+
+			// this.validateInput(searchQuery);
+
 			// delete last rendered results
 			this.clearBody();
-			// this.validateInput();
+
+			// hide elements from welcome page
+			this.hideWelcomePageInfo()
+
 			// get API response based on venue type choosed (wine of food)
 			this.whichVenueTypeToSearch(searchQuery);
+
+			//show map
+			this.showMap();
 			
 			// clear input value for new search
 			this.clearInputVal()
 		})
 	}
 
-	validateInput() {
-		// if()
+	parseQuery() {
+		let searchQuery = $('form :input').val();
+		searchQuery = searchQuery.split(', ');
+		let query = searchQuery[0] + ', ' + searchQuery[searchQuery.length - 1];
+		return query;
 	}
+
+	validateInput(searchQuery) {
+		// if()
+		const text = `<p>Sorry! No results for: ${searchQuery}</p>`
+		$("form").append(text);
+	}
+
 	whichVenueTypeToSearch(searchQuery) {
 		if ($(".food").hasClass("neon-effect")) {
 			this.getDataFromApi(searchQuery, "food")
 		} else if ($(".wine").hasClass("neon-effect")) {
 			this.getDataFromApi(searchQuery, "wine")
 		}
+	}
+
+	handleSearchForCityFromMainPage() {
+		$(".city").on('click', (e) => {
+			let $this = $(e.currentTarget);
+			const cityName = $this.children().text();
+
+			this.validateInput();
+			
+			// delete last rendered results
+			this.clearBody();
+
+			// hide elements from welcome page
+			this.hideWelcomePageInfo()
+
+			this.whichVenueTypeToSearch(cityName);
+
+			//show map
+			this.showMap();
+		})
+	}
+
+	hideWelcomePageInfo() {
+		$(".welcome-page-info").fadeOut(300).hide()
+	}
+
+	hideMap() {
+		$(".map-container").hide();	
+	}
+
+	showMap() {
+		$(".map-container").show();
 	}
 	
 	clearBody() {
@@ -69,7 +143,7 @@ class Main {
 	}
 	
 	
-	// page behavior
+	//=============== Handle page behavior =====================
 	headerImageSlideShow() {
 		$('header').vegas({
 			slides: [
@@ -144,10 +218,30 @@ class Main {
 			} 
 		});
 	}
+
+	setupMapFixedPositionOnScroll() {
+    let $cache = $('#map');
+    if ($(window).scrollTop() > 700)
+      $cache.css({
+        'position': 'fixed',
+        'top': '10px'
+      });
+    else
+    	$cache.css({
+				'position': 'relative',
+				'top': 'auto'
+    });
+	}
+	
+	runFixedMapOnScroll() {
+		$(window).scroll(app.setupMapFixedPositionOnScroll);
+	}
 }
 
 let app = new Main()
-app.getSearchQuery()
+app.hideMap();
+app.handleSearchQuery();
+app.handleSearchForCityFromMainPage();
 app.headerImageSlideShow();
 app.changeImageForFoodSelect();
 app.changeImageForWineSelect();
@@ -156,9 +250,9 @@ app.addNeonColorForWineWord();
 app.defaultFoodOptionColor();
 app.bounceHeaderArrow();
 app.smoothScrollEffect();
+app.runFixedMapOnScroll();
 
 
- 
 
 },{"./venues.js":2}],2:[function(require,module,exports){
 "use strict";
@@ -210,37 +304,57 @@ const venues = {
 
 	// store all venue coordinates from API response. 
 	GeocodeForAllAddresses: (results) => {
-		let latLangArray = results.map((item) =>  [
-			item.venue.location.lat, 
-			item.venue.location.lng
-		])
+		// let latLangArray = results.map((item) =>  [
+		// 	item.venue.location.lat, 
+		// 	item.venue.location.lng
+		// ])
 
 		// call function to initialize google maps API
-		venues.initializeMap(latLangArray)
+		venues.initializeMap(results)
 	},
 
-	initializeMap: (latLangArray) => {
-		let marker;
-
+	initializeMap: (results) => {
 		let mapOptions = {
 			zoom: 13,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		}
 
 		let map = new google.maps.Map(document.getElementById('map'), mapOptions);
-		
-		latLangArray.forEach((VenueLatLang, idx) => {
-			let myLatlng = new google.maps.LatLng(VenueLatLang[0],VenueLatLang[1]);
-			// set the view port on coordinates for the last venue 
-			map.setCenter(myLatlng);
+		venues.setMarkers(map, results)
+	},
 
-				marker = new google.maps.Marker({
-					position: new google.maps.LatLng(VenueLatLang[0],VenueLatLang[1]),
-					draggable: false,
-					animation: google.maps.Animation.DROP,
-					map: map,
-					title: 'Hello World!'
+	setMarkers: (map, results) => {
+		let marker, latlngset, content, infoWindow;
+
+		results.forEach((item, idx) => {
+			latlngset = new google.maps.LatLng(item.venue.location.lat, item.venue.location.lng);
+
+			marker = new google.maps.Marker({  
+				map: map, 
+				title: item.venue.name, 
+				position: latlngset,
+				draggable: false,
+				animation: google.maps.Animation.DROP  
 			});
+
+			map.setCenter(marker.getPosition())
+
+			content = `<div class="data-container">
+									<h4 class="venue-name">${item.venue.name}</h4>
+									<h5 class="venue-type">${item.venue.categories[0].name}</h5>
+								</div>`
+			infoWindow = new google.maps.InfoWindow()
+
+			// $(".venue").hover(() => {
+			// 	alert(item.venue.name)
+			// })
+
+			google.maps.event.addListener(marker, 'click', (function(marker, content, infoWindow){ 
+        return function() {
+           infoWindow.setContent(content);
+           infoWindow.open(map,marker);
+        };
+    	})(marker, content, infoWindow)); 
 		})
 	}
 	
