@@ -45,17 +45,6 @@ const venues = {
 		return item.venue.location.formattedAddress.join("").split(",").join(" ");
 	},
 
-	// store all venue coordinates from API response. 
-	GeocodeForAllAddresses: (results) => {
-		// let latLangArray = results.map((item) =>  [
-		// 	item.venue.location.lat, 
-		// 	item.venue.location.lng
-		// ])
-
-		// call function to initialize google maps API
-		venues.initializeMap(results)
-	},
-
 	initializeMap: (results) => {
 		let mapOptions = {
 			zoom: 13,
@@ -69,9 +58,11 @@ const venues = {
 	setMarkers: (map, results) => {
 		let marker, latlngset, content, infoWindow;
 
+		// loop through coordinates
 		results.forEach((item, idx) => {
 			latlngset = new google.maps.LatLng(item.venue.location.lat, item.venue.location.lng);
 
+			// set markers on map
 			marker = new google.maps.Marker({  
 				map: map, 
 				title: item.venue.name, 
@@ -86,12 +77,11 @@ const venues = {
 									<h4 class="venue-name">${item.venue.name}</h4>
 									<h5 class="venue-type">${item.venue.categories[0].name}</h5>
 								</div>`
+
+			// declare info window for each venue
 			infoWindow = new google.maps.InfoWindow()
 
-			// $(".venue").hover(() => {
-			// 	alert(item.venue.name)
-			// })
-
+			// show info window on click event
 			google.maps.event.addListener(marker, 'click', (function(marker, content, infoWindow){ 
         return function() {
            infoWindow.setContent(content);
