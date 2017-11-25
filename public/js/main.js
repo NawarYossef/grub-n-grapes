@@ -1,6 +1,7 @@
-
+// validate input when search button clicked without a selection
 // scroll to results 
 // add get directions
+
 // create button for map for mobile devices
 // add modal
 
@@ -92,13 +93,8 @@ class Main {
 	}
 
 	showInavlidInputMessage() {
-		if (this.searchQuery === ' ') {
-			const text = `Sorry! No results for: ${this.searchQuery}`
-			alert(text);
-		} else {
-			const text = `Please Type a City Name`
-			alert(text);
-		}
+		const text = `Invalid Input. Please Type a City Name`
+		alert(text);
 	}
 
 	hideInvalidInputMessage() {
