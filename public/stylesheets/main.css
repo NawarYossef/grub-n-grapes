@@ -9,13 +9,6 @@ body {
   background-color: #ffffff;
 }
 
-body { scroll-behavior: smooth }
-
-/* floating particles */
-
-
-
-/*  */
 header {
   width: 100%;
   height: 700px;
@@ -195,7 +188,7 @@ h2 {
 }
 
 .img-venue-example {
-  width: 80%;
+  width: 100%;
 }
 
 h3 {
