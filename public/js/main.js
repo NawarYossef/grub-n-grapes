@@ -1,18 +1,17 @@
-//handle invalid inputs 
-// animated text for header 
-// finish welcome page section
-// city auto complete
 
-// add get directions
-// add modal
-// progressive rendering for search
 // scroll to results 
+// add get directions
 // create button for map for mobile devices
+// add modal
 
 
+// progressive rendering for search
+ 
+
+// animated text for header
 // hover on selection should show map window
 // hover on selection should change background color
-// hover on selection should change mouse to cursor
+
 
 ///////////////////
 
@@ -24,6 +23,27 @@
 const venues = require("./venues.js")	
 
 class Main {
+	constructor() {
+		this.searchQuery = ''
+		this.cityName = '';
+		this.responseStatus = 0;
+	}
+
+	init() {
+		this.hideMap();
+		this.handleSearchQuery();
+		this.handleSearchForCityFromMainPage();
+		this.headerImageSlideShow();
+		this.changeImageForFoodSelect();
+		this.changeImageForWineSelect();
+		this.addNeonColorForFoodWord();
+		this.addNeonColorForWineWord();
+		this.defaultFoodOptionColor();
+		this.bounceHeaderArrow();
+		this.smoothScrollEffect();
+		this.runFixedMapOnScroll();
+	}
+
 	getDataFromApi(cityName, venueType) {
 		const url = "https://api.foursquare.com/v2/venues/explore";
 		const id = "CF2LRN214ZC311Z1IHDGZBMA5MHRSH1C2X5UEHU3DOZTRXBM";
@@ -47,83 +67,97 @@ class Main {
 			},
 			success: data => {
 				// console.log(data.response.groups[0].items)
+				this.responseStatus = data.meta.code
+				this.handleInputValidation();
 				const results = data.response.groups[0].items;	
 				// console.log(results)
 				venues.renderResult(results);
-				venues.GeocodeForAllAddresses(results)
-				// particles.init()
+				venues.initializeMap(results)
 			}
 		}) 
 	}
 	
+	handleInputValidation() {
+		if(this.responseStatus !== 200) {
+			this.clearResults();
+			this.showWelcomPage();
+			this.hideMap();
+			this.showInavlidInputMessage();
+		} else {
+			this.hideWelcomePage();
+			this.clearResults();
+			this.showMap();
+		}
+	
+	}
+
+	showInavlidInputMessage() {
+		if (this.searchQuery === ' ') {
+			const text = `Sorry! No results for: ${this.searchQuery}`
+			alert(text);
+		} else {
+			const text = `Please Type a City Name`
+			alert(text);
+		}
+	}
+
+	hideInvalidInputMessage() {
+
+	}
+
 	handleSearchQuery() {
 		$("button").click( (e) =>  {
-			// store search query
-			let searchQuery = this.parseQuery();
+			//prevent form default action
 			e.preventDefault();
-
-			// this.validateInput(searchQuery);
-
-			// delete last rendered results
-			this.clearBody();
-
-			// hide elements from welcome page
-			this.hideWelcomePageInfo()
+			
+			// store search query
+			this.searchQuery = this.parseQuery();
 
 			// get API response based on venue type choosed (wine of food)
-			this.whichVenueTypeToSearch(searchQuery);
+			this.whichVenueTypeToSearch(this.searchQuery);
 
 			//show map
 			this.showMap();
 			
 			// clear input value for new search
-			this.clearInputVal()
+			this.clearInputVal();
 		})
 	}
 
+	// store the city name and state/country into a variable and return it
 	parseQuery() {
-		let searchQuery = $('form :input').val();
-		searchQuery = searchQuery.split(', ');
-		let query = searchQuery[0] + ', ' + searchQuery[searchQuery.length - 1];
+		let searchVal = $('form :input').val().split(', ');
+		let query = searchVal[0] + ', ' + searchVal[searchVal.length - 1];
 		return query;
 	}
 
-	validateInput(searchQuery) {
-		// if()
-		const text = `<p>Sorry! No results for: ${searchQuery}</p>`
-		$("form").append(text);
-	}
-
-	whichVenueTypeToSearch(searchQuery) {
+	whichVenueTypeToSearch(searchTerm) {
 		if ($(".food").hasClass("neon-effect")) {
-			this.getDataFromApi(searchQuery, "food")
+			this.getDataFromApi(searchTerm, "food")
 		} else if ($(".wine").hasClass("neon-effect")) {
-			this.getDataFromApi(searchQuery, "wine")
+			this.getDataFromApi(searchTerm, "wine")
 		}
 	}
 
 	handleSearchForCityFromMainPage() {
 		$(".city").on('click', (e) => {
 			let $this = $(e.currentTarget);
-			const cityName = $this.children().text();
+			this.cityName = $this.children().text();
 
-			this.validateInput();
-			
-			// delete last rendered results
-			this.clearBody();
-
-			// hide elements from welcome page
-			this.hideWelcomePageInfo()
-
-			this.whichVenueTypeToSearch(cityName);
+			// get API response based on venue type choosed (wine of food)
+			this.whichVenueTypeToSearch(this.cityName);
 
 			//show map
 			this.showMap();
 		})
 	}
 
-	hideWelcomePageInfo() {
-		$(".welcome-page-info").fadeOut(300).hide()
+	hideWelcomePage() {
+		$(".welcome-page-info").fadeOut(300).hide();
+	}
+
+	showWelcomPage() {
+		$(".welcome-page-info").show();
 	}
 
 	hideMap() {
@@ -134,8 +168,8 @@ class Main {
 		$(".map-container").show();
 	}
 	
-	clearBody() {
-		$(".row").empty();
+	clearResults() {
+		$(".all-results").empty();
 	}
 	clearInputVal() {
 		$("form :input").val("");
@@ -211,7 +245,7 @@ class Main {
 				$('html, body').animate({
 					scrollTop: $(this.hash).offset().top
 				}, 800, () => {
-		 
+
 					window.location.hash = this.hash;
 				});
 			} 
@@ -237,18 +271,8 @@ class Main {
 	}
 }
 
-let app = new Main()
-app.hideMap();
-app.handleSearchQuery();
-app.handleSearchForCityFromMainPage();
-app.headerImageSlideShow();
-app.changeImageForFoodSelect();
-app.changeImageForWineSelect();
-app.addNeonColorForFoodWord();
-app.addNeonColorForWineWord();
-app.defaultFoodOptionColor();
-app.bounceHeaderArrow();
-app.smoothScrollEffect();
-app.runFixedMapOnScroll();
+let app = new Main();
+app.init();
+
 
 

@@ -1,19 +1,18 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-//handle invalid inputs 
-// animated text for header 
-// finish welcome page section
-// city auto complete
 
-// add get directions
-// add modal
-// progressive rendering for search
 // scroll to results 
+// add get directions
 // create button for map for mobile devices
+// add modal
 
 
+// progressive rendering for search
+ 
+
+// animated text for header
 // hover on selection should show map window
 // hover on selection should change background color
-// hover on selection should change mouse to cursor
+
 
 ///////////////////
 
@@ -25,6 +24,27 @@
 const venues = require("./venues.js")	
 
 class Main {
+	constructor() {
+		this.searchQuery = ''
+		this.cityName = '';
+		this.responseStatus = 0;
+	}
+
+	init() {
+		this.hideMap();
+		this.handleSearchQuery();
+		this.handleSearchForCityFromMainPage();
+		this.headerImageSlideShow();
+		this.changeImageForFoodSelect();
+		this.changeImageForWineSelect();
+		this.addNeonColorForFoodWord();
+		this.addNeonColorForWineWord();
+		this.defaultFoodOptionColor();
+		this.bounceHeaderArrow();
+		this.smoothScrollEffect();
+		this.runFixedMapOnScroll();
+	}
+
 	getDataFromApi(cityName, venueType) {
 		const url = "https://api.foursquare.com/v2/venues/explore";
 		const id = "CF2LRN214ZC311Z1IHDGZBMA5MHRSH1C2X5UEHU3DOZTRXBM";
@@ -48,83 +68,97 @@ class Main {
 			},
 			success: data => {
 				// console.log(data.response.groups[0].items)
+				this.responseStatus = data.meta.code
+				this.handleInputValidation();
 				const results = data.response.groups[0].items;	
 				// console.log(results)
 				venues.renderResult(results);
-				venues.GeocodeForAllAddresses(results)
-				// particles.init()
+				venues.initializeMap(results)
 			}
 		}) 
 	}
 	
+	handleInputValidation() {
+		if(this.responseStatus !== 200) {
+			this.clearResults();
+			this.showWelcomPage();
+			this.hideMap();
+			this.showInavlidInputMessage();
+		} else {
+			this.hideWelcomePage();
+			this.clearResults();
+			this.showMap();
+		}
+	
+	}
+
+	showInavlidInputMessage() {
+		if (this.searchQuery === ' ') {
+			const text = `Sorry! No results for: ${this.searchQuery}`
+			alert(text);
+		} else {
+			const text = `Please Type a City Name`
+			alert(text);
+		}
+	}
+
+	hideInvalidInputMessage() {
+
+	}
+
 	handleSearchQuery() {
 		$("button").click( (e) =>  {
-			// store search query
-			let searchQuery = this.parseQuery();
+			//prevent form default action
 			e.preventDefault();
-
-			// this.validateInput(searchQuery);
-
-			// delete last rendered results
-			this.clearBody();
-
-			// hide elements from welcome page
-			this.hideWelcomePageInfo()
+			
+			// store search query
+			this.searchQuery = this.parseQuery();
 
 			// get API response based on venue type choosed (wine of food)
-			this.whichVenueTypeToSearch(searchQuery);
+			this.whichVenueTypeToSearch(this.searchQuery);
 
 			//show map
 			this.showMap();
 			
 			// clear input value for new search
-			this.clearInputVal()
+			this.clearInputVal();
 		})
 	}
 
+	// store the city name and state/country into a variable and return it
 	parseQuery() {
-		let searchQuery = $('form :input').val();
-		searchQuery = searchQuery.split(', ');
-		let query = searchQuery[0] + ', ' + searchQuery[searchQuery.length - 1];
+		let searchVal = $('form :input').val().split(', ');
+		let query = searchVal[0] + ', ' + searchVal[searchVal.length - 1];
 		return query;
 	}
 
-	validateInput(searchQuery) {
-		// if()
-		const text = `<p>Sorry! No results for: ${searchQuery}</p>`
-		$("form").append(text);
-	}
-
-	whichVenueTypeToSearch(searchQuery) {
+	whichVenueTypeToSearch(searchTerm) {
 		if ($(".food").hasClass("neon-effect")) {
-			this.getDataFromApi(searchQuery, "food")
+			this.getDataFromApi(searchTerm, "food")
 		} else if ($(".wine").hasClass("neon-effect")) {
-			this.getDataFromApi(searchQuery, "wine")
+			this.getDataFromApi(searchTerm, "wine")
 		}
 	}
 
 	handleSearchForCityFromMainPage() {
 		$(".city").on('click', (e) => {
 			let $this = $(e.currentTarget);
-			const cityName = $this.children().text();
+			this.cityName = $this.children().text();
 
-			this.validateInput();
-			
-			// delete last rendered results
-			this.clearBody();
-
-			// hide elements from welcome page
-			this.hideWelcomePageInfo()
-
-			this.whichVenueTypeToSearch(cityName);
+			// get API response based on venue type choosed (wine of food)
+			this.whichVenueTypeToSearch(this.cityName);
 
 			//show map
 			this.showMap();
 		})
 	}
 
-	hideWelcomePageInfo() {
-		$(".welcome-page-info").fadeOut(300).hide()
+	hideWelcomePage() {
+		$(".welcome-page-info").fadeOut(300).hide();
+	}
+
+	showWelcomPage() {
+		$(".welcome-page-info").show();
 	}
 
 	hideMap() {
@@ -135,8 +169,8 @@ class Main {
 		$(".map-container").show();
 	}
 	
-	clearBody() {
-		$(".row").empty();
+	clearResults() {
+		$(".all-results").empty();
 	}
 	clearInputVal() {
 		$("form :input").val("");
@@ -212,7 +246,7 @@ class Main {
 				$('html, body').animate({
 					scrollTop: $(this.hash).offset().top
 				}, 800, () => {
-		 
+
 					window.location.hash = this.hash;
 				});
 			} 
@@ -238,19 +272,9 @@ class Main {
 	}
 }
 
-let app = new Main()
-app.hideMap();
-app.handleSearchQuery();
-app.handleSearchForCityFromMainPage();
-app.headerImageSlideShow();
-app.changeImageForFoodSelect();
-app.changeImageForWineSelect();
-app.addNeonColorForFoodWord();
-app.addNeonColorForWineWord();
-app.defaultFoodOptionColor();
-app.bounceHeaderArrow();
-app.smoothScrollEffect();
-app.runFixedMapOnScroll();
+let app = new Main();
+app.init();
+
 
 
 
@@ -261,39 +285,73 @@ const venues = {
 	renderResult: (data) => {
 		const allVenues = data.map((item) => {
 				return (
-					 `<div class="venue col-12">
-							<div class="container-for-data">
-								<div class="all-info-container">
-									<div class="container-for-image">
-										<img src="${item.venue.photos.groups[0].items[0].prefix}120x120${item.venue.photos.groups[0].items[0].suffix}" class="venue-img"/>
-									</div>
-									<div class="data-container">
-										<h4 class="venue-name">${item.venue.name}</h4>
-										<h5 class="venue-type">${item.venue.categories[0].name}</h5>
-										<div class="container-for-rating">
-											<p class="rating" style="background-color: #${item.venue.ratingColor};">${item.venue.rating}</p>
-										</div>
-										${venues.getVenuePrice(item)}
-										<div class="address">
-											<p class="address-desc">
-												${venues.printFormattedAddress(item)}
-											</p>
-										</div>	
-									</div>
+					`<div class="venue col-12">
+						<div class="container-for-data">
+							<div class="all-info-container">
+								${venues.showImage(item)}
+							
+								<div class="data-container">
+									<h4 class="venue-name">${item.venue.name}</h4>
+									${venues.venueType(item)}
+									${venues.rating(item)}
+									${venues.getVenuePrice(item)}
+									<div class="address">
+										<p class="address-desc">
+											${venues.printFormattedAddress(item)}
+										</p>
+									</div>	
 								</div>
 							</div>
-						</div>`
+						</div>
+					</div>`
 				)	
-				
 		})
-		$(".row").append(allVenues);
+		$(".all-results").append(allVenues);
+	},
+
+	showImage: (item) => {
+		// console.log(item.venue.photos.groups.length === 0);	
+		if(item.venue.photos.groups.length !== 0) {
+			 return (
+				`<div class="container-for-image">
+					<img src="${item.venue.photos.groups[0].items[0].prefix}120x120${item.venue.photos.groups[0].items[0].suffix}" class="venue-img"/>
+				</div>`
+			 )
+		} 
+		return (
+			`<div class="container-for-image" >
+				<img src="./images/cards/wine.png" class="venue-img"/>
+			</div>`
+		)
+	},
+
+	venueType: (item) => {
+		if (Object.keys(item.venue).includes("rating")) {
+			return (
+				`<h5 class="venue-type">${item.venue.categories[0].name}</h5>`
+			)
+		} 
+		return '';
+	},
+
+	rating: (item) => {
+		if (Object.keys(item.venue).includes("rating")) {
+			return (
+				`<div class="container-for-rating">
+					<p class="rating" style="background-color: #${item.venue.ratingColor};">${item.venue.rating}</p>
+				</div>`
+			)
+		} 
+		return '';
 	},
 
 	getVenuePrice: (item) => {
 		if (Object.keys(item.venue).includes("price")) {
-			return `<div class="container-for-price">
-			<p class="price">Price: <span class="price-description">${item.venue.price.message}</span></p>
-		</div>`
+			return (
+				`<div class="container-for-price">
+					<p class="price">Price: <span class="price-description">${item.venue.price.message}</span></p>
+				</div>`
+			)
 		} 
 		return '';
 	},
@@ -302,21 +360,11 @@ const venues = {
 		return item.venue.location.formattedAddress.join("").split(",").join(" ");
 	},
 
-	// store all venue coordinates from API response. 
-	GeocodeForAllAddresses: (results) => {
-		// let latLangArray = results.map((item) =>  [
-		// 	item.venue.location.lat, 
-		// 	item.venue.location.lng
-		// ])
-
-		// call function to initialize google maps API
-		venues.initializeMap(results)
-	},
-
 	initializeMap: (results) => {
 		let mapOptions = {
 			zoom: 13,
-			mapTypeId: google.maps.MapTypeId.ROADMAP
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			zoomControl: true
 		}
 
 		let map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -326,9 +374,11 @@ const venues = {
 	setMarkers: (map, results) => {
 		let marker, latlngset, content, infoWindow;
 
+		// loop through coordinates
 		results.forEach((item, idx) => {
 			latlngset = new google.maps.LatLng(item.venue.location.lat, item.venue.location.lng);
 
+			// set markers on map
 			marker = new google.maps.Marker({  
 				map: map, 
 				title: item.venue.name, 
@@ -343,12 +393,11 @@ const venues = {
 									<h4 class="venue-name">${item.venue.name}</h4>
 									<h5 class="venue-type">${item.venue.categories[0].name}</h5>
 								</div>`
+
+			// declare info window for each venue
 			infoWindow = new google.maps.InfoWindow()
 
-			// $(".venue").hover(() => {
-			// 	alert(item.venue.name)
-			// })
-
+			// show info window on click event
 			google.maps.event.addListener(marker, 'click', (function(marker, content, infoWindow){ 
         return function() {
            infoWindow.setContent(content);
