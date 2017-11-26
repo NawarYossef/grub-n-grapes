@@ -1,6 +1,4 @@
 
-//  validate input when search button clicked without a selection
-// validate when search is done with one letter
 // scroll to results 
 // add button to naviagate from buttom to header 
 // write results for screen readers
@@ -19,6 +17,7 @@
 
 // add padding right for venue address
 // add photo to map window
+// grub and grapes in the header is a button that takes you to welcome page
 
 
 "use strict";
@@ -75,8 +74,9 @@ class Main {
 				this.handleInputValidation(responseLength);
 
 				const results = data.response.groups[0].items;
+				venues.showResultsMessage();
 				venues.renderResult(results);
-				venues.initializeMap(results)
+				venues.initializeMap(results);
 			}
 		}) 
 	}
@@ -157,7 +157,7 @@ class Main {
 	showWelcomPage() {
 		$(".welcome-page-info").show();
 	}
-
+	
 	hideMap() {
 		$(".map-container").hide();	
 	}

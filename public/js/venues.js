@@ -28,6 +28,15 @@ const venues = {
 		$(".all-results").append(allVenues);
 	},
 
+	showResultsMessage: () => {
+		const content = (
+			`<div class="search-results-wrapper col-6">
+				<h4>Your Results</h4>
+			</div>`
+		)
+		$(".all-results").append(content);
+	},
+
 	showImage: (item) => {
 		// console.log(item.venue.photos.groups.length === 0);	
 		if(item.venue.photos.groups.length !== 0) {

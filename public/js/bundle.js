@@ -1,7 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 
-//  validate input when search button clicked without a selection
-// validate when search is done with one letter
 // scroll to results 
 // add button to naviagate from buttom to header 
 // write results for screen readers
@@ -20,6 +18,7 @@
 
 // add padding right for venue address
 // add photo to map window
+// grub and grapes in the header is a button that takes you to welcome page
 
 
 "use strict";
@@ -76,8 +75,9 @@ class Main {
 				this.handleInputValidation(responseLength);
 
 				const results = data.response.groups[0].items;
+				venues.showResultsMessage();
 				venues.renderResult(results);
-				venues.initializeMap(results)
+				venues.initializeMap(results);
 			}
 		}) 
 	}
@@ -158,7 +158,7 @@ class Main {
 	showWelcomPage() {
 		$(".welcome-page-info").show();
 	}
-
+	
 	hideMap() {
 		$(".map-container").hide();	
 	}
@@ -305,6 +305,15 @@ const venues = {
 				)	
 		})
 		$(".all-results").append(allVenues);
+	},
+
+	showResultsMessage: () => {
+		const content = (
+			`<div class="search-results-wrapper col-6">
+				<h4>Your Results</h4>
+			</div>`
+		)
+		$(".all-results").append(content);
 	},
 
 	showImage: (item) => {
