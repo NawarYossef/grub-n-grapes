@@ -92,6 +92,7 @@ class Main {
 			this.hideWelcomePage();
 			this.clearResults();
 			this.showMap();
+			this.scrollToResults();
 		}
 	}
 
@@ -118,7 +119,7 @@ class Main {
 			//show map
 			this.showMap();
 			
-			scrollToResults();
+			// this.scrollToResults();
 			// clear input value for new search
 			this.clearInputVal();
 		})
@@ -150,7 +151,7 @@ class Main {
 			//show map
 			this.showMap();
 
-			scrollToResults()
+			// this.scrollToResults()
 		})
 	}
 
@@ -237,28 +238,17 @@ class Main {
 	}
 
 	arrowScrollDown() {
-
 		$(".arrow").click(() => {
 			$('html, body').animate({
 					scrollTop: $(".examples").offset().top
 			}, 900);
 		});
+	}
 
-		//  $(".arrow").on('click', function(event) {
-		// 	if (this.hash !== "") {
-		// 		// Prevent default anchor click behavior
-		// 		event.preventDefault();
-	
-		// 		// Using jQuery's animate() method to add smooth page scroll
-		// 		// The number (800) specifies the number of milliseconds it takes to scroll to the specified area
-		// 		$('html, body').animate({
-		// 			scrollTop: $(this.hash).offset().top
-		// 		}, 800, () => {
-
-		// 			window.location.hash = this.hash;
-		// 		});
-		// 	} 
-		// });
+	scrollToResults() {
+		$('html, body').animate({
+			scrollTop: $(".all-results").offset().top
+		}, 900);
 	}
 
 	setupMapFixedPositionOnScroll() {
