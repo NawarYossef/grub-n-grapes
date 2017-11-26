@@ -1,20 +1,21 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-// validate input when search button clicked without a selection
+//	fix performace issues
+//  validate input when search button clicked without a selection
+// validate when search is done with one letter
 // scroll to results 
+// add button to naviagate from buttom to header 
+// write results for screen readers
+
 // add get directions
-
-// create button for map for mobile devices
 // add modal
-
-
+// create button for map for mobile devices
 // progressive rendering for search
- 
-
 // animated text for header
-// hover on selection should show map window
 // hover on selection should change background color
 
 
+
+// hover on selection should show map window
 ///////////////////
 
 // add padding right for venue address

@@ -163,6 +163,7 @@ button {
 
 
 /* main page (welcome page) */
+
 h2 {
   font: bold 3em sans-serif;
   color: rgb(5, 5, 5);
@@ -224,7 +225,8 @@ h3 span {
 }
 
 .cities-wrapper {
-  text-align: center;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .details-wrapper {

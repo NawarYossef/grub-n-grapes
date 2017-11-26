@@ -1,19 +1,20 @@
-// validate input when search button clicked without a selection
+//	fix performace issues
+//  validate input when search button clicked without a selection
+// validate when search is done with one letter
 // scroll to results 
+// add button to naviagate from buttom to header 
+// write results for screen readers
+
 // add get directions
-
-// create button for map for mobile devices
 // add modal
-
-
+// create button for map for mobile devices
 // progressive rendering for search
- 
-
 // animated text for header
-// hover on selection should show map window
 // hover on selection should change background color
 
 
+
+// hover on selection should show map window
 ///////////////////
 
 // add padding right for venue address
