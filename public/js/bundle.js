@@ -69,20 +69,21 @@ class Main {
 				venuePhotos: true,
 			},
 			success: data => {
-				const results = data.response.groups[0].items;
+				console.log(data)
+				const responseLength = Object.values(data.response).length;
 				this.responseStatus = data.meta.code;	
-				// console.log(data.response.groups[0].items)
-				this.handleInputValidation(results);
-				// console.log(results)
+		
+				this.handleInputValidation(responseLength);
+
+				const results = data.response.groups[0].items;
 				venues.renderResult(results);
 				venues.initializeMap(results)
 			}
 		}) 
 	}
 	
-	handleInputValidation(results) {
-		console.log(this.responseStatus)
-		if(this.responseStatus !== 200) {
+	handleInputValidation(responseLength) {
+		if (this.responseStatus !== 200 || responseLength.length === 0) {
 			this.clearResults();
 			this.showWelcomPage();
 			this.hideMap();
@@ -92,7 +93,6 @@ class Main {
 			this.clearResults();
 			this.showMap();
 		}
-	
 	}
 
 	showInavlidInputMessage() {
