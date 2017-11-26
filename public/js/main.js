@@ -41,7 +41,7 @@ class Main {
 		this.addNeonColorForWineWord();
 		this.defaultFoodOptionColor();
 		this.bounceHeaderArrow();
-		this.smoothScrollEffect();
+		this.arrowScrollDown();
 		this.runFixedMapOnScroll();
 	}
 
@@ -117,6 +117,7 @@ class Main {
 			//show map
 			this.showMap();
 			
+			scrollToResults();
 			// clear input value for new search
 			this.clearInputVal();
 		})
@@ -147,6 +148,8 @@ class Main {
 
 			//show map
 			this.showMap();
+
+			scrollToResults()
 		})
 	}
 
@@ -232,22 +235,29 @@ class Main {
 		$('.arrow-wrapper').addClass('animated bounce');
 	}
 
-	smoothScrollEffect() {
-		 $(".arrow").on('click', function(event) {
-			if (this.hash !== "") {
-				// Prevent default anchor click behavior
-				event.preventDefault();
-	
-				// Using jQuery's animate() method to add smooth page scroll
-				// The number (800) specifies the number of milliseconds it takes to scroll to the specified area
-				$('html, body').animate({
-					scrollTop: $(this.hash).offset().top
-				}, 800, () => {
+	arrowScrollDown() {
 
-					window.location.hash = this.hash;
-				});
-			} 
+		$(".arrow").click(() => {
+			$('html, body').animate({
+					scrollTop: $(".examples").offset().top
+			}, 900);
 		});
+
+		//  $(".arrow").on('click', function(event) {
+		// 	if (this.hash !== "") {
+		// 		// Prevent default anchor click behavior
+		// 		event.preventDefault();
+	
+		// 		// Using jQuery's animate() method to add smooth page scroll
+		// 		// The number (800) specifies the number of milliseconds it takes to scroll to the specified area
+		// 		$('html, body').animate({
+		// 			scrollTop: $(this.hash).offset().top
+		// 		}, 800, () => {
+
+		// 			window.location.hash = this.hash;
+		// 		});
+		// 	} 
+		// });
 	}
 
 	setupMapFixedPositionOnScroll() {
