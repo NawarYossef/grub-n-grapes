@@ -1,4 +1,4 @@
-//	fix performace issues
+
 //  validate input when search button clicked without a selection
 // validate when search is done with one letter
 // scroll to results 
@@ -68,10 +68,10 @@ class Main {
 				venuePhotos: true,
 			},
 			success: data => {
+				const results = data.response.groups[0].items;
+				this.responseStatus = data.meta.code;	
 				// console.log(data.response.groups[0].items)
-				this.responseStatus = data.meta.code
-				this.handleInputValidation();
-				const results = data.response.groups[0].items;	
+				this.handleInputValidation(results);
 				// console.log(results)
 				venues.renderResult(results);
 				venues.initializeMap(results)
@@ -79,7 +79,8 @@ class Main {
 		}) 
 	}
 	
-	handleInputValidation() {
+	handleInputValidation(results) {
+		console.log(this.responseStatus)
 		if(this.responseStatus !== 200) {
 			this.clearResults();
 			this.showWelcomPage();
@@ -251,7 +252,7 @@ class Main {
 
 	setupMapFixedPositionOnScroll() {
     let $cache = $('#map');
-    if ($(window).scrollTop() > 700)
+    if ($(window).scrollTop() > 750)
       $cache.css({
         'position': 'fixed',
         'top': '10px'
