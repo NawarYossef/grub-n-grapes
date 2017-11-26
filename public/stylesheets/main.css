@@ -220,13 +220,43 @@ h3 span {
 
 .main-page-places {
   background-color: #F2F2F2;
+  text-align: center;
+}
+
+.cities-wrapper {
+  text-align: center;
 }
 
 .details-wrapper {
   text-align: center;
 }
 
+/* parallax */
+.parallax-1 {
+  background-image: url("../images/parallax-city-img.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1000px;
+}
+
+.parallax-2 {
+  background-image: url("../images/parallax-map-img.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1200px;
+}
+
 /* user reviews section */
+.reviews {
+  background-color: #775c70;
+  height: 800px;  
+  padding-bottom: 20px;
+}
+
 .reviews-wrapper {
   margin-top: 40px;
   text-align: center;
@@ -234,7 +264,7 @@ h3 span {
 
 .text-for-review {
   font-size: 2em;
-  padding-top: 25px;
+  padding-top: 50px;
 }
 
 .user-img-wrapper {
