@@ -1,7 +1,6 @@
 
-// scroll to results 
 // add button to naviagate from buttom to header 
-// write results for screen readers
+
 
 // add get directions
 // add modal
@@ -43,6 +42,7 @@ class Main {
 		this.bounceHeaderArrow();
 		this.arrowScrollDown();
 		this.runFixedMapOnScroll();
+		this.scrollToHeader();
 	}
 
 	getDataFromApi(cityName, venueType) {
@@ -105,7 +105,7 @@ class Main {
 	}
 
 	handleSearchQuery() {
-		$("button").click( (e) =>  {
+		$(".search-btn").click( (e) =>  {
 			//prevent form default action
 			e.preventDefault();
 			
@@ -248,6 +248,14 @@ class Main {
 		$('html, body').animate({
 			scrollTop: $(".all-results").offset().top
 		}, 900);
+	}
+
+	scrollToHeader() {
+		$(".try-it-btn").click(() => {
+			$('html, body').animate({
+					scrollTop: $("header").offset().top
+			}, 900);
+		});
 	}
 
 	setupMapFixedPositionOnScroll() {

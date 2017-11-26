@@ -124,7 +124,7 @@ input {
   margin-top: 10px;
 }
 
-button {
+.container-form button {
   font-size: 1.5em;
   background-color: #C9171E;
   width: 25%;
@@ -222,6 +222,7 @@ h3 span {
 .main-page-places {
   background-color: #F2F2F2;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .cities-wrapper {
@@ -269,15 +270,19 @@ h3 span {
   padding-top: 50px;
 }
 
-.user-img-wrapper {
-  /* text-align: center; */
-}
-
 .img-for-review {
   width: 40%;
   border-radius: 50%;
 }
 
+.back-to-top-btn-wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.try-it-btn {
+  width: 40%;
+}
 /* css for search results */
 .container-for-data {
   background-color: #f5f5f5;

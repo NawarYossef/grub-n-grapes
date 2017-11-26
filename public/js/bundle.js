@@ -1,8 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 
-// scroll to results 
 // add button to naviagate from buttom to header 
-// write results for screen readers
+
 
 // add get directions
 // add modal
@@ -44,6 +43,7 @@ class Main {
 		this.bounceHeaderArrow();
 		this.arrowScrollDown();
 		this.runFixedMapOnScroll();
+		this.scrollToHeader();
 	}
 
 	getDataFromApi(cityName, venueType) {
@@ -106,7 +106,7 @@ class Main {
 	}
 
 	handleSearchQuery() {
-		$("button").click( (e) =>  {
+		$(".search-btn").click( (e) =>  {
 			//prevent form default action
 			e.preventDefault();
 			
@@ -249,6 +249,14 @@ class Main {
 		$('html, body').animate({
 			scrollTop: $(".all-results").offset().top
 		}, 900);
+	}
+
+	scrollToHeader() {
+		$(".try-it-btn").click(() => {
+			$('html, body').animate({
+					scrollTop: $("header").offset().top
+			}, 900);
+		});
 	}
 
 	setupMapFixedPositionOnScroll() {
