@@ -220,9 +220,8 @@ h3 span {
 }
 
 .main-page-places {
-  background-color: #F2F2F2;
+  background-color: #D7D7C2;
   text-align: center;
-  margin-bottom: 20px;
 }
 
 .cities-wrapper {
@@ -232,6 +231,7 @@ h3 span {
 
 .details-wrapper {
   text-align: center;
+  font: normal 1.5em sans-serif;
 }
 
 /* parallax */
@@ -278,10 +278,11 @@ h3 span {
 .back-to-top-btn-wrapper {
   width: 100%;
   text-align: center;
+  padding-top: 20px;
 }
 
 .try-it-btn {
-  width: 40%;
+  width: 30%;
 }
 /* css for search results */
 .container-for-data {
@@ -338,17 +339,17 @@ h5 {
 
 /* CSS for map */
 .map-container {
-  width: 100%;
+  width: 50%; 
   margin-top: 40px;
 }
 
 #map {
   width: 100%;
   height: 600px;
-  background-color: grey;
+  /* bottom: 0; */
+  /* right: 0; */
   position: fixed;
-  overflow: hidden;
-  
+  background-color: grey;
 }
 
 .box {
