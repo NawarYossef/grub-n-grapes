@@ -6,12 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Passion+One|Audiowide" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
-	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 	<link rel="stylesheet" href="../node_modules/animate.css/animate.min.css">
 	<link rel="stylesheet" href="stylesheets/vegas/vegas.min.css">
 	<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js?"></script>
 	<!-- <link href="css/hover-min.css" rel="stylesheet"> -->
 	
 </head>
@@ -33,7 +33,7 @@
 		<div class="container-form">
 			<form class="form-main">
 				<input type="text" name="city" id="user-input" placeholder="Type a city name..." />
-				<button class="search-btn">Go</button>
+				<button class="search-btn hvr-wobble-to-top-right">Go</button>
 		  </form>
 
 			<form class="options">
@@ -54,7 +54,7 @@
 	
 	<main role="main" id="main"> 
 		<script>
-			$( document ).ready(function() {
+			$(document).ready(function() {
 				function init() {
 					const input = document.getElementById('user-input');
 					const autocomplete = new google.maps.places.Autocomplete(input);
@@ -200,12 +200,8 @@
 			</div>
 		</div>
 	</main>
-
-	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js?"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxbrnP5jd_Uq6TwZ9frPsnqhD2_wgIAnU&v=3.exp&libraries=places"></script>
-	
-	<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxbrnP5jd_Uq6TwZ9frPsnqhD2_wgIAnU"></script> -->
 	<script src="js/vegas/vegas.min.js"></script>
 	<script type="text/javascript" src="js/bundle.js"></script> 
 </body>

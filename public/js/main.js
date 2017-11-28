@@ -1,9 +1,6 @@
-
-// add button to naviagate from buttom to header 
-
-
 // add get directions
 // add modal
+
 // create button for map for mobile devices
 // progressive rendering for search
 // animated text for header
@@ -12,11 +9,14 @@
 
 
 // hover on selection should show map window
-///////////////////
 
+//design issues
+///////////////////
 // add padding right for venue address
 // add photo to map window
 // grub and grapes in the header is a button that takes you to welcome page
+// card image should have the same size as regular image.
+
 
 
 "use strict";
@@ -54,7 +54,8 @@ class Main {
 			method: 'GET',
 			url: url,
 			dataType: 'jsonp',	
-			data: {	client_id: id,
+			data: {	
+				client_id: id,
 				client_secret: secret,
 				v: Date.now(),
 				near: cityName,
@@ -74,8 +75,9 @@ class Main {
 				this.handleInputValidation(responseLength);
 
 				const results = data.response.groups[0].items;
+				// console.log(results)
 				venues.showResultsMessage();
-				venues.renderResult(results);
+				venues.render(results);
 				venues.initializeMap(results);
 			}
 		}) 
@@ -86,17 +88,17 @@ class Main {
 			this.clearResults();
 			this.showWelcomPage();
 			this.hideMap();
-			this.showInavlidInputMessage();
+			// this.showInavlidInputMessage();
 		} else {
 			this.hideWelcomePage();
 			this.clearResults();
 			this.showMap();
-			this.scrollToResults();
+			this.scrollToSearchResults();	
 		}
 	}
 
 	showInavlidInputMessage() {
-		const text = `Invalid Input. Please Type a City Name`
+		const text = `Invalid Input. Please type a city name`
 		alert(text);
 	}
 
@@ -108,7 +110,7 @@ class Main {
 		$(".search-btn").click( (e) =>  {
 			//prevent form default action
 			e.preventDefault();
-			
+	
 			// store search query
 			this.searchQuery = this.parseQuery();
 
@@ -244,7 +246,7 @@ class Main {
 		});
 	}
 
-	scrollToResults() {
+	scrollToSearchResults() {
 		$('html, body').animate({
 			scrollTop: $(".all-results").offset().top
 		}, 900);
@@ -279,6 +281,5 @@ class Main {
 
 let app = new Main();
 app.init();
-
 
 

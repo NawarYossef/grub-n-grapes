@@ -1,31 +1,92 @@
 "use strict";
-
 const venues = {
-	renderResult: (data) => {
+	render: (data) => {
 		const allVenues = data.map((item) => {
 				return (
 					`<div class="venue col-12">
-						<div class="container-for-data">
-							<div class="all-info-container">
-								${venues.showImage(item)}
-							
-								<div class="data-container">
-									<h4 class="venue-name">${item.venue.name}</h4>
-									${venues.venueType(item)}
-									${venues.rating(item)}
-									${venues.getVenuePrice(item)}
-									<div class="address">
-										<p class="address-desc">
-											${venues.printFormattedAddress(item)}
-										</p>
-									</div>	
+					
+						<a class="modal-btn" href="#ex1" rel="modal:open">
+							<div class="container-for-data">
+								<div class="all-info-container">
+									${venues.venueImage(item)}
+								
+									<div class="data-container">
+										<h4 class="venue-name">${item.venue.name}</h4>
+										${venues.venueType(item)}
+										${venues.rating(item)}
+										${venues.getVenuePrice(item)}
+										<div class="address">
+											<p class="address-desc">
+												${venues.printFormattedAddress(item)}
+											</p>
+										</div>	
+									</div>
 								</div>
 							</div>
-						</div>
+
+							<div id="ex1" class="modal">
+							
+								<a href="#" rel="modal:close">Close</a>
+							</div>
+						</a>
 					</div>`
 				)	
 		})
 		$(".all-results").append(allVenues);
+	},
+
+	getApiDataForModalBody: (venueId) => {
+		let results;
+		const id = "CF2LRN214ZC311Z1IHDGZBMA5MHRSH1C2X5UEHU3DOZTRXBM";
+		const secret = "NKH0WYKFHDBBONXDQRYCA0GFI3GO45GI1EHPUZGSJN25EJRX";  
+		const date = Date.now();
+		const url = `https://api.foursquare.com/v2/venues/${venueId}/tips?limit=10&sort=popular&client_id=${id}&client_secret=${secret}&v=${date}`;
+	
+		$.get(url, (data, status) => {
+			results = data.response.tips.items;
+			console.log(results)
+			venues.renderModalBody(results);
+		});
+	},
+
+	renderModalBody: (results) => {
+		let range = Array.from(new Array(2).keys());
+		range.forEach((idx) => {
+			results.map((item) => {
+				$(".modal").append(
+					`<section>
+						${venues.userPhoto(item)}
+						${venues.userText(item)}
+					</section>`
+				)
+			})
+		})
+	},
+
+	userPhoto: (item) => {
+		if(Object.keys(item.user.photo).length !== 0) {
+			 return (
+				`<div class="photo-wrapper">
+					<img src="${item.user.photo.prefix}120x120${item.user.photo.suffix}" class="venue-img"/>
+				</div>`
+			 )
+		} 
+		return (
+			`<div class="container-for-image" >
+				<img src="./images/cards/wine.png" class="venue-img"/>
+			</div>`
+		)
+	},
+
+	userText: (item) => {
+		if (Object.keys(item).includes("text")) {
+			return (
+				`<div>
+					<p>${item.text}</p>
+				 </div>`
+			)
+		} 
+		return '';
 	},
 
 	showResultsMessage: () => {
@@ -37,7 +98,7 @@ const venues = {
 		$(".all-results").append(content);
 	},
 
-	showImage: (item) => {
+	venueImage: (item) => {
 		// console.log(item.venue.photos.groups.length === 0);	
 		if(item.venue.photos.groups.length !== 0) {
 			 return (
@@ -86,6 +147,10 @@ const venues = {
 	
 	printFormattedAddress: (item) => {
 		return item.venue.location.formattedAddress.join("").split(",").join(" ");
+	},
+
+	initializeModal: () => {
+
 	},
 
 	initializeMap: (results) => {

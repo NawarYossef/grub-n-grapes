@@ -1,10 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-
-// add button to naviagate from buttom to header 
-
-
 // add get directions
 // add modal
+
 // create button for map for mobile devices
 // progressive rendering for search
 // animated text for header
@@ -13,11 +10,14 @@
 
 
 // hover on selection should show map window
-///////////////////
 
+//design issues
+///////////////////
 // add padding right for venue address
 // add photo to map window
 // grub and grapes in the header is a button that takes you to welcome page
+// card image should have the same size as regular image.
+
 
 
 "use strict";
@@ -55,7 +55,8 @@ class Main {
 			method: 'GET',
 			url: url,
 			dataType: 'jsonp',	
-			data: {	client_id: id,
+			data: {	
+				client_id: id,
 				client_secret: secret,
 				v: Date.now(),
 				near: cityName,
@@ -75,8 +76,9 @@ class Main {
 				this.handleInputValidation(responseLength);
 
 				const results = data.response.groups[0].items;
+				// console.log(results)
 				venues.showResultsMessage();
-				venues.renderResult(results);
+				venues.render(results);
 				venues.initializeMap(results);
 			}
 		}) 
@@ -87,17 +89,17 @@ class Main {
 			this.clearResults();
 			this.showWelcomPage();
 			this.hideMap();
-			this.showInavlidInputMessage();
+			// this.showInavlidInputMessage();
 		} else {
 			this.hideWelcomePage();
 			this.clearResults();
 			this.showMap();
-			this.scrollToResults();
+			this.scrollToSearchResults();	
 		}
 	}
 
 	showInavlidInputMessage() {
-		const text = `Invalid Input. Please Type a City Name`
+		const text = `Invalid Input. Please type a city name`
 		alert(text);
 	}
 
@@ -109,7 +111,7 @@ class Main {
 		$(".search-btn").click( (e) =>  {
 			//prevent form default action
 			e.preventDefault();
-			
+	
 			// store search query
 			this.searchQuery = this.parseQuery();
 
@@ -245,7 +247,7 @@ class Main {
 		});
 	}
 
-	scrollToResults() {
+	scrollToSearchResults() {
 		$('html, body').animate({
 			scrollTop: $(".all-results").offset().top
 		}, 900);
@@ -283,36 +285,96 @@ app.init();
 
 
 
-
 },{"./venues.js":2}],2:[function(require,module,exports){
 "use strict";
-
 const venues = {
-	renderResult: (data) => {
+	render: (data) => {
 		const allVenues = data.map((item) => {
 				return (
 					`<div class="venue col-12">
-						<div class="container-for-data">
-							<div class="all-info-container">
-								${venues.showImage(item)}
-							
-								<div class="data-container">
-									<h4 class="venue-name">${item.venue.name}</h4>
-									${venues.venueType(item)}
-									${venues.rating(item)}
-									${venues.getVenuePrice(item)}
-									<div class="address">
-										<p class="address-desc">
-											${venues.printFormattedAddress(item)}
-										</p>
-									</div>	
+					
+						<a class="modal-btn" href="#ex1" rel="modal:open">
+							<div class="container-for-data">
+								<div class="all-info-container">
+									${venues.venueImage(item)}
+								
+									<div class="data-container">
+										<h4 class="venue-name">${item.venue.name}</h4>
+										${venues.venueType(item)}
+										${venues.rating(item)}
+										${venues.getVenuePrice(item)}
+										<div class="address">
+											<p class="address-desc">
+												${venues.printFormattedAddress(item)}
+											</p>
+										</div>	
+									</div>
 								</div>
 							</div>
-						</div>
+
+							<div id="ex1" class="modal">
+							
+								<a href="#" rel="modal:close">Close</a>
+							</div>
+						</a>
 					</div>`
 				)	
 		})
 		$(".all-results").append(allVenues);
+	},
+
+	getApiDataForModalBody: (venueId) => {
+		let results;
+		const id = "CF2LRN214ZC311Z1IHDGZBMA5MHRSH1C2X5UEHU3DOZTRXBM";
+		const secret = "NKH0WYKFHDBBONXDQRYCA0GFI3GO45GI1EHPUZGSJN25EJRX";  
+		const date = Date.now();
+		const url = `https://api.foursquare.com/v2/venues/${venueId}/tips?limit=10&sort=popular&client_id=${id}&client_secret=${secret}&v=${date}`;
+	
+		$.get(url, (data, status) => {
+			results = data.response.tips.items;
+			console.log(results)
+			venues.renderModalBody(results);
+		});
+	},
+
+	renderModalBody: (results) => {
+		let range = Array.from(new Array(2).keys());
+		range.forEach((idx) => {
+			results.map((item) => {
+				$(".modal").append(
+					`<section>
+						${venues.userPhoto(item)}
+						${venues.userText(item)}
+					</section>`
+				)
+			})
+		})
+	},
+
+	userPhoto: (item) => {
+		if(Object.keys(item.user.photo).length !== 0) {
+			 return (
+				`<div class="photo-wrapper">
+					<img src="${item.user.photo.prefix}120x120${item.user.photo.suffix}" class="venue-img"/>
+				</div>`
+			 )
+		} 
+		return (
+			`<div class="container-for-image" >
+				<img src="./images/cards/wine.png" class="venue-img"/>
+			</div>`
+		)
+	},
+
+	userText: (item) => {
+		if (Object.keys(item).includes("text")) {
+			return (
+				`<div>
+					<p>${item.text}</p>
+				 </div>`
+			)
+		} 
+		return '';
 	},
 
 	showResultsMessage: () => {
@@ -324,7 +386,7 @@ const venues = {
 		$(".all-results").append(content);
 	},
 
-	showImage: (item) => {
+	venueImage: (item) => {
 		// console.log(item.venue.photos.groups.length === 0);	
 		if(item.venue.photos.groups.length !== 0) {
 			 return (
@@ -373,6 +435,10 @@ const venues = {
 	
 	printFormattedAddress: (item) => {
 		return item.venue.location.formattedAddress.join("").split(",").join(" ");
+	},
+
+	initializeModal: () => {
+
 	},
 
 	initializeMap: (results) => {
