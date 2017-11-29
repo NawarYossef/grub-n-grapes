@@ -63,13 +63,13 @@ class Main {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	25 ,
+				limit:	20 ,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
 			},
 			success: data => {
-				console.log(data)
+				// console.log(data)
 				const responseLength = Object.values(data.response).length;
 				this.responseStatus = data.meta.code;	
 		
@@ -281,6 +281,7 @@ class Main {
 
 	animateHeaderText() {
 		$('.tlt').textillate({
+			inEffects: ['in'],
 			in: {
 				// set the effect name
 				effect: 'fadeInLeftBig',
@@ -304,6 +305,14 @@ class Main {
 			}
 		});
 	}
+
+	// showHeaderTextOnLoad() {
+	// 	$("h6").show();
+	// }
+
+	// hideHeaderText() {
+	// 	$("h6").hide();
+	// }
 }
 
 let app = new Main();
