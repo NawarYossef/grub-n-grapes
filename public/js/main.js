@@ -3,7 +3,6 @@
 
 // create button for map for mobile devices
 // progressive rendering for search
-// animated text for header
 // hover on selection should change background color
 
 
@@ -63,7 +62,7 @@ class Main {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	20 ,
+				limit:	2 ,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -76,7 +75,7 @@ class Main {
 				this.handleInputValidation(responseLength);
 
 				const results = data.response.groups[0].items;
-				// console.log(results)
+				console.log(results)
 				venues.showResultsMessage();
 				venues.render(results);
 				venues.initializeMap(results);
@@ -85,11 +84,11 @@ class Main {
 	}
 	
 	handleInputValidation(responseLength) {
-		if (this.responseStatus !== 200 || responseLength.length === 0) {
+		if (this.responseLength === undefined || this.responseStatus !== 200 || this.responseLength.length === 0) {
 			this.clearResults();
 			this.showWelcomPage();
 			this.hideMap();
-			// this.showInavlidInputMessage();
+			this.showInavlidInputMessage();
 		} else {
 			this.hideWelcomePage();
 			this.clearResults();
@@ -317,6 +316,4 @@ class Main {
 
 let app = new Main();
 app.init();
-
-
 

@@ -2,31 +2,40 @@
 const venues = {
 	render: (data) => {
 		const allVenues = data.map((item) => {
+			venues.getApiDataForModalBody(item);
+
 				return (
 					 `<div class="venue col-12">
-						${venues.getApiDataForModalBody(item.venue.id)}
-
 							<!-- Link to open the modal -->
-							<a href="#${item.venue.id}" rel="modal:open">
-							<div class="container-for-data">
-								<div class="all-info-container">
-									${venues.venueImage(item)}
-									<div class="data-container">
-										<h4 class="venue-name">${item.venue.name}</h4>
-										${venues.venueType(item)}
-										${venues.rating(item)}
-										${venues.getVenuePrice(item)}
-										<div class="address">	
-											<p class="address-desc">
-												${venues.printFormattedAddress(item)}
-											</p>
-										</div>	
+							<a href="#${item.venue.id}" class="modal-link" rel="modal:open">
+
+								<div class="container-for-data">
+									<div class="all-info-container">
+										${venues.venueImage(item)}
+										<div class="data-container">
+											<h4 class="venue-name">${item.venue.name}</h4>
+											${venues.venueType(item)}
+											${venues.rating(item)}
+											${venues.getVenuePrice(item)}
+											<div class="address">	
+												<p class="address-desc">
+													${venues.printFormattedAddress(item)}
+												</p>
+											</div>	
+										</div>
 									</div>
 								</div>
-							</div>
+								
 							</a>
-							<div id="${item.venue.id}" class="modal">
-								<a href="#" rel="modal:close">Close</a>
+
+							<div id="${item.venue.id}" class="modal col-6">
+								<div class="modal-venue-info-wrapper col-12">
+									<h4 class="venue-name">${item.venue.name}</h4>
+									${venues.rating(item)}
+									${venues.venueType(item)}
+									${venues.venueWebsite(item)}
+								</div>	
+								<a href="#" rel="modal:close"></a>
 							</div>
 						</div>`
 				)	
@@ -34,8 +43,9 @@ const venues = {
 		$(".all-results").append(allVenues);
 	},
 
-	getApiDataForModalBody: (venueId) => {
+	getApiDataForModalBody: (item) => {
 		let results;
+		const venueId = item.venue.id;
 		const id = "CF2LRN214ZC311Z1IHDGZBMA5MHRSH1C2X5UEHU3DOZTRXBM";
 		const secret = "NKH0WYKFHDBBONXDQRYCA0GFI3GO45GI1EHPUZGSJN25EJRX";  
 		const date = Date.now();
@@ -43,17 +53,17 @@ const venues = {
 
 		$.get(url , function(data, status) {
 			results = data.response.tips.items
-				// console.log(results)
-				venues.renderModalBody(results, venueId);
+			venues.renderModalBody(results, venueId, item);
 	});
 	},
 
-	renderModalBody: (results, venueId) => {
+//============== Modal ==================
+	renderModalBody: (results, venueId, item) => {
 		// use range variable to limit data being rendered 
 		let range = Array.from(new Array(6).keys());
 		range.forEach((idx) => {
 			$(`#${venueId}`).append(
-				`<section>
+				`<section class="col-12 modal-venue-review">
 					${venues.userPhoto(results[idx])}
 					${venues.userText(results[idx])}
 				</section>`
@@ -62,16 +72,16 @@ const venues = {
 	},
 
 	userPhoto: (item) => {
-		if (Object.keys(item).includes("photo") && Object.keys(item.photo).length !== 0) {
-			 return (
-				`<div class="photo-wrapper">
-					<img src="${item.photo.prefix}120x120${item.photo.suffix}" class="venue-img"/>
-				</div>`
-			 )
-		} 
+			if (Object.keys(item).includes("photo") && Object.keys(item.photo).length !== 0) {
+				 return (
+					`<div class="modal-photo-wrapper col-6">
+						<img src="${item.photo.prefix}200x120${item.photo.suffix}" class="modal-photo"/>
+					</div>`
+				 )
+			} 
 		return (
-			`<div class="container-for-image" >
-				<img src="./images/cards/wine.png" class="venue-img"/>
+			`<div class="modal-photo-wrapper col-6">	
+				<img src="./images/cards/food.png" class="venue-img"/>
 			</div>`
 		)
 	},
@@ -79,14 +89,25 @@ const venues = {
 	userText: (item) => {
 		if (Object.keys(item).includes("text") && item.text.length !== 0) {
 			return (
-				`<div>
-					<p>${item.text}</p>
+				`<div class="modal-text-wrapper col-6">
+					<p class="mdl-text">"${item.text}"</p>
 				 </div>`
 			)
 		} 
 		return '';
 	},
 
+	venueWebsite: (item) => {
+		if (Object.keys(item.venue).includes("url") && item.venue.url.length !== 0) {
+			return (
+				`<div class="website-wrapper col-12">
+					<a href="${item.venue.url}" target="_blank" class="modal-website">${item.venue.url}</a>
+				 </div>`
+			)
+		} 
+		return '';
+	},
+	// ============ Venues ================
 	showResultsMessage: () => {
 		const content = (
 			`<div class="search-results-wrapper col-6">
@@ -147,10 +168,7 @@ const venues = {
 		return item.venue.location.formattedAddress.join("").split(",").join(" ");
 	},
 
-	initializeModal: () => {
-
-	},
-
+	// ============== Map ====================
 	initializeMap: (results) => {
 		let mapOptions = {
 			zoom: 13,

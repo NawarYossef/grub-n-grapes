@@ -210,6 +210,18 @@ h3 span {
   text-align: center;
 }
 
+.container-for-image {
+  width: 120px;
+  height: 120px;
+  background-color: rgb(170, 168, 168);
+}
+
+.venue-img {
+  background-color: rgb(170, 168, 168);
+  width: 120px;
+  height: 120px;
+}
+
 .examples {
   background-color: #D7D7C2;
   padding-top: 20px;
@@ -249,13 +261,13 @@ h3 span {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 1200px;
+  height: 1000px;
 }
 
 /* user reviews section */
 .reviews {
   background-color: #775c70;
-  height: 800px;  
+  height: 600px;  
   padding-bottom: 20px;
 }
 
@@ -284,8 +296,9 @@ h3 span {
 .try-it-btn {
   width: 30%;
 }
-/* css for search results */
 
+
+/* css for search search results */
 .venue:hover {
   cursor: pointer;
 }
@@ -339,6 +352,51 @@ h5 {
 
 .price {
   font: italic .75em sans-serif;
+}
+
+/* css for modal */
+.modal   {
+  max-width: none;
+  position: absolute;
+  left: 25%;
+  top: 10%;
+}
+
+.modal-venue-info-wrapper {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.modal-venue-info-wrapper h4 {
+  font: normal 1.5em sans-serif;
+  display: inline;
+}
+
+.modal-venue-info-wrapper .rating {
+  font-size: 1.2em;
+}
+
+.modal-photo-wrapper {
+  text-align: center;
+  width: 200px;
+  height: 120px;
+}
+
+.modal-photo {
+  background-color: rgb(170, 168, 168);
+  width: 200px;
+  height: 120px;
+}
+
+.mdl-text {
+  padding-top: 10px;
+}
+
+.modal-venue-review {
+  margin-bottom: 10px;
+}
+.modal-venue-info-wrapper .venue-type {
+  display: block;
 }
 
 /* CSS for map */
