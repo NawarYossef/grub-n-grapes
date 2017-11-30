@@ -1,6 +1,11 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 // add get directions
-// add modal
+
+
+// add modal background color
+// add modal slide effect
+// add earch button hover effect
+
 
 // create button for map for mobile devices
 // progressive rendering for search
@@ -24,9 +29,11 @@ const venues = require("./venues.js")
 
 class Main {
 	constructor() {
-		this.searchQuery = ''
+		this.searchQuery = '';
 		this.cityName = '';
 		this.responseStatus = 0;
+		this.responseLength = 0;
+		this.results = '';
 	}
 
 	init() {
@@ -34,6 +41,7 @@ class Main {
 		this.handleSearchQuery();
 		this.handleSearchForCityFromMainPage();
 		this.headerImageSlideShow();
+		this.animateHeaderText();
 		this.changeImageForFoodSelect();
 		this.changeImageForWineSelect();
 		this.addNeonColorForFoodWord();
@@ -43,7 +51,6 @@ class Main {
 		this.arrowScrollDown();
 		this.runFixedMapOnScroll();
 		this.scrollToHeader();
-		this.animateHeaderText();
 	}
 
 	getDataFromApi(cityName, venueType) {
@@ -63,29 +70,29 @@ class Main {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	2 ,
+				limit:	25 ,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
 			},
 			success: data => {
 				// console.log(data)
-				const responseLength = Object.values(data.response).length;
+				this.responseLength = Object.values(data.response).length;
 				this.responseStatus = data.meta.code;	
 		
-				this.handleInputValidation(responseLength);
+				this.handleInputValidation();
 
-				const results = data.response.groups[0].items;
-				console.log(results)
+				this.results = data.response.groups[0].items;
+				console.log(this.results)
 				venues.showResultsMessage();
-				venues.render(results);
-				venues.initializeMap(results);
+				venues.render(this.results);
+				venues.initializeMap(this.results);
 			}
 		}) 
 	}
 	
-	handleInputValidation(responseLength) {
-		if (this.responseLength === undefined || this.responseStatus !== 200 || this.responseLength.length === 0) {
+	handleInputValidation() {
+		if (this.responseLength === 0 || this.responseStatus !== 200) {
 			this.clearResults();
 			this.showWelcomPage();
 			this.hideMap();
@@ -305,14 +312,6 @@ class Main {
 			}
 		});
 	}
-
-	// showHeaderTextOnLoad() {
-	// 	$("h6").show();
-	// }
-
-	// hideHeaderText() {
-	// 	$("h6").hide();
-	// }
 }
 
 let app = new Main();
@@ -403,7 +402,7 @@ const venues = {
 			} 
 		return (
 			`<div class="modal-photo-wrapper col-6">	
-				<img src="./images/cards/food.png" class="venue-img"/>
+				<img src="./images/cards/food.png" class="modal-photo"/>
 			</div>`
 		)
 	},

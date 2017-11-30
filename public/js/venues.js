@@ -81,7 +81,7 @@ const venues = {
 			} 
 		return (
 			`<div class="modal-photo-wrapper col-6">	
-				<img src="./images/cards/food.png" class="venue-img"/>
+				<img src="./images/cards/food.png" class="modal-photo"/>
 			</div>`
 		)
 	},
