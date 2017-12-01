@@ -8,7 +8,15 @@ const venues = {
 					 `<div class="venue col-12">
 							<!-- Link to open the modal -->
 							<a href="#${item.venue.id}" class="modal-link" rel="modal:open">
-
+								<Script>
+								$('.modal-link').click(function(event) {
+									
+									$(this).modal({
+										fadeDuration: 150
+									});
+									return false;
+								});
+								</Script>
 								<div class="container-for-data">
 									<div class="all-info-container">
 										${venues.venueImage(item)}
@@ -30,10 +38,13 @@ const venues = {
 
 							<div id="${item.venue.id}" class="modal col-6">
 								<div class="modal-venue-info-wrapper col-12">
-									<h4 class="venue-name">${item.venue.name}</h4>
+									<h4 class="venue-name modal-venue-title">${item.venue.name}</h4>
 									${venues.rating(item)}
 									${venues.venueType(item)}
 									${venues.venueWebsite(item)}
+									${venues.venueHours(item)}
+									${venues.venueStats(item)}
+									<h5 class="modal-reviews-header">Reviews</h5>
 								</div>	
 								<a href="#" rel="modal:close"></a>
 							</div>
@@ -60,7 +71,7 @@ const venues = {
 //============== Modal ==================
 	renderModalBody: (results, venueId, item) => {
 		// use range variable to limit data being rendered 
-		let range = Array.from(new Array(6).keys());
+		let range = Array.from(new Array(12).keys());
 		range.forEach((idx) => {
 			$(`#${venueId}`).append(
 				`<section class="col-12 modal-venue-review">
@@ -107,6 +118,28 @@ const venues = {
 		} 
 		return '';
 	},
+
+	venueHours: (item) => {
+		if (Object.keys(item.venue).includes("hours") && item.venue.hours.length !== 0) {
+			return (
+				`<div class="hours-wrapper col-12">
+					<p class="modal-hours">${item.venue.hours.status}</p>
+				 </div>`
+			)
+		} 
+		return '';
+	},
+
+	venueStats: (item) => {
+		if (Object.keys(item.venue).includes("stats") && item.venue.stats.length !== 0) {
+			return (
+				`<div class="hours-wrapper col-12">
+					<p class="modal-hours">Last month checkins: ${item.venue.stats.checkinsCount} Customers</p>
+				 </div>`
+			)
+		} 
+		return '';
+	},
 	// ============ Venues ================
 	showResultsMessage: () => {
 		const content = (
@@ -145,8 +178,8 @@ const venues = {
 	rating: (item) => {
 		if (Object.keys(item.venue).includes("rating")) {
 			return (
-				`<div class="container-for-rating">
-					<p class="rating" style="background-color: #${item.venue.ratingColor};">${item.venue.rating}</p>
+				`<div class="container-for-rating modal-rating-wrapper">
+					<p class="rating modal-rating" style="background-color: #${item.venue.ratingColor};">${item.venue.rating}</p>
 				</div>`
 			)
 		} 

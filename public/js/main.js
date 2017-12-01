@@ -3,16 +3,11 @@
 
 // add modal background color
 // add modal slide effect
-// add earch button hover effect
+// add search button hover effect
 
 
 // create button for map for mobile devices
-// progressive rendering for search
 // hover on selection should change background color
-
-
-
-// hover on selection should show map window
 
 //design issues
 ///////////////////
@@ -69,7 +64,7 @@ class Main {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	25 ,
+				limit:	2 ,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -271,8 +266,8 @@ class Main {
     let $cache = $('#map');
     if ($(window).scrollTop() > 750)
       $cache.css({
-        'position': 'fixed',
-        'top': '10px'
+				'position': 'fixed',
+				'top': '10px',
       });
     else
     	$cache.css({
@@ -316,3 +311,9 @@ class Main {
 let app = new Main();
 app.init();
 
+$('.modal-link').click(function(event) {
+  $(this).modal({
+    fadeDuration: 250
+  });
+  return false;
+});

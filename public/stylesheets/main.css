@@ -376,7 +376,7 @@ h5 {
 }
 
 .modal-photo-wrapper {
-  text-align: center;
+  text-align: left;
   width: 200px;
   height: 120px;
 }
@@ -398,9 +398,22 @@ h5 {
   display: block;
 }
 
+.mdaol-rating-wrapper {
+  width: 100%;
+  display: block;
+}
+
+.modal-rating {
+  width: 60px;
+  margin: 0 auto;
+}
+
+.hours-wrapper {
+  text-align: center;
+}
+
 /* CSS for map */
 .map-container {
-  width: 50%; 
   margin-top: 40px;
 }
 
@@ -409,8 +422,7 @@ h5 {
   height: 600px;
   /* bottom: 0; */
   /* right: 0; */
-  position: fixed;
-  background-color: grey;
+  background-color : grey;
 }
 
 .box {
