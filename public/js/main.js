@@ -1,8 +1,6 @@
-// add get directions
 
 
 // add modal background color
-// add modal slide effect
 // add search button hover effect
 
 
@@ -17,11 +15,13 @@
 // card image should have the same size as regular image.
 
 
+// modal animation
+
 
 "use strict";
 const venues = require("./venues.js")	
 
-class Main {
+class GrubGrapes {
 	constructor() {
 		this.searchQuery = '';
 		this.cityName = '';
@@ -64,7 +64,7 @@ class Main {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	2 ,
+				limit:	20 ,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -73,12 +73,9 @@ class Main {
 				// console.log(data)
 				this.responseLength = Object.values(data.response).length;
 				this.responseStatus = data.meta.code;	
-		
-				this.handleInputValidation();
-
 				this.results = data.response.groups[0].items;
-				console.log(this.results)
-				venues.showResultsMessage();
+
+				this.handleInputValidation();
 				venues.render(this.results);
 				venues.initializeMap(this.results);
 			}
@@ -86,7 +83,10 @@ class Main {
 	}
 	
 	handleInputValidation() {
-		if (this.responseLength === 0 || this.responseStatus !== 200) {
+		console.log(this.responseStatus)
+		console.log(this.responseLength)
+		console.log(this.results)
+		if (this.results.length === 0 || this.responseLength === 0 || this.responseStatus !== 200) {
 			this.clearResults();
 			this.showWelcomPage();
 			this.hideMap();
@@ -95,6 +95,7 @@ class Main {
 			this.hideWelcomePage();
 			this.clearResults();
 			this.showMap();
+			venues.showResultsMessage();
 			this.scrollToSearchResults();	
 		}
 	}
@@ -102,10 +103,6 @@ class Main {
 	showInavlidInputMessage() {
 		const text = `Invalid Input. Please type a city name`
 		alert(text);
-	}
-
-	hideInvalidInputMessage() {
-
 	}
 
 	handleSearchQuery() {
@@ -154,7 +151,6 @@ class Main {
 			//show map
 			this.showMap();
 
-			// this.scrollToResults()
 		})
 	}
 
@@ -182,7 +178,7 @@ class Main {
 	}
 	
 	
-	//=============== Handle page behavior =====================
+	//=============== page behavior =====================
 	headerImageSlideShow() {
 		$('header').vegas({
 			slides: [
@@ -308,12 +304,6 @@ class Main {
 	}
 }
 
-let app = new Main();
+let app = new GrubGrapes();
 app.init();
 
-$('.modal-link').click(function(event) {
-  $(this).modal({
-    fadeDuration: 250
-  });
-  return false;
-});

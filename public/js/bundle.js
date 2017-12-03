@@ -1,9 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-// add get directions
 
 
 // add modal background color
-// add modal slide effect
 // add search button hover effect
 
 
@@ -18,11 +16,13 @@
 // card image should have the same size as regular image.
 
 
+// modal animation
+
 
 "use strict";
 const venues = require("./venues.js")	
 
-class Main {
+class GrubGrapes {
 	constructor() {
 		this.searchQuery = '';
 		this.cityName = '';
@@ -65,7 +65,7 @@ class Main {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	2 ,
+				limit:	20 ,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -74,12 +74,9 @@ class Main {
 				// console.log(data)
 				this.responseLength = Object.values(data.response).length;
 				this.responseStatus = data.meta.code;	
-		
-				this.handleInputValidation();
-
 				this.results = data.response.groups[0].items;
-				console.log(this.results)
-				venues.showResultsMessage();
+
+				this.handleInputValidation();
 				venues.render(this.results);
 				venues.initializeMap(this.results);
 			}
@@ -87,7 +84,10 @@ class Main {
 	}
 	
 	handleInputValidation() {
-		if (this.responseLength === 0 || this.responseStatus !== 200) {
+		console.log(this.responseStatus)
+		console.log(this.responseLength)
+		console.log(this.results)
+		if (this.results.length === 0 || this.responseLength === 0 || this.responseStatus !== 200) {
 			this.clearResults();
 			this.showWelcomPage();
 			this.hideMap();
@@ -96,6 +96,7 @@ class Main {
 			this.hideWelcomePage();
 			this.clearResults();
 			this.showMap();
+			venues.showResultsMessage();
 			this.scrollToSearchResults();	
 		}
 	}
@@ -103,10 +104,6 @@ class Main {
 	showInavlidInputMessage() {
 		const text = `Invalid Input. Please type a city name`
 		alert(text);
-	}
-
-	hideInvalidInputMessage() {
-
 	}
 
 	handleSearchQuery() {
@@ -155,7 +152,6 @@ class Main {
 			//show map
 			this.showMap();
 
-			// this.scrollToResults()
 		})
 	}
 
@@ -183,7 +179,7 @@ class Main {
 	}
 	
 	
-	//=============== Handle page behavior =====================
+	//=============== page behavior =====================
 	headerImageSlideShow() {
 		$('header').vegas({
 			slides: [
@@ -309,15 +305,10 @@ class Main {
 	}
 }
 
-let app = new Main();
+let app = new GrubGrapes();
 app.init();
 
-$('.modal-link').click(function(event) {
-  $(this).modal({
-    fadeDuration: 250
-  });
-  return false;
-});
+
 },{"./venues.js":2}],2:[function(require,module,exports){
 "use strict";
 const venues = {
@@ -331,9 +322,9 @@ const venues = {
 							<a href="#${item.venue.id}" class="modal-link" rel="modal:open">
 								<Script>
 								$('.modal-link').click(function(event) {
-									
 									$(this).modal({
-										fadeDuration: 150
+										fadeDuration: 200,
+										fadeDelay: 0.8
 									});
 									return false;
 								});
@@ -357,7 +348,7 @@ const venues = {
 								
 							</a>
 
-							<div id="${item.venue.id}" class="modal col-6">
+							<div id="${item.venue.id}" class="modal col-4">
 								<div class="modal-venue-info-wrapper col-12">
 									<h4 class="venue-name modal-venue-title">${item.venue.name}</h4>
 									${venues.rating(item)}
@@ -404,30 +395,27 @@ const venues = {
 	},
 
 	userPhoto: (item) => {
-			if (Object.keys(item).includes("photo") && Object.keys(item.photo).length !== 0) {
+			if (item !== undefined && Object.keys(item).includes("photo") && Object.keys(item.photo).length !== 0) {
 				 return (
-					`<div class="modal-photo-wrapper col-6">
+					`<div class="modal-photo-wrapper col-12">
 						<img src="${item.photo.prefix}200x120${item.photo.suffix}" class="modal-photo"/>
 					</div>`
 				 )
 			} 
-		return (
-			`<div class="modal-photo-wrapper col-6">	
-				<img src="./images/cards/food.png" class="modal-photo"/>
-			</div>`
-		)
+		return '';
 	},
 
 	userText: (item) => {
-		if (Object.keys(item).includes("text") && item.text.length !== 0) {
+		if (item !== undefined && Object.keys(item).includes("text") && item.text.length !== 0) {
 			return (
-				`<div class="modal-text-wrapper col-6">
+				`<div class="modal-text-wrapper col-12">
 					<p class="mdl-text">"${item.text}"</p>
 				 </div>`
 			)
 		} 
 		return '';
 	},
+
 
 	venueWebsite: (item) => {
 		if (Object.keys(item.venue).includes("url") && item.venue.url.length !== 0) {
@@ -461,6 +449,7 @@ const venues = {
 		} 
 		return '';
 	},
+
 	// ============ Venues ================
 	showResultsMessage: () => {
 		const content = (
@@ -472,7 +461,6 @@ const venues = {
 	},
 
 	venueImage: (item) => {
-		// console.log(item.venue.photos.groups.length === 0);	
 		if(item.venue.photos.groups.length !== 0) {
 			 return (
 				`<div class="container-for-image">
@@ -573,7 +561,5 @@ const venues = {
 }
 
 module.exports = venues;
-
-
 
 },{}]},{},[1]);

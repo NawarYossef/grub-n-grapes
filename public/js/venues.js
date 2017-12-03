@@ -10,9 +10,9 @@ const venues = {
 							<a href="#${item.venue.id}" class="modal-link" rel="modal:open">
 								<Script>
 								$('.modal-link').click(function(event) {
-									
 									$(this).modal({
-										fadeDuration: 150
+										fadeDuration: 200,
+										fadeDelay: 0.8
 									});
 									return false;
 								});
@@ -36,7 +36,7 @@ const venues = {
 								
 							</a>
 
-							<div id="${item.venue.id}" class="modal col-6">
+							<div id="${item.venue.id}" class="modal col-4">
 								<div class="modal-venue-info-wrapper col-12">
 									<h4 class="venue-name modal-venue-title">${item.venue.name}</h4>
 									${venues.rating(item)}
@@ -83,30 +83,27 @@ const venues = {
 	},
 
 	userPhoto: (item) => {
-			if (Object.keys(item).includes("photo") && Object.keys(item.photo).length !== 0) {
+			if (item !== undefined && Object.keys(item).includes("photo") && Object.keys(item.photo).length !== 0) {
 				 return (
-					`<div class="modal-photo-wrapper col-6">
+					`<div class="modal-photo-wrapper col-12">
 						<img src="${item.photo.prefix}200x120${item.photo.suffix}" class="modal-photo"/>
 					</div>`
 				 )
 			} 
-		return (
-			`<div class="modal-photo-wrapper col-6">	
-				<img src="./images/cards/food.png" class="modal-photo"/>
-			</div>`
-		)
+		return '';
 	},
 
 	userText: (item) => {
-		if (Object.keys(item).includes("text") && item.text.length !== 0) {
+		if (item !== undefined && Object.keys(item).includes("text") && item.text.length !== 0) {
 			return (
-				`<div class="modal-text-wrapper col-6">
+				`<div class="modal-text-wrapper col-12">
 					<p class="mdl-text">"${item.text}"</p>
 				 </div>`
 			)
 		} 
 		return '';
 	},
+
 
 	venueWebsite: (item) => {
 		if (Object.keys(item.venue).includes("url") && item.venue.url.length !== 0) {
@@ -140,6 +137,7 @@ const venues = {
 		} 
 		return '';
 	},
+
 	// ============ Venues ================
 	showResultsMessage: () => {
 		const content = (
@@ -151,7 +149,6 @@ const venues = {
 	},
 
 	venueImage: (item) => {
-		// console.log(item.venue.photos.groups.length === 0);	
 		if(item.venue.photos.groups.length !== 0) {
 			 return (
 				`<div class="container-for-image">
@@ -252,5 +249,3 @@ const venues = {
 }
 
 module.exports = venues;
-
-

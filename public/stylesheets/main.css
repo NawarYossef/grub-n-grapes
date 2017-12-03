@@ -251,7 +251,7 @@ h3 span {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 1000px;
+  height: 1100px;
 }
 
 .parallax-2 {
@@ -260,13 +260,13 @@ h3 span {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 1000px;
+  height: 1200px;
 }
 
 /* user reviews section */
 .reviews {
   background-color: #775c70;
-  height: 600px;  
+  /* height: 600px;   */
   padding-bottom: 20px;
 }
 
@@ -357,8 +357,9 @@ h5 {
 .modal   {
   max-width: none;
   position: absolute;
-  left: 25%;
-  top: 10%;
+  background-color: #d2a6a6;
+  left: 33.3%;
+  top: 5%;
 }
 
 .modal-venue-info-wrapper {
@@ -376,9 +377,10 @@ h5 {
 }
 
 .modal-photo-wrapper {
-  text-align: left;
+  text-align: center;
   width: 200px;
   height: 120px;
+  margin-bottom: 5px;
 }
 
 .modal-photo {
@@ -387,13 +389,28 @@ h5 {
   height: 120px;
 }
 
-.mdl-text {
-  padding-top: 10px;
+.modal-venue-review {
+  position: relative;
+  padding-bottom: 20px;
+  margin-top: 20px;
 }
 
-.modal-venue-review {
-  margin-bottom: 10px;
+.modal-photo-wrapper img {
+  width: 70%; 
+  height: 150px; 
 }
+/* add thematic break after each review */
+.modal-text-wrapper:after {
+  content: "";
+  background: rgb(78, 78, 78);
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  height: 1px;
+  width: 70%;
+  margin-top: 10px;
+}
+
 .modal-venue-info-wrapper .venue-type {
   display: block;
 }
