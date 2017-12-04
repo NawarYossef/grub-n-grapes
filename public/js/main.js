@@ -1,8 +1,11 @@
 
+// add bootstrap modal
+// refactor api function 
+
+
 
 // add modal background color
 // add search button hover effect
-
 
 // create button for map for mobile devices
 // hover on selection should change background color
@@ -64,7 +67,7 @@ class GrubGrapes {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	20 ,
+				limit:	2 ,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -72,21 +75,28 @@ class GrubGrapes {
 			success: data => {
 				// console.log(data)
 				this.responseLength = Object.values(data.response).length;
-				this.responseStatus = data.meta.code;	
-				this.results = data.response.groups[0].items;
+				this.responseStatus = data.meta.code;
+				
+				//dataIsValid()
+				// is data.response.groups[0].items !== undefined || null
 
-				this.handleInputValidation();
+				// if dataIsValid()
+				this.ChangePageState();
+
+				//if dataIsValid()
+				this.results = data.response.groups[0].items;
+		
 				venues.render(this.results);
 				venues.initializeMap(this.results);
 			}
 		}) 
 	}
 	
-	handleInputValidation() {
+	ChangePageState() {
 		console.log(this.responseStatus)
 		console.log(this.responseLength)
 		console.log(this.results)
-		if (this.results.length === 0 || this.responseLength === 0 || this.responseStatus !== 200) {
+		if ( this.responseLength === 0 || this.responseStatus !== 200) {
 			this.clearResults();
 			this.showWelcomPage();
 			this.hideMap();

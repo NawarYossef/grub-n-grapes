@@ -18,22 +18,34 @@ header {
   background-repeat: no-repeat;
 }
 
-.container {
+body header .container {
   width: 100%;
   height: 80px;
   /* text-align: center; */
   background: rgba(0,0,0,0.41); 
 }
 
-.cont-for-h1 {
+body header .cont-for-h1 {
   width: 60%;
   display: block;
 }
 
-h1 {
+body header h1 {
   display: inline;
   font: italic 5em 'Passion One', cursive, sans-serif;
   margin-left: 8%;
+}
+
+body header a {
+  text-align: left;
+  color: transparent;
+  text-decoration: none !important;
+}
+
+body header a:hover,  body header a:active, body haeader a:link {
+  cursor: pointer;
+  color: transparent;
+  text-decoration: none !important;
 }
 
 h6 {
@@ -251,7 +263,7 @@ h3 span {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 1100px;
+  height: 1850px;
 }
 
 .parallax-2 {
@@ -263,6 +275,28 @@ h3 span {
   height: 1200px;
 }
 
+div .food-quote-container .col-6 {
+  font: normal 2.5em sans-serif;
+  color: #ffffff;
+  background-color: rgba(0,0,0,0.6);
+  margin: 400px auto 0 auto;
+  float: none;
+}
+
+.qoute-text {
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+
+div .food-quote-container p  i {
+  font-size: 1em;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.author {
+  float: right;
+}
 /* user reviews section */
 .reviews {
   background-color: #775c70;
@@ -354,12 +388,21 @@ h5 {
 }
 
 /* css for modal */
-.modal   {
-  max-width: none;
+.modal-header {
+  padding: 0 0;
+  border-bottom: none;
+}
+
+.modal-header span {
+  font-size: 41px;
+}
+
+.modal-content {
   position: absolute;
-  background-color: #d2a6a6;
-  left: 33.3%;
-  top: 5%;
+}
+
+.modal-reviews-header {
+  font: bold 1.5em sans-serif;
 }
 
 .modal-venue-info-wrapper {
@@ -368,47 +411,78 @@ h5 {
 }
 
 .modal-venue-info-wrapper h4 {
-  font: normal 1.5em sans-serif;
+  font: bold italic 2.5em sans-serif;
   display: inline;
 }
 
 .modal-venue-info-wrapper .rating {
-  font-size: 1.2em;
+  font-size: 1.7em;
+}
+
+.modal-reviews-header-title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.website-wrapper {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  font: normal 1.5em sans-serif;
 }
 
 .modal-photo-wrapper {
   text-align: center;
   width: 200px;
   height: 120px;
-  margin-bottom: 5px;
+  margin-bottom: 80px;
 }
 
-.modal-photo {
-  background-color: rgb(170, 168, 168);
-  width: 200px;
-  height: 120px;
+.modal-stats {
+  font: normal 1.2em sans-serif;
 }
 
+.modal-reviews-header {
+  display: block; 
+}
 .modal-venue-review {
   position: relative;
-  padding-bottom: 20px;
-  margin-top: 20px;
 }
 
-.modal-photo-wrapper img {
-  width: 70%; 
-  height: 150px; 
+.modal-user-photo-wrapper {
+  display: inline;
+  margin-left: 10px;
 }
-/* add thematic break after each review */
+
+.modal-user-photo {
+  border-radius: 50%;
+}
+.modal-photo-wrapper img {
+  width: 55%; 
+  height: 180px; 
+}
+
+.modal-text-wrapper {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.mdl-text {
+  margin-bottom: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font: normal 1.2em sans-serif;
+}
+
+
+/* add thematic break after each review */ 
 .modal-text-wrapper:after {
   content: "";
-  background: rgb(78, 78, 78);
+  background: rgb(163, 162, 162);
   position: absolute;
   bottom: 0;
   left: 15%;
   height: 1px;
   width: 70%;
-  margin-top: 10px;
 }
 
 .modal-venue-info-wrapper .venue-type {
@@ -426,8 +500,13 @@ h5 {
 }
 
 .hours-wrapper {
-  text-align: center;
+  font: normal 1.2em sans-serif;
 }
+.stats-wrapper {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 
 /* CSS for map */
 .map-container {
@@ -437,8 +516,6 @@ h5 {
 #map {
   width: 100%;
   height: 600px;
-  /* bottom: 0; */
-  /* right: 0; */
   background-color : grey;
 }
 

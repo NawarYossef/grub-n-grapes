@@ -1,9 +1,12 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 
+// add bootstrap modal
+// refactor api function 
+
+
 
 // add modal background color
 // add search button hover effect
-
 
 // create button for map for mobile devices
 // hover on selection should change background color
@@ -65,7 +68,7 @@ class GrubGrapes {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	20 ,
+				limit:	2 ,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -73,21 +76,28 @@ class GrubGrapes {
 			success: data => {
 				// console.log(data)
 				this.responseLength = Object.values(data.response).length;
-				this.responseStatus = data.meta.code;	
-				this.results = data.response.groups[0].items;
+				this.responseStatus = data.meta.code;
+				
+				//dataIsValid()
+				// is data.response.groups[0].items !== undefined || null
 
-				this.handleInputValidation();
+				// if dataIsValid()
+				this.ChangePageState();
+
+				//if dataIsValid()
+				this.results = data.response.groups[0].items;
+		
 				venues.render(this.results);
 				venues.initializeMap(this.results);
 			}
 		}) 
 	}
 	
-	handleInputValidation() {
+	ChangePageState() {
 		console.log(this.responseStatus)
 		console.log(this.responseLength)
 		console.log(this.results)
-		if (this.results.length === 0 || this.responseLength === 0 || this.responseStatus !== 200) {
+		if ( this.responseLength === 0 || this.responseStatus !== 200) {
 			this.clearResults();
 			this.showWelcomPage();
 			this.hideMap();
@@ -319,16 +329,7 @@ const venues = {
 				return (
 					 `<div class="venue col-12">
 							<!-- Link to open the modal -->
-							<a href="#${item.venue.id}" class="modal-link" rel="modal:open">
-								<Script>
-								$('.modal-link').click(function(event) {
-									$(this).modal({
-										fadeDuration: 200,
-										fadeDelay: 0.8
-									});
-									return false;
-								});
-								</Script>
+							<div data-toggle="modal" data-target="#${item.venue.id}">
 								<div class="container-for-data">
 									<div class="all-info-container">
 										${venues.venueImage(item)}
@@ -345,20 +346,32 @@ const venues = {
 										</div>
 									</div>
 								</div>
-								
-							</a>
+							</div>
 
-							<div id="${item.venue.id}" class="modal col-4">
-								<div class="modal-venue-info-wrapper col-12">
-									<h4 class="venue-name modal-venue-title">${item.venue.name}</h4>
-									${venues.rating(item)}
-									${venues.venueType(item)}
-									${venues.venueWebsite(item)}
-									${venues.venueHours(item)}
-									${venues.venueStats(item)}
-									<h5 class="modal-reviews-header">Reviews</h5>
-								</div>	
-								<a href="#" rel="modal:close"></a>
+							<!-- modal -->
+							<div class="modal fade" id="${item.venue.id}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+										</div>
+									
+										<div id="${item.venue.id}" class="modal-wrapper">
+											<div class="modal-venue-info-wrapper ">
+												<h4 class="venue-name modal-venue-title">${item.venue.name}</h4>
+												${venues.rating(item)}
+												${venues.venueWebsite(item)}
+												${venues.venueHours(item)}
+												${venues.venueStats(item)}
+												<div class="modal-reviews-header-title col-12">
+													<h5 class="modal-reviews-header">Reviews</h5>
+												</div>
+											</div>	
+										</div>
+
+									</div>
+								</div>
 							</div>
 						</div>`
 				)	
@@ -376,17 +389,19 @@ const venues = {
 
 		$.get(url , function(data, status) {
 			results = data.response.tips.items
+			console.log(data.response.tips)
 			venues.renderModalBody(results, venueId, item);
-	});
+		});
 	},
 
 //============== Modal ==================
 	renderModalBody: (results, venueId, item) => {
 		// use range variable to limit data being rendered 
-		let range = Array.from(new Array(12).keys());
+		let range = Array.from(new Array(5).keys());
 		range.forEach((idx) => {
-			$(`#${venueId}`).append(
-				`<section class="col-12 modal-venue-review">
+			$(`#${venueId} .modal-content`).append(
+				`<section class=" modal-venue-review">
+					${venues.reviewPhoto(results[idx])}
 					${venues.userPhoto(results[idx])}
 					${venues.userText(results[idx])}
 				</section>`
@@ -394,7 +409,7 @@ const venues = {
 		})
 	},
 
-	userPhoto: (item) => {
+	reviewPhoto: (item) => {
 			if (item !== undefined && Object.keys(item).includes("photo") && Object.keys(item.photo).length !== 0) {
 				 return (
 					`<div class="modal-photo-wrapper col-12">
@@ -404,6 +419,17 @@ const venues = {
 			} 
 		return '';
 	},
+
+	userPhoto: (item) => {
+		if (item !== undefined && Object.keys(item).includes("photo") && Object.keys(item.photo).length !== 0) {
+			 return (
+				`<div class="modal-user-photo-wrapper">
+					<img src="${item.user.photo.prefix}50x50${item.user.photo.suffix}" class="modal-user-photo"/>
+				</div>`
+			 )
+		} 
+	return '';
+},
 
 	userText: (item) => {
 		if (item !== undefined && Object.keys(item).includes("text") && item.text.length !== 0) {
@@ -442,8 +468,8 @@ const venues = {
 	venueStats: (item) => {
 		if (Object.keys(item.venue).includes("stats") && item.venue.stats.length !== 0) {
 			return (
-				`<div class="hours-wrapper col-12">
-					<p class="modal-hours">Last month checkins: ${item.venue.stats.checkinsCount} Customers</p>
+				`<div class="stats-wrapper col-12">
+					<p class="modal-stats">Last month checkins: ${item.venue.stats.checkinsCount} Customers</p>
 				 </div>`
 			)
 		} 
@@ -453,7 +479,7 @@ const venues = {
 	// ============ Venues ================
 	showResultsMessage: () => {
 		const content = (
-			`<div class="search-results-wrapper col-6">
+			`<div class="search-results-wrapper ">
 				<h4>Your Results</h4>
 			</div>`
 		)
