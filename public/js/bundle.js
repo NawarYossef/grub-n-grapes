@@ -1,8 +1,12 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 
-// add bootstrap modal
-// refactor api function 
 
+// refactor api function 
+//add modal css.animation effect
+// add modal for welcome page
+// validation
+
+// progressive rendering
 
 
 // add modal background color
@@ -59,7 +63,6 @@ class GrubGrapes {
 		$.ajax({
 			method: 'GET',
 			url: url,
-			dataType: 'jsonp',	
 			data: {	
 				client_id: id,
 				client_secret: secret,
@@ -72,32 +75,37 @@ class GrubGrapes {
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
-			},
-			success: data => {
-				// console.log(data)
-				this.responseLength = Object.values(data.response).length;
-				this.responseStatus = data.meta.code;
-				
-				//dataIsValid()
-				// is data.response.groups[0].items !== undefined || null
-
-				// if dataIsValid()
-				this.ChangePageState();
-
-				//if dataIsValid()
-				this.results = data.response.groups[0].items;
-		
-				venues.render(this.results);
-				venues.initializeMap(this.results);
 			}
-		}) 
+
+		}).done((data) => {
+
+			this.responseLength = Object.values(data.response).length;
+			this.responseStatus = data.meta.code;
+			
+			//dataIsValid()
+			// is data.response.groups[0].items !== undefined || null
+			this.results = data.response.groups[0].items;
+			// if dataIsValid()
+			this.StateChange();
+
+			//if dataIsValid()
+	
+			venues.render(this.results);
+			venues.initializeMap(this.results);
+		}).fail(() => {
+			this.clearResults();
+			this.showWelcomPage();
+			this.hideMap();
+			this.showInavlidInputMessage();
+		})
+		
 	}
 	
-	ChangePageState() {
+	StateChange() {
 		console.log(this.responseStatus)
 		console.log(this.responseLength)
 		console.log(this.results)
-		if ( this.responseLength === 0 || this.responseStatus !== 200) {
+		if ( this.responseLength === 0  || this.results.length === 0 || this.responseStatus !== 200) {
 			this.clearResults();
 			this.showWelcomPage();
 			this.hideMap();

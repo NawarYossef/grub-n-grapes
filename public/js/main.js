@@ -1,7 +1,11 @@
 
-// add bootstrap modal
-// refactor api function 
 
+// refactor api function 
+//add modal css.animation effect
+// add modal for welcome page
+// validation
+
+// progressive rendering
 
 
 // add modal background color
@@ -58,7 +62,6 @@ class GrubGrapes {
 		$.ajax({
 			method: 'GET',
 			url: url,
-			dataType: 'jsonp',	
 			data: {	
 				client_id: id,
 				client_secret: secret,
@@ -71,32 +74,37 @@ class GrubGrapes {
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
-			},
-			success: data => {
-				// console.log(data)
-				this.responseLength = Object.values(data.response).length;
-				this.responseStatus = data.meta.code;
-				
-				//dataIsValid()
-				// is data.response.groups[0].items !== undefined || null
-
-				// if dataIsValid()
-				this.ChangePageState();
-
-				//if dataIsValid()
-				this.results = data.response.groups[0].items;
-		
-				venues.render(this.results);
-				venues.initializeMap(this.results);
 			}
-		}) 
+
+		}).done((data) => {
+
+			this.responseLength = Object.values(data.response).length;
+			this.responseStatus = data.meta.code;
+			
+			//dataIsValid()
+			// is data.response.groups[0].items !== undefined || null
+			this.results = data.response.groups[0].items;
+			// if dataIsValid()
+			this.StateChange();
+
+			//if dataIsValid()
+	
+			venues.render(this.results);
+			venues.initializeMap(this.results);
+		}).fail(() => {
+			this.clearResults();
+			this.showWelcomPage();
+			this.hideMap();
+			this.showInavlidInputMessage();
+		})
+		
 	}
 	
-	ChangePageState() {
+	StateChange() {
 		console.log(this.responseStatus)
 		console.log(this.responseLength)
 		console.log(this.results)
-		if ( this.responseLength === 0 || this.responseStatus !== 200) {
+		if ( this.responseLength === 0  || this.results.length === 0 || this.responseStatus !== 200) {
 			this.clearResults();
 			this.showWelcomPage();
 			this.hideMap();
