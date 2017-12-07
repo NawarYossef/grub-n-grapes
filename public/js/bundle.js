@@ -1,18 +1,19 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 
-
-// refactor api function 
+// add welcome page venues
 //add modal css.animation effect
 // add modal for welcome page
-// validation
+// style welcome page
 
+// refactor api function 
 // progressive rendering
+
+// create button for map for mobile devices
 
 
 // add modal background color
 // add search button hover effect
 
-// create button for map for mobile devices
 // hover on selection should change background color
 
 //design issues
@@ -71,7 +72,7 @@ class GrubGrapes {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	2 ,
+				limit:	10,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -89,9 +90,9 @@ class GrubGrapes {
 			this.StateChange();
 
 			//if dataIsValid()
-	
 			venues.render(this.results);
 			venues.initializeMap(this.results);
+
 		}).fail(() => {
 			this.clearResults();
 			this.showWelcomPage();
@@ -197,7 +198,9 @@ class GrubGrapes {
 	}
 	
 	
-	//=============== page behavior =====================
+	// * * * * * * * * * * * * * * * * * * * * * *
+	// 	Welcome Page Animation and behavior
+	// * * * * * * * * * * * * * * * * * * * * * *
 	headerImageSlideShow() {
 		$('header').vegas({
 			slides: [
@@ -258,7 +261,7 @@ class GrubGrapes {
 	arrowScrollDown() {
 		$(".arrow").click(() => {
 			$('html, body').animate({
-					scrollTop: $(".examples").offset().top
+					scrollTop: $(".reviews").offset().top
 			}, 900);
 		});
 	}
@@ -283,11 +286,12 @@ class GrubGrapes {
       $cache.css({
 				'position': 'fixed',
 				'top': '10px',
+				"width": "100%"
       });
     else
     	$cache.css({
 				'position': 'relative',
-				'top': 'auto'
+				'top': 'auto',
     });
 	}
 	
@@ -312,11 +316,9 @@ class GrubGrapes {
 				sync: false,
 		
 				// randomize the character sequence
-				// (note that shuffle doesn't make sense with sync = true)
 				shuffle: false,
 		
 				// reverse the character sequence
-				// (note that reverse doesn't make sense with sync = true)
 				reverse: false,
 			}
 		});
@@ -402,10 +404,12 @@ const venues = {
 		});
 	},
 
-//============== Modal ==================
+	// * * * * * * * * * * * *
+	// 	Modal
+	// * * * * * * * * * * * *
 	renderModalBody: (results, venueId, item) => {
 		// use range variable to limit data being rendered 
-		let range = Array.from(new Array(5).keys());
+		let range = Array.from(new Array(4).keys());
 		range.forEach((idx) => {
 			$(`#${venueId} .modal-content`).append(
 				`<section class=" modal-venue-review">
@@ -484,7 +488,10 @@ const venues = {
 		return '';
 	},
 
-	// ============ Venues ================
+
+	// * * * * * * * * * * * *
+	// 	Venues
+	// * * * * * * * * * * * *
 	showResultsMessage: () => {
 		const content = (
 			`<div class="search-results-wrapper ">
@@ -544,7 +551,10 @@ const venues = {
 		return item.venue.location.formattedAddress.join("").split(",").join(" ");
 	},
 
-	// ============== Map ====================
+	
+	// * * * * * * * * * * * *
+	// 	Map rendering
+	// * * * * * * * * * * * *
 	initializeMap: (results) => {
 		let mapOptions = {
 			zoom: 13,

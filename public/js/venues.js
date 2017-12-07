@@ -72,10 +72,12 @@ const venues = {
 		});
 	},
 
-//============== Modal ==================
+	// * * * * * * * * * * * *
+	// 	Modal
+	// * * * * * * * * * * * *
 	renderModalBody: (results, venueId, item) => {
 		// use range variable to limit data being rendered 
-		let range = Array.from(new Array(5).keys());
+		let range = Array.from(new Array(4).keys());
 		range.forEach((idx) => {
 			$(`#${venueId} .modal-content`).append(
 				`<section class=" modal-venue-review">
@@ -154,7 +156,10 @@ const venues = {
 		return '';
 	},
 
-	// ============ Venues ================
+
+	// * * * * * * * * * * * *
+	// 	Venues
+	// * * * * * * * * * * * *
 	showResultsMessage: () => {
 		const content = (
 			`<div class="search-results-wrapper ">
@@ -214,7 +219,10 @@ const venues = {
 		return item.venue.location.formattedAddress.join("").split(",").join(" ");
 	},
 
-	// ============== Map ====================
+	
+	// * * * * * * * * * * * *
+	// 	Map rendering
+	// * * * * * * * * * * * *
 	initializeMap: (results) => {
 		let mapOptions = {
 			zoom: 13,

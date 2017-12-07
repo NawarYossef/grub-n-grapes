@@ -1,17 +1,18 @@
 
-
-// refactor api function 
+// add welcome page venues
 //add modal css.animation effect
 // add modal for welcome page
-// validation
+// style welcome page
 
+// refactor api function 
 // progressive rendering
+
+// create button for map for mobile devices
 
 
 // add modal background color
 // add search button hover effect
 
-// create button for map for mobile devices
 // hover on selection should change background color
 
 //design issues
@@ -70,7 +71,7 @@ class GrubGrapes {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	2 ,
+				limit:	10,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -88,9 +89,9 @@ class GrubGrapes {
 			this.StateChange();
 
 			//if dataIsValid()
-	
 			venues.render(this.results);
 			venues.initializeMap(this.results);
+
 		}).fail(() => {
 			this.clearResults();
 			this.showWelcomPage();
@@ -196,7 +197,9 @@ class GrubGrapes {
 	}
 	
 	
-	//=============== page behavior =====================
+	// * * * * * * * * * * * * * * * * * * * * * *
+	// 	Welcome Page Animation and behavior
+	// * * * * * * * * * * * * * * * * * * * * * *
 	headerImageSlideShow() {
 		$('header').vegas({
 			slides: [
@@ -257,7 +260,7 @@ class GrubGrapes {
 	arrowScrollDown() {
 		$(".arrow").click(() => {
 			$('html, body').animate({
-					scrollTop: $(".examples").offset().top
+					scrollTop: $(".reviews").offset().top
 			}, 900);
 		});
 	}
@@ -282,11 +285,12 @@ class GrubGrapes {
       $cache.css({
 				'position': 'fixed',
 				'top': '10px',
+				"width": "100%"
       });
     else
     	$cache.css({
 				'position': 'relative',
-				'top': 'auto'
+				'top': 'auto',
     });
 	}
 	
@@ -311,11 +315,9 @@ class GrubGrapes {
 				sync: false,
 		
 				// randomize the character sequence
-				// (note that shuffle doesn't make sense with sync = true)
 				shuffle: false,
 		
 				// reverse the character sequence
-				// (note that reverse doesn't make sense with sync = true)
 				reverse: false,
 			}
 		});
