@@ -277,16 +277,17 @@ class GrubGrapes {
 	}
 
 	setupMapFixedPositionOnScroll() {
-    let $cache = $('#map');
+    let $cache = $('.map-wrapper');
     if ($(window).scrollTop() > 750)
       $cache.css({
 				'position': 'fixed',
 				'top': '10px',
-				"width": "100%"
+				"width": "calc(50% - 27px)"
       });
     else
     	$cache.css({
 				'position': 'relative',
+				"width": "100%",
 				'top': 'auto',
     });
 	}

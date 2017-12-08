@@ -278,16 +278,17 @@ class GrubGrapes {
 	}
 
 	setupMapFixedPositionOnScroll() {
-    let $cache = $('#map');
+    let $cache = $('.map-wrapper');
     if ($(window).scrollTop() > 750)
       $cache.css({
 				'position': 'fixed',
 				'top': '10px',
-				"width": "100%"
+				"width": "calc(50% - 27px)"
       });
     else
     	$cache.css({
 				'position': 'relative',
+				"width": "100%",
 				'top': 'auto',
     });
 	}
@@ -359,7 +360,7 @@ const venues = {
 
 							<!-- modal -->
 							<div class="modal animated bounceInUp" id="${item.venue.id}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-								<div class="modal-dialog" role="document">
+								<div class="modal-dialog " role="document">
 									<div class="modal-content">
 
 										<div class="modal-header">
