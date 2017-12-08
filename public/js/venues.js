@@ -27,7 +27,7 @@ const venues = {
 							</div>
 
 							<!-- modal -->
-							<div class="modal fade" id="${item.venue.id}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							<div class="modal animated bounceInUp" id="${item.venue.id}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 								<div class="modal-dialog" role="document">
 									<div class="modal-content">
 

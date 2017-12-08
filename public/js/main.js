@@ -1,12 +1,9 @@
 
-// add welcome page venues
-//add modal css.animation effect
-// add modal for welcome page
-// style welcome page
 
+//add modal css.animation effect
+// style welcome page
 // refactor api function 
 // progressive rendering
-
 // create button for map for mobile devices
 
 
@@ -71,7 +68,7 @@ class GrubGrapes {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	10,
+				limit:	2,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -297,6 +294,8 @@ class GrubGrapes {
 	runFixedMapOnScroll() {
 		$(window).scroll(app.setupMapFixedPositionOnScroll);
 	}
+
+	
 
 	animateHeaderText() {
 		$('.tlt').textillate({

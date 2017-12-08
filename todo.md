@@ -1,0 +1,1 @@
+add venues for welcome page with dynamic content and modal

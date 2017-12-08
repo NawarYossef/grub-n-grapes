@@ -1,13 +1,10 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 
-// add welcome page venues
-//add modal css.animation effect
-// add modal for welcome page
-// style welcome page
 
+//add modal css.animation effect
+// style welcome page
 // refactor api function 
 // progressive rendering
-
 // create button for map for mobile devices
 
 
@@ -72,7 +69,7 @@ class GrubGrapes {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	10,
+				limit:	2,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -299,6 +296,8 @@ class GrubGrapes {
 		$(window).scroll(app.setupMapFixedPositionOnScroll);
 	}
 
+	
+
 	animateHeaderText() {
 		$('.tlt').textillate({
 			inEffects: ['in'],
@@ -359,7 +358,7 @@ const venues = {
 							</div>
 
 							<!-- modal -->
-							<div class="modal fade" id="${item.venue.id}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							<div class="modal animated bounceInUp" id="${item.venue.id}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 								<div class="modal-dialog" role="document">
 									<div class="modal-content">
 

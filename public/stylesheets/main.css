@@ -198,7 +198,7 @@ input {
   width: 13%;
   vertical-align: middle;
 }
-
+watchify public/js/main.js -o public/js/bundle.js
 /* arrow bounce iteration */
 .arrow-wrapper {
   -webkit-animation-delay: 1s;
@@ -234,6 +234,14 @@ h2 {
   width: 100%;
   text-align: center; 
   margin-bottom: 40px;
+}
+
+.user-img-wrapper {
+  margin-bottom: 50px;
+}
+
+.review-wrapper {
+  margin-bottom: 50px; 
 }
 
 .city {
@@ -287,7 +295,6 @@ h3 span {
 }
 
 .examples {
- 
   padding-top: 20px;
   padding-bottom: 20px;
   height: 100%;
@@ -323,7 +330,7 @@ h3 span {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 1850px;
+  height: 1750px;
 }
 
 .parallax-2 {
@@ -652,3 +659,14 @@ div .food-quote-container p  i {
     width: 100%;
   }
 }
+
+/* Important part */
+.modal{
+  overflow-y:  hidden !important;
+}
+.modal-body{
+  height: 650px;
+  overflow-y: auto;
+}
+
+
