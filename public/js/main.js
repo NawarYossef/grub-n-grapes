@@ -86,8 +86,7 @@ class GrubGrapes {
 			this.StateChange();
 
 			//if dataIsValid()
-			venues.render(this.results);
-			venues.initializeMap(this.results);
+			
 
 		}).fail(() => {
 			this.clearResults();
@@ -110,8 +109,11 @@ class GrubGrapes {
 		} else {
 			this.hideWelcomePage();
 			this.clearResults();
+			// this.loadingAnimation()
 			this.showMap();
 			venues.showResultsMessage();
+			venues.render(this.results);
+			venues.initializeMap(this.results);
 			this.scrollToSearchResults();	
 		}
 	}
@@ -185,10 +187,17 @@ class GrubGrapes {
 	showMap() {
 		$(".map-container").show();
 	}
+
+	loadingAnimation() {
+		this.hideMap()
+		// this.showAnimation()
+	}
+	
 	
 	clearResults() {
 		$(".all-results").empty();
 	}
+
 	clearInputVal() {
 		$("form :input").val("");
 	}

@@ -297,8 +297,8 @@ h3 span {
   
 }
 
-.examples, .main-page-places {
-  background-color: #775c70
+.examples, .main-page-places, .reviews {
+  background-color: #c3c3b8;
 }
 .main-page-places {
   text-align: center;
@@ -375,7 +375,6 @@ div .food-quote-container p  i {
 }
 /* user reviews section */
 .reviews {
-  background-color: #775c70;
   padding-bottom: 10px;
 }
 
