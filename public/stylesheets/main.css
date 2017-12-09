@@ -224,7 +224,7 @@ watchify public/js/main.js -o public/js/bundle.js
 
 /* main page (welcome page) */
 h2 {
-  display: inline;
+  display: inline-block;
   font: normal 3em 'Oswald', sans-serif;
   color: rgb(49, 46, 46);
   /* border-bottom: solid rgb(92, 92, 92) 1px; */
@@ -234,6 +234,10 @@ h2 {
   width: 100%;
   text-align: center; 
   margin-bottom: 20px;
+}
+
+.examples .h2-wrapper {
+  margin-bottom: 40px;
 }
 
 .review-wrapper {
@@ -317,6 +321,19 @@ h3 span {
 
 .details-wrapper h4 {
   font: normal 1.2em 'Oswald', sans-serif;
+}
+
+.details-venue-name {
+  display: inline;
+}
+
+h4 .welcome-page-venue-rating {
+  background-color: #00B551;
+  font: normal 0.7em 'Oswald', sans-serif;
+  display: inline-block;
+  width: 50px;
+  margin: 0 auto;
+  border-radius: 5px 20px 5px;
 }
 
 /* parallax */
@@ -454,11 +471,16 @@ div .food-quote-container p  i {
 
 .rating {
   width: 40px;
+  margin: 0 auto;
   border-radius: 5px 20px 5px;
 }
 
 .price {
   font: italic .75em sans-serif;
+}
+
+.container-for-rating .modal-rating {
+  font: normal 1.5em sans-serif;
 }
 
 /* css for modal */
@@ -571,6 +593,7 @@ div .food-quote-container p  i {
 .modal-rating {
   width: 60px;
   margin: 0 auto;
+  border-radius: 5px 20px 5px;
 }
 
 .hours-wrapper {

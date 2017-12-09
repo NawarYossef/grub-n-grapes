@@ -138,7 +138,6 @@ class GrubGrapes {
 			//show map
 			this.showMap();
 			
-			// this.scrollToResults();
 			// clear input value for new search
 			this.clearInputVal();
 		})
@@ -355,7 +354,7 @@ const venues = {
 										<div class="data-container">
 											<h4 class="venue-name">${item.venue.name}</h4>
 											${venues.venueType(item)}
-											${venues.rating(item)}
+											${venues.ratingForVenue(item)}
 											${venues.getVenuePrice(item)}
 											<div class="address">	
 												<p class="address-desc">
@@ -379,7 +378,7 @@ const venues = {
 										<div id="${item.venue.id}" class="modal-wrapper">
 											<div class="modal-venue-info-wrapper ">
 												<h4 class="venue-name modal-venue-title">${item.venue.name}</h4>
-												${venues.rating(item)}
+												${venues.ratingForModal(item)}
 												${venues.venueWebsite(item)}
 												${venues.venueHours(item)}
 												${venues.venueStats(item)}
@@ -497,6 +496,17 @@ const venues = {
 		return '';
 	},
 
+	ratingForModal: (item) => {
+		if (Object.keys(item.venue).includes("rating")) {
+			return (
+				`<div class="container-for-rating modal-rating-wrapper">
+					<p class=" modal-rating" style="background-color: #${item.venue.ratingColor};">${item.venue.rating}</p>
+				</div>`
+			)
+		} 
+		return '';
+	},
+
 
 	// * * * * * * * * * * * *
 	// 	Venues
@@ -534,11 +544,11 @@ const venues = {
 		return '';
 	},
 
-	rating: (item) => {
+	ratingForVenue: (item) => {
 		if (Object.keys(item.venue).includes("rating")) {
 			return (
 				`<div class="container-for-rating modal-rating-wrapper">
-					<p class="rating modal-rating" style="background-color: #${item.venue.ratingColor};">${item.venue.rating}</p>
+					<p class="rating" style="background-color: #${item.venue.ratingColor};">${item.venue.rating}</p>
 				</div>`
 			)
 		} 

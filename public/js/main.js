@@ -137,7 +137,6 @@ class GrubGrapes {
 			//show map
 			this.showMap();
 			
-			// this.scrollToResults();
 			// clear input value for new search
 			this.clearInputVal();
 		})
