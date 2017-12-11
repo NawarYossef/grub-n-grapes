@@ -266,7 +266,7 @@ class GrubGrapes {
 	arrowScrollDown() {
 		$(".arrow").click(() => {
 			$('html, body').animate({
-					scrollTop: $(".reviews").offset().top
+					scrollTop: $(".how-it-works").offset().top
 			}, 900);
 		});
 	}
