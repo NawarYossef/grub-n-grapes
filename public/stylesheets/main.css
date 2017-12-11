@@ -394,14 +394,74 @@ div .food-quote-container p  i {
   padding-bottom: 20px;
 }
 
-.try-it-btn {
-  width: 30%;
-  /* background-color: #C9171E; */
+.back-to-search-bar-btn  {
+  font: normal 1.5em sans-serif;
+  width: 22%;
+  height: 50px;
   background-color: #00B551;
   color:black;
+  border: none;
+  outline: none;
+  border-radius: 5px;
 }
 
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* Hover Animation effect for back-to-search-bar Button
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+@-webkit-keyframes hvr-icon-up {
+  0%,
+	50%,
+	100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  25%,
+	75% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+  }
+}
+@keyframes hvr-icon-up {
+  0%,
+	50%,
+	100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  25%,
+	75% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+  }
+}
+
+.hvr-icon-up {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  padding-right: 2.2em;
+}
+.hvr-icon-up:before {
+  content: "\f01b";
+  position: absolute;
+  right: 1.5em;
+  padding: 0 1px;
+  font-family: FontAwesome;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.hvr-icon-up:hover:before, .hvr-icon-up:focus:before, .hvr-icon-up:active:before {
+  -webkit-animation-name: hvr-icon-up;
+  animation-name: hvr-icon-up;
+  -webkit-animation-duration: 0.75s;
+  animation-duration: 0.75s;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
 /* css for search search results */
 .venue:hover {
   cursor: pointer;

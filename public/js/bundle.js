@@ -278,7 +278,7 @@ class GrubGrapes {
 	}
 
 	scrollToHeader() {
-		$(".try-it-btn").click(() => {
+		$(".back-to-search-bar-btn").click(() => {
 			$('html, body').animate({
 					scrollTop: $("header").offset().top
 			}, 900);
