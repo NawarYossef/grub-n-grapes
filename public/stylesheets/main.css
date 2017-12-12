@@ -201,14 +201,25 @@ h2 {
   margin-bottom: 40px;
 }
 
-.how-it-works .h2-wrapper {
-  margin-bottom: 40px;
+.grub-grapes-img-wrapper {
+  text-align: center;
 }
 
+.grub-grapes-img-wrapper img {
+  width: 20%;
+}
+
+.description-paragraph-1, .description-paragraph-2, .description-paragraph-3 {
+  margin-top: 15px;
+  text-align: center;
+}
 .review-wrapper {
   margin-bottom: 50px; 
 }
 
+div .paragraph {
+  font: normal 1.3em/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
 .hours, .costumer-count {
   font: normal 1.2em 'Oswald', sans-serif;
@@ -265,8 +276,9 @@ h3 span {
 }
 
 .how-it-works {
+  border-top: solid rgb(112, 112, 112) 1px;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   height: 100%;
   
 }
@@ -378,13 +390,13 @@ div .food-quote-container p  i {
 }
 
 .text-for-review {
-  font: normal 1.7em/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: normal 2em/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding-top: 20px;
   text-align: left;
 }
 
 .img-for-review {
-  width: 35%;
+  width: 45%;
   border-radius: 50%;
 }
 
