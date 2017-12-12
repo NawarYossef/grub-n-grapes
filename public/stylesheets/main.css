@@ -284,7 +284,8 @@ h3 span {
 }
 
 .how-it-works, .main-page-places, .reviews {
-  background-color: #c3c3b8;
+  /* background-color: #c3c3b8; */
+  background-color: #a7967b;
 }
 .main-page-places {
   text-align: center;
