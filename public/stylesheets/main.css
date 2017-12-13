@@ -162,15 +162,15 @@ input {
 
 /* arrow bounce iteration */
 .arrow-wrapper {
-  -webkit-animation-delay: 1s;
-  -moz-animation-delay: 1s;
-  animation-delay: 1s;
-  -webkit-animation-duration: 3s;
-  -moz-animation-duration: 3s;
-  animation-duration: 3s;
-  -webkit-animation-iteration-count: 2;
-  -moz-animation-iteration-count: 2;
-  animation-iteration-count: 2;
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  animation-delay: 4s;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  animation-iteration-count: 1;
 }
 
 /* arrow scroll down */
@@ -359,7 +359,7 @@ h4 .welcome-page-venue-rating {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 2400px;
+  height: 2300px;
 }
 
 div .food-quote-container .text {
@@ -389,18 +389,18 @@ div .food-quote-container p  i {
 }
 
 .review-wrapper {
-  margin: 20px 0px 50px 0px;
+  margin: 20px 0px 20px 0px;
   text-align: center;
 }
 
 .text-for-review {
-  font: normal 2em/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: normal 1.7em/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding-top: 20px;
   text-align: left;
 }
 
 .img-for-review {
-  width: 40%;
+  width: 30%;
   border-radius: 50%;
 }
 
