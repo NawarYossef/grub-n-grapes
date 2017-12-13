@@ -213,7 +213,7 @@ h2 {
   margin-top: 15px;
   text-align: center;
 }
-.review-wrapper {
+.container-for-review {
   margin-bottom: 50px; 
 }
 
@@ -222,7 +222,7 @@ div .paragraph {
 }
 
 .hours, .costumer-count {
-  font: normal 1.2em 'Oswald', sans-serif;
+  font: normal 1em 'Oswald', sans-serif;
   display: block;
 }
 .city {
@@ -338,7 +338,10 @@ h4 .welcome-page-venue-rating {
 .examples {
   background-color: rgba(0,0,0,0.6);
   margin: 500px auto 0 auto;  
-  padding-top: 50px;
+} 
+
+.examples h2 {
+  color: #ffffff;
 }
 /* parallax */
 .parallax-1 {
@@ -356,7 +359,7 @@ h4 .welcome-page-venue-rating {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 2300px;
+  height: 2400px;
 }
 
 div .food-quote-container .text {
@@ -385,8 +388,8 @@ div .food-quote-container p  i {
   padding-bottom: 10px;
 }
 
-.reviews-wrapper {
-  margin-top: 20px;
+.review-wrapper {
+  margin: 20px 0px 50px 0px;
   text-align: center;
 }
 
@@ -397,7 +400,7 @@ div .food-quote-container p  i {
 }
 
 .img-for-review {
-  width: 45%;
+  width: 40%;
   border-radius: 50%;
 }
 
