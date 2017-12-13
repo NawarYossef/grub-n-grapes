@@ -213,9 +213,9 @@ class GrubGrapes {
 				{src: 'images/background3.jpg'},
 				{src: 'images/background4.jpg'}
 			],
-			delay: 5000,
+			delay: 6000,
 			transition: 'blur',
-			timer: false
+			timer: false,
 		});
 	}
 	
@@ -307,28 +307,36 @@ class GrubGrapes {
 	
 
 	animateHeaderText() {
-		$('.tlt').textillate({
-			inEffects: ['in'],
-			in: {
-				// set the effect name
-				effect: 'fadeInLeftBig',
+		$(".cont-for-h1").hide()
+		setTimeout(() => {
+			$(".cont-for-h1").show()
+			$('.tlt').textillate({
+				inEffects: ['in'],
+				in: {
+					// set the effect name
+					effect: 'fadeInLeftBig',
+			
+					// sets the initial delay before starting the animation
+					// initialDelay: 6,
+	
+					// set the delay factor applied to each consecutive character
+					delayScale: 1.5,
+			
+					// set the delay between each character
+					delay: 70,
+			
+					// set to true to animate all the characters at the same time
+					sync: false,
+			
+					// randomize the character sequence
+					shuffle: false,
+			
+					// reverse the character sequence
+					reverse: false,
+				}
+			});
+		}, 2000)
 		
-				// set the delay factor applied to each consecutive character
-				delayScale: 1.5,
-		
-				// set the delay between each character
-				delay: 70,
-		
-				// set to true to animate all the characters at the same time
-				sync: false,
-		
-				// randomize the character sequence
-				shuffle: false,
-		
-				// reverse the character sequence
-				reverse: false,
-			}
-		});
 	}
 }
 
