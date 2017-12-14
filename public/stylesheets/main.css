@@ -715,7 +715,6 @@ div .food-quote-container p  i {
   width: 100%;
 }
 
-
 @media only screen and (min-width: 320px) {
   body header .cont-for-h1 {
     width: 80%;
@@ -832,6 +831,22 @@ div .food-quote-container p  i {
     font-family: FontAwesome;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  body header h1 {
+    font: italic 3.5em 'Passion One', cursive, sans-serif;
+    margin-left: 8%;
+  }
+
+  body header h6 {
+    font: italic 1em sans-serif;
+  }
+
+  .container-form button {
+    height: 38px;
+    font: normal 1.3em sans-serif;
   }
 }
 
