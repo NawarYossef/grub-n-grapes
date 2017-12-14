@@ -125,7 +125,7 @@ h6 {
 }
 
 input {
-  font-size: 1.4em;
+  font: normal 1.4em sans-serif;
   width: 70%;
   height: 60px;
   padding-left: 3%;
@@ -391,6 +391,10 @@ div .food-quote-container p  i {
 .review-wrapper {
   margin: 20px 0px 20px 0px;
   text-align: center;
+}
+
+.review-wrapper-3 {
+  display: none;
 }
 
 .text-for-review {
@@ -711,6 +715,125 @@ div .food-quote-container p  i {
   width: 100%;
 }
 
+
+@media only screen and (min-width: 320px) {
+  body header .cont-for-h1 {
+    width: 80%;
+  }
+
+  body header h1 {
+    font: italic 3em 'Passion One', cursive, sans-serif;
+    margin-left: 8%;
+  }
+
+  body header h6 {
+    font: italic 1em sans-serif;
+  }
+
+  .form-main {
+    height: 60px;
+  }
+  .container-form {
+    width: 90%;
+    margin-top: 25%;
+  }
+
+  form input {
+    height: 40px;
+    font: normal 1.2em sans-serif;
+  }
+
+  .container-form button {
+    height: 38px;
+    font: normal 1.2em sans-serif;
+  }
+
+  .food, .wine {
+    font: bold 1.5em 'Audiowide', cursive, sans-serif;
+  }
+
+  .options {
+    text-align: center;
+    margin: 0 auto 0 auto;
+  }
+
+  .fa-arrow-circle-down {
+    margin-top: 200px;
+  }
+
+  .description {
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    font-size: 2.3em;
+  }
+
+  .how-it-works {
+    padding-top: 5px;
+    padding-bottom: 0px;
+  }
+
+  .grub-grapes-img-wrapper img {
+    width: 15%;
+  } 
+
+  div .food-quote-container .qoute-text-1 {
+    font-size: 1.5em;
+    margin-top: 300px;
+  }
+
+  .text-for-review {
+    /* font: normal 1.2em "Helvetica Neue", Helvetica, Arial, sans-serif; */
+    font: normal 1.3em/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .review-wrapper {
+    margin: 0;
+  }
+
+  .review-wrapper-2 {
+    display: none;
+  }
+
+  .review-wrapper-3 {
+    display: initial;
+  }
+
+  .text-for-review {
+    text-align: center;
+  }
+
+  .parallax-2 .h2-wrapper {
+    margin-bottom: 58px;
+  }
+
+  .details-wrapper h4 {
+    font-size: 2em;
+  }
+
+  .img-venue-example {
+    width: 90%;
+  }
+
+  .example-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .back-to-search-bar-btn {
+    width: 80%;
+  }
+
+  .hvr-icon-up:before {
+    content: "\f01b";
+    position: absolute;
+    right: 1em;
+    padding: 0 1px;
+    font-family: FontAwesome;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
 
 /* Non-mobile, grid */
 @media only screen and (min-width: 640px) {
