@@ -27,7 +27,7 @@ const venues = {
 							</div>
 
 							<!-- modal -->
-							<div class="modal animated bounceInUp" id="${item.venue.id}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							<div class="modal  fade" id="${item.venue.id}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 								<div class="modal-dialog " role="document">
 									<div class="modal-content">
 
@@ -77,7 +77,7 @@ const venues = {
 	// * * * * * * * * * * * *
 	renderModalBody: (results, venueId, item) => {
 		// use range variable to limit data being rendered 
-		let range = Array.from(new Array(4).keys());
+		let range = Array.from(new Array(20).keys());
 		range.forEach((idx) => {
 			$(`#${venueId} .modal-content`).append(
 				`<section class=" modal-venue-review">

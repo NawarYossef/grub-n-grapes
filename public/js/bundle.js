@@ -22,8 +22,6 @@
 
 
 // modal animation
-
-
 "use strict";
 const venues = require("./venues.js")	
 
@@ -37,11 +35,11 @@ class GrubGrapes {
 	}
 
 	init() {
+		this.animateHeaderText();
 		this.hideMap();
 		this.handleSearchQuery();
 		this.handleSearchForCityFromMainPage();
 		this.headerImageSlideShow();
-		this.animateHeaderText();
 		this.changeImageForFoodSelect();
 		this.changeImageForWineSelect();
 		this.addNeonColorForFoodWord();
@@ -79,15 +77,9 @@ class GrubGrapes {
 
 			this.responseLength = Object.values(data.response).length;
 			this.responseStatus = data.meta.code;
-			
-			//dataIsValid()
-			// is data.response.groups[0].items !== undefined || null
 			this.results = data.response.groups[0].items;
-			// if dataIsValid()
+	
 			this.StateChange();
-
-			//if dataIsValid()
-			
 
 		}).fail(() => {
 			this.clearResults();
@@ -99,10 +91,10 @@ class GrubGrapes {
 	}
 	
 	StateChange() {
-		console.log(this.responseStatus)
-		console.log(this.responseLength)
-		console.log(this.results)
-		if ( this.responseLength === 0  || this.results.length === 0 || this.responseStatus !== 200) {
+		// console.log(this.responseStatus)
+		// console.log(this.responseLength)
+		// console.log(this.results)
+		if (this.responseLength === 0  || this.results.length === 0 || this.responseStatus !== 200) {
 			this.clearResults();
 			this.showWelcomPage();
 			this.hideMap();
@@ -110,7 +102,6 @@ class GrubGrapes {
 		} else {
 			this.hideWelcomePage();
 			this.clearResults();
-			// this.loadingAnimation()
 			this.showMap();
 			venues.showResultsMessage();
 			venues.render(this.results);
@@ -168,7 +159,6 @@ class GrubGrapes {
 
 			//show map
 			this.showMap();
-
 		})
 	}
 
@@ -188,12 +178,6 @@ class GrubGrapes {
 		$(".map-container").show();
 	}
 
-	loadingAnimation() {
-		this.hideMap()
-		// this.showAnimation()
-	}
-	
-	
 	clearResults() {
 		$(".all-results").empty();
 	}
@@ -305,12 +289,11 @@ class GrubGrapes {
 		$(window).scroll(app.setupMapFixedPositionOnScroll);
 	}
 
-	
-
 	animateHeaderText() {
-		$(".cont-for-h1").hide()
+		$(".cont-for-h1").hide();
 		setTimeout(() => {
-			$(".cont-for-h1").show()
+			$(".cont-for-h1").show();
+
 			$('.tlt').textillate({
 				inEffects: ['in'],
 				in: {
@@ -336,8 +319,7 @@ class GrubGrapes {
 					reverse: false,
 				}
 			});
-		}, 2000)
-		
+		}, 2000)	
 	}
 }
 
@@ -375,7 +357,7 @@ const venues = {
 							</div>
 
 							<!-- modal -->
-							<div class="modal animated bounceInUp" id="${item.venue.id}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							<div class="modal  fade" id="${item.venue.id}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 								<div class="modal-dialog " role="document">
 									<div class="modal-content">
 
@@ -425,7 +407,7 @@ const venues = {
 	// * * * * * * * * * * * *
 	renderModalBody: (results, venueId, item) => {
 		// use range variable to limit data being rendered 
-		let range = Array.from(new Array(4).keys());
+		let range = Array.from(new Array(20).keys());
 		range.forEach((idx) => {
 			$(`#${venueId} .modal-content`).append(
 				`<section class=" modal-venue-review">
