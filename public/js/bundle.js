@@ -472,7 +472,9 @@ const venues = {
 	},
 
 	venueHours: (item) => {
-		if (Object.keys(item.venue).includes("hours") && item.venue.hours.length !== 0) {
+		if (Object.keys(item.venue).includes("hours") && 
+				Object.keys(item.venue.hours).includes("status") && 
+				item.venue.hours.length !== 0) {
 			return (
 				`<div class="hours-wrapper col-12">
 					<p class="modal-hours">${item.venue.hours.status}</p>
@@ -483,7 +485,9 @@ const venues = {
 	},
 
 	venueStats: (item) => {
-		if (Object.keys(item.venue).includes("stats") && item.venue.stats.length !== 0) {
+		if (Object.keys(item.venue).includes("stats") && 
+			  Object.keys(item.venue.stats).includes("checkinsCount") && 
+			  item.venue.stats.length !== 0) {
 			return (
 				`<div class="stats-wrapper col-12">
 					<p class="modal-stats">Last month checkins: ${item.venue.stats.checkinsCount} Customers</p>
