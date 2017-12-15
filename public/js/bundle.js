@@ -103,6 +103,7 @@ class GrubGrapes {
 			this.hideWelcomePage();
 			this.clearResults();
 			this.showMap();
+			this.ButtonForMap()
 			venues.showResultsMessage();
 			venues.render(this.results);
 			venues.initializeMap(this.results);
@@ -176,6 +177,12 @@ class GrubGrapes {
 
 	showMap() {
 		$(".map-container").show();
+	}
+
+	ButtonForMap() {
+		$("btn-for-map").click(() => {
+			this.showMap();
+		})
 	}
 
 	clearResults() {
@@ -457,7 +464,7 @@ const venues = {
 		if (Object.keys(item.venue).includes("url") && item.venue.url.length !== 0) {
 			return (
 				`<div class="website-wrapper col-12">
-					<a href="${item.venue.url}" target="_blank" class="modal-website">${item.venue.url}</a>
+					<a href="${item.venue.url}" target="_blank" class="modal-website">Visit Website</a>
 				 </div>`
 			)
 		} 
@@ -614,5 +621,6 @@ const venues = {
 }
 
 module.exports = venues;
+
 
 },{}]},{},[1]);

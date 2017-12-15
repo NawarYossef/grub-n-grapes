@@ -102,6 +102,7 @@ class GrubGrapes {
 			this.hideWelcomePage();
 			this.clearResults();
 			this.showMap();
+			this.ButtonForMap()
 			venues.showResultsMessage();
 			venues.render(this.results);
 			venues.initializeMap(this.results);
@@ -175,6 +176,12 @@ class GrubGrapes {
 
 	showMap() {
 		$(".map-container").show();
+	}
+
+	ButtonForMap() {
+		$("btn-for-map").click(() => {
+			this.showMap();
+		})
 	}
 
 	clearResults() {
