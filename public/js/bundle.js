@@ -206,7 +206,7 @@ class GrubGrapes {
 				{src: 'images/background4.jpg'}
 			],
 			delay: 6000,
-			transition: 'blur',
+			transition: 'fade',
 			timer: false,
 		});
 	}
@@ -414,7 +414,7 @@ const venues = {
 	// * * * * * * * * * * * *
 	renderModalBody: (results, venueId, item) => {
 		// use range variable to limit data being rendered 
-		let range = Array.from(new Array(20).keys());
+		let range = Array.from(new Array(30).keys());
 		range.forEach((idx) => {
 			$(`#${venueId} .modal-content`).append(
 				`<section class=" modal-venue-review">
@@ -511,7 +511,7 @@ const venues = {
 	showResultsMessage: () => {
 		const content = (
 			`<div class="search-results-wrapper ">
-				<h4>Your Results</h4>
+				<h4>Your Results:</h4>
 			</div>`
 		)
 		$(".all-results").append(content);

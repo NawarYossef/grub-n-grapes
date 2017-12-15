@@ -6,7 +6,9 @@
 
 body {
   width: 100%; 
-  background-color: #beb29e;
+  /* background-color: #beb29e; */
+  /* background-color: #dedede; */
+  background-color: #e8e8e8;
 }
 
 body header {
@@ -286,8 +288,8 @@ h3 span {
 }
 
 .how-it-works, .main-page-places, .reviews {
-  /* background-color: #c3c3b8; */
-  background-color: #a7967b;
+  /* background-color: #a7967b; */
+  background-color: #c7bba7;
 }
 .main-page-places {
   text-align: center;
@@ -599,7 +601,7 @@ div .food-quote-container p  i {
 
 .modal-content {
   position: absolute;
-  background-color: #e2e2e2;
+  background-color: #e4e4e4;
 }
 
 .modal-reviews-header {

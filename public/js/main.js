@@ -205,7 +205,7 @@ class GrubGrapes {
 				{src: 'images/background4.jpg'}
 			],
 			delay: 6000,
-			transition: 'blur',
+			transition: 'fade',
 			timer: false,
 		});
 	}
