@@ -93,7 +93,7 @@ class GrubGrapes {
 	StateChange() {
 		// console.log(this.responseStatus)
 		// console.log(this.responseLength)
-		// console.log(this.results)
+		console.log(this.results)
 		if (this.responseLength === 0  || this.results.length === 0 || this.responseStatus !== 200) {
 			this.clearResults();
 			this.showWelcomPage();
@@ -103,7 +103,7 @@ class GrubGrapes {
 			this.hideWelcomePage();
 			this.clearResults();
 			this.showMap();
-			this.ButtonForMap()
+			this.buttonForMap();
 			venues.showResultsMessage();
 			venues.render(this.results);
 			venues.initializeMap(this.results);
@@ -179,7 +179,7 @@ class GrubGrapes {
 		$(".map-container").show();
 	}
 
-	ButtonForMap() {
+	buttonForMap() {
 		$("btn-for-map").click(() => {
 			this.showMap();
 		})
@@ -564,7 +564,7 @@ const venues = {
 	},
 	
 	printFormattedAddress: (item) => {
-		return item.venue.location.formattedAddress.join("").split(",").join(" ");
+		return item.venue.location.formattedAddress.join(". ");
 	},
 
 	

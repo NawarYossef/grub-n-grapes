@@ -227,7 +227,7 @@ const venues = {
 	},
 	
 	printFormattedAddress: (item) => {
-		return item.venue.location.formattedAddress.join("").split(",").join(" ");
+		return item.venue.location.formattedAddress.join(". ");
 	},
 
 	

@@ -6,7 +6,7 @@
 
 body {
   width: 100%; 
-  background-color: #beb8af;
+  background-color: #beb29e;
 }
 
 body header {
@@ -314,7 +314,7 @@ h3 span {
 }
 
  body main .data-container h4 {
-  font: normal 2em/1 "Helvetica Neue", Helvetica ,Arial,  sans-serif;
+  font: normal 1.5em/1 "Helvetica Neue", Helvetica ,Arial,  sans-serif;
   margin-top: 5px;
 }
 
@@ -505,7 +505,8 @@ div .food-quote-container p  i {
 }
 
 .search-results-wrapper h4 {
-  font: normal 1.5em/1 "Helvetica Neue", Helvetica ,Arial,  sans-serif;
+  font: italic 1.3em "Helvetica Neue", Helvetica ,Arial,  sans-serif;
+  color: rgb(0, 0, 0);
 }
 
 .venue:hover {
@@ -513,11 +514,13 @@ div .food-quote-container p  i {
 }
 
 .container-for-data {
-  background-color: #f5f5f5;
-  border: solid 1px rgb(211, 211, 211);
   margin-bottom: 10px;
   border-radius: 10px;
-  box-shadow: 2px 5px 5px rgb(211, 211, 211);
+  box-shadow: 1px 5px 5px rgb(211, 211, 211);
+}
+
+.container-for-data:hover {
+  box-shadow: 2px 5px 5px rgb(150, 147, 147);
 }
 
 .row {
@@ -539,16 +542,8 @@ div .food-quote-container p  i {
 .all-info-container {
   display: flex;
   flex-wrap: nowrap;
-  background-color: #c1b0c7;
-  
-/* 
-//#c1b0c7
-//#d2a7a5
-//
-
-//#e1e1e1
-//#607d8b
-*/
+  background-color: #a8abb7;
+  border-radius: 10px;
 }
 
 .venue-type {
@@ -604,6 +599,7 @@ div .food-quote-container p  i {
 
 .modal-content {
   position: absolute;
+  background-color: #e2e2e2;
 }
 
 .modal-reviews-header {
@@ -626,7 +622,7 @@ div .food-quote-container p  i {
 
 .modal-reviews-header-title {
   text-align: center;
-  margin: 50px 0 20px 0;
+  margin: 50px 0 10px 0;
   text-decoration: underline;
 }
 
