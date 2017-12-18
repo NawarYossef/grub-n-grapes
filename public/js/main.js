@@ -66,7 +66,7 @@ class GrubGrapes {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	2,
+				limit:	10,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -101,7 +101,7 @@ class GrubGrapes {
 		} else {
 			this.hideWelcomePage();
 			this.clearResults();
-			this.showMap();
+			// this.showMap();
 			this.buttonForMap();
 			venues.showResultsMessage();
 			venues.render(this.results);
@@ -127,7 +127,7 @@ class GrubGrapes {
 			this.whichVenueTypeToSearch(this.searchQuery);
 
 			//show map
-			this.showMap();
+			// this.showMap();
 			
 			// clear input value for new search
 			this.clearInputVal();
@@ -158,7 +158,7 @@ class GrubGrapes {
 			this.whichVenueTypeToSearch(this.cityName);
 
 			//show map
-			this.showMap();
+			// this.showMap();
 		})
 	}
 
@@ -200,13 +200,14 @@ class GrubGrapes {
 		$('header').vegas({
 			slides: [
 				{src: 'images/background1.jpg'},
-				{src: 'images/background2.jpg'},
 				{src: 'images/background3.jpg'},
+				{src: 'images/background2.jpg'},
 				{src: 'images/background4.jpg'}
 			],
 			delay: 6000,
 			transition: 'fade',
 			timer: false,
+			cover:	true
 		});
 	}
 	

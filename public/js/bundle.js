@@ -67,7 +67,7 @@ class GrubGrapes {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	2,
+				limit:	10,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -102,7 +102,7 @@ class GrubGrapes {
 		} else {
 			this.hideWelcomePage();
 			this.clearResults();
-			this.showMap();
+			// this.showMap();
 			this.buttonForMap();
 			venues.showResultsMessage();
 			venues.render(this.results);
@@ -128,7 +128,7 @@ class GrubGrapes {
 			this.whichVenueTypeToSearch(this.searchQuery);
 
 			//show map
-			this.showMap();
+			// this.showMap();
 			
 			// clear input value for new search
 			this.clearInputVal();
@@ -159,7 +159,7 @@ class GrubGrapes {
 			this.whichVenueTypeToSearch(this.cityName);
 
 			//show map
-			this.showMap();
+			// this.showMap();
 		})
 	}
 
@@ -201,13 +201,14 @@ class GrubGrapes {
 		$('header').vegas({
 			slides: [
 				{src: 'images/background1.jpg'},
-				{src: 'images/background2.jpg'},
 				{src: 'images/background3.jpg'},
+				{src: 'images/background2.jpg'},
 				{src: 'images/background4.jpg'}
 			],
 			delay: 6000,
 			transition: 'fade',
 			timer: false,
+			cover:	true
 		});
 	}
 	
@@ -344,24 +345,33 @@ const venues = {
 				return (
 					 `<div class="venue col-12">
 							<!-- Link to open the modal -->
-							<div data-toggle="modal" data-target="#${item.venue.id}">
-								<div class="container-for-data">
-									<div class="all-info-container">
-										${venues.venueImage(item)}
-										<div class="data-container">
-											<h4 class="venue-name">${item.venue.name}</h4>
-											${venues.venueType(item)}
-											${venues.ratingForVenue(item)}
-											${venues.getVenuePrice(item)}
-											<div class="address">	
-												<p class="address-desc">
-													${venues.printFormattedAddress(item)}
-												</p>
-											</div>	
+							<div class="container-for-data">
+								<div class="all-info-container">
+									${venues.venueImage(item)}
+									<div class="data-container">
+										<h4 class="venue-name">${item.venue.name}</h4>
+										${venues.venueType(item)}
+										${venues.ratingForVenue(item)}
+										<div class="map-link">
+											<a src="" class="get-map-link">
+											<p><i class="fa fa-map-o" aria-hidden="true"></i>Get Directions</p>
+											</a>
+											<div data-toggle="modal" data-target="#${item.venue.id}" class="modal-link">
+												<a src="" class="get-details-link">
+													<p><i class="fa fa-file" aria-hidden="true"></i>Reviews</p>
+												</a>
+											</div>
 										</div>
+										${venues.getVenuePrice(item)}
+										<div class="address">	
+											<p class="address-desc">
+											<i class="fa fa-car" aria-hidden="true"></i>${venues.printFormattedAddress(item)}
+											</p>
+										</div>	
 									</div>
 								</div>
 							</div>
+							
 
 							<!-- modal -->
 							<div class="modal  fade" id="${item.venue.id}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -548,7 +558,7 @@ const venues = {
 	ratingForVenue: (item) => {
 		if (Object.keys(item.venue).includes("rating")) {
 			return (
-				`<div class="container-for-rating modal-rating-wrapper">
+				`<div class="cont-for-rating">
 					<p class="rating" style="background-color: #${item.venue.ratingColor};">${item.venue.rating}</p>
 				</div>`
 			)
@@ -560,7 +570,7 @@ const venues = {
 		if (Object.keys(item.venue).includes("price")) {
 			return (
 				`<div class="container-for-price">
-					<p class="price">Price: <span class="price-description">${item.venue.price.message}</span></p>
+					<i class="fa fa-usd" aria-hidden="true"></i><p class="price">Price: <span class="price-description">${item.venue.price.message}</span></p>
 				</div>`
 			)
 		} 
