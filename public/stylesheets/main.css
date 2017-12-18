@@ -289,8 +289,8 @@ h3 span {
 }
 
 .how-it-works, .main-page-places, .reviews {
-  /* background-color: #a7967b; */
-  background-color: #c7bba7;
+  background-color: #a7967b;
+  /* background-color: #c7bba7; */
 }
 .main-page-places {
   text-align: center;
@@ -541,7 +541,7 @@ div .food-quote-container p  i {
 .all-info-container {
   display: grid;
   flex-wrap: nowrap;
-  background-color: #bdbcb4;
+  background-color: #a7a590;
   border-radius: 8px;
 }
 
@@ -930,6 +930,11 @@ div .food-quote-container p  i {
     transform: translateZ(0);
   }
 
+  .search-results-wrapper h4 {
+    font-size: 1em;
+    display: inline-block;
+  }
+
   .all-info-container {
     display: grid;
     overflow: auto;
@@ -957,7 +962,7 @@ div .food-quote-container p  i {
   }
 
   body main .data-container h4 {
-    font-size: 1.7em;
+    font-size: 1.4em;
     margin-top: 3px;
     display: block;
   }
@@ -975,12 +980,13 @@ div .food-quote-container p  i {
     margin-bottom: 5px;
   }
 
-  .fa-map-o, .fa-car, .fa-usd, .fa-file {
-    margin-right: 5px;
+  .fa-map-o, .fa-car, .fa-usd, .fa-comment {
+    margin-right: 3px;
   }
 
   .map-link {
     display: block;
+    margin-top: 2px;
   }
 
   .map-link p {
@@ -1168,8 +1174,8 @@ div .food-quote-container p  i {
     padding-right: 2px; 
   }
 
-  .fa-map-o, .fa-car, .fa-file, .fa-usd  {
-    margin-right: 5px;
+  .fa-map-o, .fa-car, .fa-comment, .fa-usd  {
+    margin-right: 3px;
   }
 
   .modal-link {
@@ -1179,6 +1185,7 @@ div .food-quote-container p  i {
 
   .map-link {
     display: block;
+    margin-top: 2px;
   }
 
   .map-link p {
@@ -1212,7 +1219,7 @@ div .food-quote-container p  i {
   }
 
   body main .data-container h4 {
-    font-size: 1.7em;
+    font-size: 1.4em;
     margin-top: 3px;
     display: block;
   }
@@ -1223,6 +1230,11 @@ div .food-quote-container p  i {
     display: inline-block;
     font-style: italic;
   }
+
+  .search-results-wrapper h4 {
+    font-size: 1em;
+    display: inline-block;
+   }
 
   .address {
     font-size: 1em;
@@ -1330,6 +1342,11 @@ div .food-quote-container p  i {
     margin-top: 300px;
   }
 
+  .search-results-wrapper h4 {
+    font-size: 1em;
+    display: inline-block;
+   }
+
   .text-for-review {
     font: normal 1.3em/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
@@ -1432,7 +1449,7 @@ div .food-quote-container p  i {
   }
   
   body main .data-container h4 {
-    font-size: 2em;
+    font-size: 1.5em;
     margin-top: 5px;
     display: block;
   }
@@ -1445,12 +1462,13 @@ div .food-quote-container p  i {
     display: inline-block;
   }
 
-  .fa-map-o, .fa-car, .fa-usd, .fa-file {
-    margin-right: 5px;
+  .fa-map-o, .fa-car, .fa-usd, .fa-comment {
+    margin-right: 3px;
   }
 
   .map-link {
     display: block;
+    margin-top: 2px;
   }
 
   .map-link p {
@@ -1652,7 +1670,16 @@ div .food-quote-container p  i {
     padding-right: 2px; 
   }
 
-  .fa-map-o, .fa-car, .fa-usd, .fa-file {
+  .all-info-container {
+    display: grid;
+    padding-bottom: 4px;
+  }
+
+  .venue-img {
+    border-radius: 10px;
+  }
+
+  .fa-map-o, .fa-car, .fa-usd, .fa-comment {
     margin-right: 5px;
   }
 
@@ -1663,6 +1690,7 @@ div .food-quote-container p  i {
 
   .map-link {
     display: block;
+    margin-top: 2px;
   }
 
   .map-link p {
@@ -1677,6 +1705,7 @@ div .food-quote-container p  i {
   .cont-for-rating {
     display: inline-block;
     vertical-align: inherit;
+    width: 0%;
   }
 
   .rating {
@@ -1858,7 +1887,7 @@ div .food-quote-container p  i {
   }
 
   h3 {
-    font-size: 1em;
+    font-size: 0.8em;
   }
 
   .img-places {
@@ -1891,39 +1920,46 @@ div .food-quote-container p  i {
     display: inline-block;
     text-align: center;
     vertical-align: top;
+    width: 0%;
   }
 
   .rating {
-    width: 37px;
-    height: 20px;
-    font-size: 1em;
+    width: 39px;
+    height: 22px;
+    font-size: 1.2em;
     font-weight: bold;
     margin: 0 auto;
     border-radius: 5px 20px 5px;
   }
 
   .container-for-price {
+    font-size: 1.2em;
     display: initial;
   }
 
   body main .data-container h4 {
-    font-size: 1.5em;
+    font-size: 1.6em;
     margin-top: 5px;
   }
   
   body main .data-container h5 {
-    font-size: 1em;
+    font-size: 1.2em;
     margin-top: 3px;
     display: inline-block;
     font-style: italic;
   }
 
-  .venue {
-    width: 200%;
+  .search-results-wrapper h4 {
+    font-size: 1em;
+    display: inline-block;
+   }
+
+  .col-6 {
+    width: 100%;
   }
 
   .address {
-    font-size: 1em;
+    font-size: 1.2em;
     padding-bottom: 2px;
   }
 
@@ -1942,21 +1978,22 @@ div .food-quote-container p  i {
     font-size: 1.8em;
   }
 
-  .fa-map-o, .fa-car, .fa-usd, .fa-file {
-    margin-right: 5px;
+  .fa-map-o, .fa-car, .fa-usd, .fa-comment {
+    margin-right: 3px;
   }
 
   .modal-link {
-    float: right;
-    margin-right: 20px;
+    margin-left: 81px;
+    display: inline;
   }
 
   .map-link {
     display: block;
+    margin-top: 4px;
   }
 
   .map-link p {
-    font: normal 1.2em 'Passion One', cursive, sans-serif;
+    font: normal 1.5em 'Passion One', cursive, sans-serif;
     display: inline-block;
   }
 
@@ -1969,9 +2006,13 @@ div .food-quote-container p  i {
   }
 
   .all-info-container {
-    display: flex;
+    display: grid;
+    padding-bottom: 4px;
   }
 
+  .venue-img {
+    border-radius: 10px;
+  }
 }
 
 @media screen and (min-width: 767px) and (max-width: 1024px) {
@@ -2120,6 +2161,10 @@ div .food-quote-container p  i {
     transform: translateZ(0);
   }
 
+  .container-for-image img {
+    border-radius: 10px;
+  }
+
   .map-btn-wrapper {
     display: none;
   } 
@@ -2130,6 +2175,29 @@ div .food-quote-container p  i {
 
   .map-link {
     display: block;
+    margin-top: 3px;
+  }
+
+  .map-link p {
+    font: normal 1.2em 'Passion One', cursive, sans-serif;
+    display: inline-block;
+  }
+
+  .fa-map-o, .fa-car, .fa-usd, .fa-comment {
+    margin-right: 3px;
+  }
+
+  .container-for-price {
+    display: initial;
+  }
+
+  .price {
+    display: initial;
+  }
+
+  .search-results-wrapper h4 {
+    font-size: 1em;
+    display: inline-block;
   }
 
   .get-map-link:hover, .get-details-link:hover {
@@ -2143,11 +2211,14 @@ div .food-quote-container p  i {
   .container-for-price {
     display: initial;
   }
+
   .rating {
-    width: 40px;
+    width: 37px;
+    height: 20px;
     font-size: 1em;
+    font-weight: bold;
     margin: 0 auto;
-    border-radius: 5px 20px 5px;
+    border-radius: 5px 20px 5px
   }
 
   .container-for-price {
@@ -2156,13 +2227,20 @@ div .food-quote-container p  i {
   }
 
   body main .data-container h4 {
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin-top: 5px;
   }
   
   body main .data-container h5 {
     font-size: 1em;
     margin-top: 5px;
+    font-style: italic;
+  }
+
+  .cont-for-rating {
+    display: inline-block;
+    vertical-align: inherit;
+    width: 0%;
   }
 
   .address {
@@ -2188,6 +2266,11 @@ div .food-quote-container p  i {
   .all-info-container {
     display: flex;
   } 
+
+  /* .modal-link {
+    display: inline;
+    margin-left: 15px;
+  } */
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1200px) {

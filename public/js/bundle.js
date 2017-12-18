@@ -67,7 +67,7 @@ class GrubGrapes {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	10,
+				limit:	2,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -102,8 +102,7 @@ class GrubGrapes {
 		} else {
 			this.hideWelcomePage();
 			this.clearResults();
-			// this.showMap();
-			this.buttonForMap();
+			this.handleMapDisplay();
 			venues.showResultsMessage();
 			venues.render(this.results);
 			venues.initializeMap(this.results);
@@ -126,9 +125,6 @@ class GrubGrapes {
 
 			// get API response based on venue type choosed (wine of food)
 			this.whichVenueTypeToSearch(this.searchQuery);
-
-			//show map
-			// this.showMap();
 			
 			// clear input value for new search
 			this.clearInputVal();
@@ -157,9 +153,6 @@ class GrubGrapes {
 
 			// get API response based on venue type choosed (wine of food)
 			this.whichVenueTypeToSearch(this.cityName);
-
-			//show map
-			// this.showMap();
 		})
 	}
 
@@ -176,12 +169,16 @@ class GrubGrapes {
 	}
 
 	showMap() {
-		$(".map-container").show();
+		$(".map-container").show();	
 	}
 
-	buttonForMap() {
-		$("btn-for-map").click(() => {
-			this.showMap();
+	handleMapDisplay() {
+		$(window).resize(() => {
+			if ($(window).width() >= 767) {
+				$(".map-container").show();
+			} else {
+				$(".map-container").hide();	
+			}
 		})
 	}
 
@@ -354,11 +351,11 @@ const venues = {
 										${venues.ratingForVenue(item)}
 										<div class="map-link">
 											<a src="" class="get-map-link">
-											<p><i class="fa fa-map-o" aria-hidden="true"></i>Get Directions</p>
+											<p><i class="fa fa-map-o" aria-hidden="true"></i>Directions</p>
 											</a>
 											<div data-toggle="modal" data-target="#${item.venue.id}" class="modal-link">
 												<a src="" class="get-details-link">
-													<p><i class="fa fa-file" aria-hidden="true"></i>Reviews</p>
+													<p><i class="fa fa-comment" aria-hidden="true"></i>Reviews</p>
 												</a>
 											</div>
 										</div>
@@ -525,7 +522,8 @@ const venues = {
 	showResultsMessage: () => {
 		const content = (
 			`<div class="search-results-wrapper ">
-				<h4>Your Results:</h4>
+		  	<i class="fa fa-list-alt" aria-hidden="true"></i>
+				<h4>Your Results</h4>
 			</div>`
 		)
 		$(".all-results").append(content);
@@ -535,7 +533,7 @@ const venues = {
 		if(item.venue.photos.groups.length !== 0) {
 			 return (
 				`<div class="container-for-image">
-					<img src="${item.venue.photos.groups[0].items[0].prefix}120x120${item.venue.photos.groups[0].items[0].suffix}" class="venue-img"/>
+					<img src="${item.venue.photos.groups[0].items[0].prefix}300x300${item.venue.photos.groups[0].items[0].suffix}" class="venue-img"/>
 				</div>`
 			 )
 		} 

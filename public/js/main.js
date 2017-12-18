@@ -66,7 +66,7 @@ class GrubGrapes {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	10,
+				limit:	2,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -101,8 +101,7 @@ class GrubGrapes {
 		} else {
 			this.hideWelcomePage();
 			this.clearResults();
-			// this.showMap();
-			this.buttonForMap();
+			this.handleMapDisplay();
 			venues.showResultsMessage();
 			venues.render(this.results);
 			venues.initializeMap(this.results);
@@ -125,9 +124,6 @@ class GrubGrapes {
 
 			// get API response based on venue type choosed (wine of food)
 			this.whichVenueTypeToSearch(this.searchQuery);
-
-			//show map
-			// this.showMap();
 			
 			// clear input value for new search
 			this.clearInputVal();
@@ -156,9 +152,6 @@ class GrubGrapes {
 
 			// get API response based on venue type choosed (wine of food)
 			this.whichVenueTypeToSearch(this.cityName);
-
-			//show map
-			// this.showMap();
 		})
 	}
 
@@ -175,12 +168,16 @@ class GrubGrapes {
 	}
 
 	showMap() {
-		$(".map-container").show();
+		$(".map-container").show();	
 	}
 
-	buttonForMap() {
-		$("btn-for-map").click(() => {
-			this.showMap();
+	handleMapDisplay() {
+		$(window).resize(() => {
+			if ($(window).width() >= 767) {
+				$(".map-container").show();
+			} else {
+				$(".map-container").hide();	
+			}
 		})
 	}
 
