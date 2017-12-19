@@ -66,7 +66,7 @@ class GrubGrapes {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	2,
+				limit:	4,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -172,6 +172,7 @@ class GrubGrapes {
 	}
 
 	handleMapDisplay() {
+		
 		$(window).resize(() => {
 			if ($(window).width() >= 767) {
 				$(".map-container").show();

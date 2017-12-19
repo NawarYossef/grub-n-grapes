@@ -14,7 +14,7 @@ const venues = {
 										<h4 class="venue-name">${item.venue.name}</h4>
 										${venues.venueType(item)}
 										${venues.ratingForVenue(item)}
-										<div class="map-link">
+										<div class="map-link col-6">
 											<a src="" class="get-map-link">
 											<p><i class="fa fa-map-o" aria-hidden="true"></i>Directions</p>
 											</a>
@@ -25,12 +25,15 @@ const venues = {
 											</div>
 										</div>
 										${venues.getVenuePrice(item)}
-										<div class="address">	
-											<p class="address-desc">
-											<i class="fa fa-car" aria-hidden="true"></i>${venues.printFormattedAddress(item)}
-											</p>
-										</div>	
+										${venues.venueHours(item)}
+										${venues.venueWebsite(item)}
 									</div>
+								</div>
+								<div class="address">	
+									<p class="address-desc">
+										<i class="fa fa-car" aria-hidden="true"></i>
+										${venues.printFormattedAddress(item)}
+									</p>
 								</div>
 							</div>
 							
@@ -49,8 +52,6 @@ const venues = {
 												<h4 class="venue-name modal-venue-title">${item.venue.name}</h4>
 												${venues.ratingForModal(item)}
 												${venues.venueWebsite(item)}
-												${venues.venueHours(item)}
-												${venues.venueStats(item)}
 												<div class="modal-reviews-header-title col-12">
 													<h5 class="modal-reviews-header">Reviews</h5>
 												</div>
@@ -136,7 +137,10 @@ const venues = {
 		if (Object.keys(item.venue).includes("url") && item.venue.url.length !== 0) {
 			return (
 				`<div class="website-wrapper col-12">
-					<a href="${item.venue.url}" target="_blank" class="modal-website">Visit Website</a>
+					<a href="${item.venue.url}" target="_blank" class="modal-website">
+						<i class="fa fa-external-link" aria-hidden="true"></i>
+						Visit Website
+					</a>
 				 </div>`
 			)
 		} 
@@ -148,21 +152,11 @@ const venues = {
 				Object.keys(item.venue.hours).includes("status") && 
 				item.venue.hours.length !== 0) {
 			return (
-				`<div class="hours-wrapper col-12">
-					<p class="modal-hours">${item.venue.hours.status}</p>
-				 </div>`
-			)
-		} 
-		return '';
-	},
-
-	venueStats: (item) => {
-		if (Object.keys(item.venue).includes("stats") && 
-			  Object.keys(item.venue.stats).includes("checkinsCount") && 
-			  item.venue.stats.length !== 0) {
-			return (
-				`<div class="stats-wrapper col-12">
-					<p class="modal-stats">Last month checkins: ${item.venue.stats.checkinsCount} Customers</p>
+				`<div class="hours-wrapper col-12">	
+					<p class="modal-hours">
+						<i class="fa fa-clock-o" aria-hidden="true"></i>
+						${item.venue.hours.status}
+					</p>
 				 </div>`
 			)
 		} 

@@ -513,6 +513,7 @@ div .food-quote-container p  i {
 }
 
 .container-for-data {
+  background-color: #a7a590;
   margin-bottom: 10px;
   border-radius: 10px;
   box-shadow: 1px 5px 5px rgb(211, 211, 211);
@@ -541,7 +542,6 @@ div .food-quote-container p  i {
 .all-info-container {
   display: grid;
   flex-wrap: nowrap;
-  background-color: #a7a590;
   border-radius: 8px;
 }
 
@@ -640,7 +640,7 @@ div .food-quote-container p  i {
 }
 
  .modal-hours {
-  font: normal 0.7em "Helvetica Neue", Helvetica ,Arial, sans-serif;
+  font: normal 0.7em 'Oswald', sans-serif;
 }
 
 .modal-website {
@@ -936,7 +936,7 @@ div .food-quote-container p  i {
   }
 
   .all-info-container {
-    display: grid;
+    display: flex;
     overflow: auto;
   }
 
@@ -961,6 +961,10 @@ div .food-quote-container p  i {
     display: none;
   }
 
+  .hours-wrapper {
+    display: none;
+  }
+
   body main .data-container h4 {
     font-size: 1.4em;
     margin-top: 3px;
@@ -977,7 +981,8 @@ div .food-quote-container p  i {
 
   .address {
     font-size: 0.8em;
-    margin-bottom: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
   }
 
   .fa-map-o, .fa-car, .fa-usd, .fa-comment {
@@ -999,13 +1004,15 @@ div .food-quote-container p  i {
   }
 
   .get-details-link {
-    float: right;
     margin-right: 20px;
   }
 
   .modal-link {
-    float: right;
     margin-right: 20px;
+  }
+
+  .website-wrapper {
+    display: none;
   }
 
   .modal-venue-info-wrapper h4 {
@@ -1015,6 +1022,10 @@ div .food-quote-container p  i {
 
   .modal-rating-wrapper {
     display: inline-block;
+  }
+
+  .cont-for-rating {
+    display: block;
   }
 
   .container-for-rating .modal-rating {
@@ -1166,8 +1177,20 @@ div .food-quote-container p  i {
   } 
 
   .all-info-container {
-    display: grid;
-    padding-bottom: 4px;
+    display: flex;
+  }
+
+  .hours-wrapper {
+    font-size: 1.3em;
+  }
+
+  .modal-website {
+    font: normal 0.7em 'Passion One', cursive, sans-serif;  
+    color: #b3454e;
+  }
+
+  .website-wrapper {
+    margin-top: 0px;
   }
 
   .data-container {
@@ -1180,7 +1203,7 @@ div .food-quote-container p  i {
 
   .modal-link {
     float: right;
-    margin-right: 20px;
+    /* margin-right: 20px; */
   }
 
   .map-link {
@@ -1237,7 +1260,9 @@ div .food-quote-container p  i {
    }
 
   .address {
-    font-size: 1em;
+    font-size: 0.9em;
+    padding-left: 4px;
+    padding-bottom: 5px;
   }
 
   .fa-map-o, .fa-car, .fa-usd {
@@ -1337,6 +1362,15 @@ div .food-quote-container p  i {
     margin-top: 30px;
   }
 
+  .website-wrapper {
+    margin-top: 0px;
+  }
+  
+  .modal-website {
+    font: normal 0.7em 'Passion One', cursive, sans-serif;
+    color: #b3454e;
+  }
+
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
     margin-top: 300px;
@@ -1406,7 +1440,7 @@ div .food-quote-container p  i {
   } 
 
   .all-info-container {
-    display: grid;
+    display: flex;
     padding-bottom: 4px;
   }
 
@@ -1441,7 +1475,7 @@ div .food-quote-container p  i {
   }
 
   .container-for-price {
-    display: initial;
+    display: none;
   }
 
   .price {
@@ -1486,7 +1520,9 @@ div .food-quote-container p  i {
   }
 
   .address {
-    font-size: 1em;
+    font-size: 0.9em;
+    padding-left: 4px;
+    padding-bottom: 5px;
   }
 
   .modal-venue-info-wrapper h4 {
