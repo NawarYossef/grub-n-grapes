@@ -67,7 +67,7 @@ class GrubGrapes {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	4,
+				limit:	10,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -103,6 +103,7 @@ class GrubGrapes {
 			this.hideWelcomePage();
 			this.clearResults();
 			this.handleMapDisplay();
+			this.mapOnScreenResizeHandler();
 			venues.showResultsMessage();
 			venues.render(this.results);
 			venues.initializeMap(this.results);
@@ -173,12 +174,20 @@ class GrubGrapes {
 	}
 
 	handleMapDisplay() {
-		
+		// if viewport is for ipad and larger screens
+		if ($(window).width() >= 767) {
+			this.showMap();
+		} else {
+			this.hideMap();
+		}
+	}
+
+	mapOnScreenResizeHandler() {
 		$(window).resize(() => {
 			if ($(window).width() >= 767) {
-				$(".map-container").show();
+				this.showMap();
 			} else {
-				$(".map-container").hide();	
+				this.hideMap();
 			}
 		})
 	}
@@ -292,7 +301,12 @@ class GrubGrapes {
 	}
 	
 	runFixedMapOnScroll() {
-		$(window).scroll(app.setupMapFixedPositionOnScroll);
+		// if viewport is for ipad and larger screens
+		if ($(window).width() >= 767) {
+			$(window).scroll(app.setupMapFixedPositionOnScroll);
+		} else {
+			this.hideMap();
+		}
 	}
 
 	animateHeaderText() {
@@ -325,7 +339,7 @@ class GrubGrapes {
 					reverse: false,
 				}
 			});
-		}, 2000)	
+		}, 1000)	
 	}
 }
 
