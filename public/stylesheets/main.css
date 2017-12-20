@@ -79,8 +79,9 @@ header h6 {
 .options {
   width: 100%;
   margin: 5px auto 0 auto;
-  padding-bottom: 10px;
 }
+
+
 
 .wine {
   color: #FFffff;
@@ -162,8 +163,9 @@ input {
 .select-img {
   width: 13%;
   vertical-align: middle;
-  padding-bottom: 5px;
 }
+
+
 
 /* arrow bounce iteration */
 .arrow-wrapper {
@@ -232,8 +234,9 @@ div .paragraph {
 }
 .city {
   position: relative;
-  padding-bottom: 10px;
 }
+
+
 
 .city:hover {
   cursor: pointer;
@@ -283,8 +286,9 @@ h3 span {
 .how-it-works {
   border-top: solid rgb(112, 112, 112) 1px;
   padding-top: 20px;
-  padding-bottom: 40px;
   height: 100%;
+
+  
   
 }
 
@@ -305,8 +309,9 @@ h3 span {
   text-align: center;
   margin-top: 10px;
   color: #cabe86;
-  padding-bottom: 50px;
 }
+
+
 
 .details-wrapper h4 {
   font: normal 2.5em 'Oswald', sans-serif;
@@ -336,8 +341,9 @@ div .food-quote-container .qoute-text-1 {
 
 .qoute-text-1 {
   overflow: hidden;
-  padding-bottom: 20px;
-  padding-top: 10px;
+  padding-top: 1
+  
+  0px;
 }
 
 h4 .welcome-page-venue-rating {
@@ -400,8 +406,9 @@ div .food-quote-container p  i {
 }
 /* user reviews section */
 .reviews {
-  padding-bottom: 10px;
 }
+
+
 
 .review-wrapper {
   margin: 20px 0px 20px 0px;
@@ -427,8 +434,9 @@ div .food-quote-container p  i {
   width: 100%;
   text-align: center;
   padding-top: 20px;
-  padding-bottom: 20px;
 }
+
+
 
 .back-to-search-bar-btn  {
   font: normal 1.5em sans-serif;
@@ -580,6 +588,8 @@ div .food-quote-container p  i {
 .address {
   margin-top: 5px;
   font: normal 1em "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding-bottom: 5px;
+  padding-left: 5px;
 }
 
 .price {
@@ -863,8 +873,9 @@ div .food-quote-container p  i {
 
   .how-it-works {
     padding-top: 5px;
-    padding-bottom: 0px;
   }
+
+  
 
   .grub-grapes-img-wrapper img {
     width: 15%;
@@ -981,8 +992,9 @@ div .food-quote-container p  i {
 
   .address {
     font-size: 0.8em;
-    padding-bottom: 5px;
-    padding-left: 5px;
+    padding-left: 
+    
+    5px;
   }
 
   .fa-map-o, .fa-car, .fa-usd, .fa-comment {
@@ -1105,8 +1117,9 @@ div .food-quote-container p  i {
 
   .how-it-works {
     padding-top: 5px;
-    padding-bottom: 0px;
   }
+
+  
 
   .grub-grapes-img-wrapper img {
     width: 15%;
@@ -1262,8 +1275,9 @@ div .food-quote-container p  i {
   .address {
     font-size: 0.9em;
     padding-left: 4px;
-    padding-bottom: 5px;
   }
+
+  
 
   .fa-map-o, .fa-car, .fa-usd {
     margin-right: 5px;
@@ -1441,8 +1455,9 @@ div .food-quote-container p  i {
 
   .all-info-container {
     display: flex;
-    padding-bottom: 4px;
   }
+
+  
 
   .data-container {
     padding-right: 2px; 
@@ -1522,8 +1537,9 @@ div .food-quote-container p  i {
   .address {
     font-size: 0.9em;
     padding-left: 4px;
-    padding-bottom: 5px;
   }
+
+  
 
   .modal-venue-info-wrapper h4 {
     font-size: 1.7em;
@@ -1552,6 +1568,10 @@ div .food-quote-container p  i {
 
   body header h1 {
     font-size: 4em;
+  }
+
+  .hours-wrapper {
+    display: none;
   }
 
   body header .cont-for-h1 {
@@ -1707,8 +1727,16 @@ div .food-quote-container p  i {
   }
 
   .all-info-container {
-    display: grid;
-    padding-bottom: 4px;
+    display: flex;
+  }
+
+  .website-wrapper {
+    margin-top: 0px;
+  }
+
+  .modal-website {
+    font: normal 0.7em 'Passion One', cursive, sans-serif;
+    color: #b3454e;
   }
 
   .venue-img {
@@ -1717,11 +1745,6 @@ div .food-quote-container p  i {
 
   .fa-map-o, .fa-car, .fa-usd, .fa-comment {
     margin-right: 5px;
-  }
-
-  .modal-link {
-    float: right;
-    margin-right: 20px;
   }
 
   .map-link {
@@ -1752,9 +1775,9 @@ div .food-quote-container p  i {
     margin: 0 auto;
     border-radius: 5px 20px 5px;
   }
- 
+
   .container-for-price {
-    display: initial;
+    display: block;
   }
 
   .price {
@@ -1969,8 +1992,12 @@ div .food-quote-container p  i {
   }
 
   .container-for-price {
-    font-size: 1.2em;
-    display: initial;
+    display: none;
+  }
+
+  .modal-website {
+    font: normal 0.7em 'Passion One', cursive, sans-serif;
+    color: #b3454e;
   }
 
   body main .data-container h4 {
@@ -1996,8 +2023,9 @@ div .food-quote-container p  i {
 
   .address {
     font-size: 1.2em;
-    padding-bottom: 2px;
   }
+
+  
 
   .modal-venue-info-wrapper h4 {
     font-size: 2.2em; 
@@ -2019,7 +2047,7 @@ div .food-quote-container p  i {
   }
 
   .modal-link {
-    margin-left: 81px;
+    margin-left: 50%;
     display: inline;
   }
 
@@ -2029,9 +2057,10 @@ div .food-quote-container p  i {
   }
 
   .map-link p {
-    font: normal 1.5em 'Passion One', cursive, sans-serif;
+    font: normal 1.2em 'Passion One', cursive, sans-serif;
     display: inline-block;
   }
+
 
   .get-map-link:hover, .modal-link:hover {
     text-decoration: underline;
@@ -2042,9 +2071,10 @@ div .food-quote-container p  i {
   }
 
   .all-info-container {
-    display: grid;
-    padding-bottom: 4px;
+    display: flex;
   }
+
+  
 
   .venue-img {
     border-radius: 10px;
@@ -2281,8 +2311,9 @@ div .food-quote-container p  i {
 
   .address {
     font-size: 1em;
-    padding-bottom: 2px;
   }
+
+  
 
   .modal-venue-info-wrapper h4 {
     font-size: 2.3em; 
@@ -2397,8 +2428,9 @@ div .food-quote-container p  i {
 
   .address {
     font-size: 1em;
-    padding-bottom: 2px;
-    margin-top: 5px;
+    margin-top: 5p
+    
+    x;
   }
 
   .modal-venue-info-wrapper h4 {
@@ -2475,22 +2507,38 @@ div .food-quote-container p  i {
 
   .address {
     font-size: 1em;
-    padding-bottom: 2px;
-    margin-top: 7px;
+    margin-top: 7p
+    
+    x;
   }
 }
 
-@media screen and (min-width: 425px) and (max-width: 500px) {
-  .modal-photo-wrapper img {
-    width: 70%;
+@media screen and (min-width: 426px) and (max-width: 500px) {
+  .modal-link {
+    /* display: inline; */
+    float: right;
+    /* margin-left: 50%; */
   }
 }
 
 @media screen and (min-width: 501px) and (max-width: 600px) {
+  .modal-link {
+    display: inline;
+    margin-left: 50%
+  }
+}
+
+/* @media screen and (min-width: 425px) and (max-width: 500px) {
+  .modal-photo-wrapper img {
+    width: 70%;
+  }
+} */
+/* 
+@media screen and (min-width: 501px) and (max-width: 600px) {
   .modal-photo-wrapper img {
     width: 68%;
   }
-}
+} */
 
 @media screen and (min-width: 601px)  {
   .modal-photo-wrapper img {
