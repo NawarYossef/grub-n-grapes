@@ -1,0 +1,28 @@
+{
+  "name": "Grub N Grapes",
+  "version": "1.0.0",
+  "description": "Grub N Grapes is an app that helps users find wine and food venues",
+  "main": "server.js",
+  "scripts": {
+    "test": "",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NawarYossef/grub-n-grapes.git"
+  },
+  "author": "Nawar Yossef",
+  "license": "ISC",
+  "homepage": "https://github.com/NawarYossef/grub-n-grapes#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "mocha": "^4.0.1"
+  },
+  "bugs": {
+    "url": "https://github.com/NawarYossef/grub-n-grapes/issues"
+  }
+}
