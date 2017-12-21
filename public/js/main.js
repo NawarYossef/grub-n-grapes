@@ -1,26 +1,8 @@
-
-
-//add modal css.animation effect
-// style welcome page
-// refactor api function 
-// progressive rendering
-// create button for map for mobile devices
-
-
-// add modal background color
-// add search button hover effect
-
-// hover on selection should change background color
-
-//design issues
-///////////////////
-// add padding right for venue address
-// add photo to map window
-// grub and grapes in the header is a button that takes you to welcome page
-// card image should have the same size as regular image.
-
-
-// modal animation
+// modal
+//images for phones 
+//get directions
+// hover on selection for map
+// css for 425px and above (home page)
 "use strict";
 const venues = require("./venues.js")	
 
@@ -66,7 +48,7 @@ class GrubGrapes {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	10,
+				limit:	3,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,

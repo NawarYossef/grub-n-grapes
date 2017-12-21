@@ -8,7 +8,7 @@ body {
   width: 100%; 
   /* background-color: #beb29e; */
   /* background-color: #dedede; */
-  background-color: #fdfdfd;
+  background-color: #dadada;
   /* background-color: #c7bba7; */
 }
 
@@ -89,6 +89,10 @@ header h6 {
 
 .food {
   color: #FFffff;
+}
+
+body main .city img {
+  vertical-align: inherit;
 }
 
 .food:hover, .wine:hover {
@@ -199,13 +203,14 @@ h2 {
   display: inline-block;
   font: normal 3em 'Oswald', sans-serif;
   color: rgb(49, 46, 46);
+  text-decoration: underline;
   /* border-bottom: solid rgb(92, 92, 92) 1px; */
 }
 
 .h2-wrapper {
   width: 100%;
   text-align: center; 
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .grub-grapes-img-wrapper {
@@ -286,6 +291,7 @@ h3 span {
 .how-it-works {
   border-top: solid rgb(112, 112, 112) 1px;
   padding-top: 20px;
+  padding-bottom: 20px;
   height: 100%;
 
   
@@ -331,25 +337,34 @@ h3 span {
   margin-top: 5px;
 }
 
+.get-map-link:hover, .modal-link:hover, .modal-website:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-website:hover {
+  color: #000000;
+}
+
 div .food-quote-container .qoute-text-1 {
   font: normal 2.5em sans-serif;
   color: #ffffff;
   background-color: rgba(0,0,0,0.6);
   margin: 400px auto 0 auto;
   float: none;
+  height: 320px;
+  word-wrap: break-word
 }
 
 .qoute-text-1 {
-  overflow: hidden;
-  padding-top: 1
-  
-  0px;
+  padding-top: 1;
+  height: 30px;
 }
 
 h4 .welcome-page-venue-rating {
   background-color: #00B551;
   color: rgb(0, 0, 0);
-  font: normal 0.7em 'Oswald', sans-serif;
+  font: normal 0.5em 'Oswald', sans-serif;
   display: inline-block;
   width: 50px;
   margin: 0 auto;
@@ -358,7 +373,7 @@ h4 .welcome-page-venue-rating {
 
 .examples {
   background-color: rgba(0,0,0,0.6);
-  margin: 500px auto 0 auto;  
+  margin: 530px auto 50px auto;
 } 
 
 .examples h2 {
@@ -371,7 +386,7 @@ h4 .welcome-page-venue-rating {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 1500px;
+  height: 1700px;
 }
 
 .parallax-2 {
@@ -816,6 +831,30 @@ div .food-quote-container p  i {
     padding: 0px;
   }
 
+  div .paragraph {
+    font-size: 0.9em;
+  }
+
+  div .food-quote-container .text {
+    font-size: 0.8em;
+  }
+
+  div .food-quote-container .author {
+    font-size: 0.9em;
+  }
+
+  div .food-quote-container .qoute-text-1 {
+    height: 177px;
+  }
+
+  .parallax-1 {
+    height: 1200px;
+  }
+
+  .parallax-2 {
+    height: 2000px;
+  }
+
   body header .cont-for-h1 {
     width: 80%;
   }
@@ -868,7 +907,7 @@ div .food-quote-container p  i {
   }
 
   h2 {
-    font-size: 2.2em;
+    font-size: 1.5em;
   }
 
   .how-it-works {
@@ -887,7 +926,7 @@ div .food-quote-container p  i {
   }
 
   .text-for-review {
-    font: normal 1.3em/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: normal 1em/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   .review-wrapper {
@@ -907,7 +946,7 @@ div .food-quote-container p  i {
   }
 
   .parallax-2 .h2-wrapper {
-    margin-bottom: 58px;
+    margin-bottom: 40px;
   }
 
   .details-wrapper h4 {
@@ -919,7 +958,12 @@ div .food-quote-container p  i {
   }
 
   .example-wrapper {
-    margin-bottom: 20px;
+    margin-bottom: 90px;
+  }
+
+  .examples {
+    padding-bottom: 10px;
+    margin-top: 300px;
   }
 
   h3 {
@@ -969,7 +1013,17 @@ div .food-quote-container p  i {
   }
 
   .container-for-price {
-    display: none;
+    display: inline;
+    padding-left: 7px;
+  }
+
+  .price {
+    display: inline-block;
+    font-size: 0.8em;
+  }
+
+  .fa-usd {
+    font-size: 11px;
   }
 
   .hours-wrapper {
@@ -977,7 +1031,7 @@ div .food-quote-container p  i {
   }
 
   body main .data-container h4 {
-    font-size: 1.4em;
+    font-size: 1.3em;
     margin-top: 3px;
     display: block;
   }
@@ -992,9 +1046,8 @@ div .food-quote-container p  i {
 
   .address {
     font-size: 0.8em;
-    padding-left: 
-    
-    5px;
+    padding-left: 5px;
+    margin-top: 3px;
   }
 
   .fa-map-o, .fa-car, .fa-usd, .fa-comment {
@@ -1049,6 +1102,10 @@ div .food-quote-container p  i {
   .modal-photo-wrapper img {
     width: 85%;
   }
+
+  .back-to-top-btn-wrapper {
+    margin-bottom: 7px;
+  }
 }
 
 @media screen and (min-width: 321px) and (max-width: 375px) {
@@ -1056,8 +1113,16 @@ div .food-quote-container p  i {
     padding: 0px;
   }
 
+  .examples {
+    padding-bottom: 5px;
+  }
+
   body header .cont-for-h1 {
     width: 80%;
+  }
+
+  .back-to-top-btn-wrapper {
+    margin-bottom: 7px;
   }
 
   body header h1 {
@@ -1112,14 +1177,16 @@ div .food-quote-container p  i {
   }
 
   h2 {
-    font-size: 2.5em;
+    font-size: 1.8em;
   }
 
   .how-it-works {
     padding-top: 5px;
   }
 
-  
+  body main .description .paragraph {
+    font-size: 1em;
+  }   
 
   .grub-grapes-img-wrapper img {
     width: 15%;
@@ -1128,10 +1195,15 @@ div .food-quote-container p  i {
   div .food-quote-container .qoute-text-1 {
     font-size: 1.5em;
     margin-top: 300px;
+    height: 170px;
+  }
+
+  div .food-quote-container .text {
+    font-size: 0.8em;
   }
 
   .text-for-review {
-    font: normal 1.3em/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: normal 1em/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   .review-wrapper {
@@ -1150,10 +1222,10 @@ div .food-quote-container p  i {
     text-align: center;
   }
 
-  .parallax-2 .h2-wrapper {
-    margin-bottom: 58px;
+  .h2-wrapper {
+    margin-bottom: 28px;
   }
-
+  
   .details-wrapper h4 {
     font-size: 2em;
   }
@@ -1163,7 +1235,7 @@ div .food-quote-container p  i {
   }
 
   .example-wrapper {
-    margin-bottom: 20px;
+    margin-bottom: 84px;
   }
 
   h3 {
@@ -1251,7 +1323,17 @@ div .food-quote-container p  i {
   }
 
   .container-for-price {
-    display: none;
+    display: inline;
+    padding-left: 7px;
+  }
+
+  .price {
+    display: inline-block;
+    font-size: 0.8em;
+  }
+
+  .fa-usd {
+    font-size: 11px;
   }
 
   body main .data-container h4 {
@@ -1309,8 +1391,26 @@ div .food-quote-container p  i {
     margin-left: 8%;
   }
 
+  .back-to-top-btn-wrapper {
+    margin-bottom: 7px;
+  }
+
   body header .cont-for-h1 {
     width: 80%;
+  }
+
+  div .food-quote-container .qoute-text-1 {
+    font-size: 1.5em;
+    margin-top: 300px;
+    height: 150px;
+  }
+
+  div .food-quote-container .text {
+    font-size: 0.7em;
+  }
+
+  div .food-quote-container .author {
+    font-size: 0.8em;
   }
 
   body header h6 {
@@ -1356,6 +1456,7 @@ div .food-quote-container p  i {
 
   .examples {
     margin-top: 300px;
+    padding-bottom: 10px;
   }
 
   .grub-grapes-img-wrapper img {
@@ -1369,7 +1470,7 @@ div .food-quote-container p  i {
   }
 
   h2 {
-    font-size: 2.5em;
+    font-size: 2em;
   }
 
   .description {
@@ -1396,7 +1497,7 @@ div .food-quote-container p  i {
    }
 
   .text-for-review {
-    font: normal 1.3em/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: normal 1em/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   .review-wrapper {
@@ -1416,7 +1517,7 @@ div .food-quote-container p  i {
   }
 
   .parallax-2 .h2-wrapper {
-    margin-bottom: 58px;
+    margin-bottom: 32px;
   }
 
   .details-wrapper h4 {
@@ -1428,7 +1529,7 @@ div .food-quote-container p  i {
   }
 
   .example-wrapper {
-    margin-bottom: 20px;
+    margin-bottom: 81px;
   }
 
   h3 {
@@ -1457,7 +1558,10 @@ div .food-quote-container p  i {
     display: flex;
   }
 
-  
+  .back-to-top-btn-wrapper {
+    margin-bottom: 7px;
+  }
+
 
   .data-container {
     padding-right: 2px; 
@@ -1490,11 +1594,17 @@ div .food-quote-container p  i {
   }
 
   .container-for-price {
-    display: none;
+    display: inline;
+    padding-left: 6px;
   }
 
   .price {
-    display: inline;
+    display: inline-block;
+    font-size: 0.8em;
+  }
+
+  .fa-usd {
+    font-size: 11px;
   }
   
   body main .data-container h4 {
@@ -1570,8 +1680,26 @@ div .food-quote-container p  i {
     font-size: 4em;
   }
 
+  .back-to-top-btn-wrapper {
+    margin-bottom: 7px;
+  }
+
   .hours-wrapper {
     display: none;
+  }
+
+  div .food-quote-container .qoute-text-1 {
+    font-size: 1.5em;
+    margin-top: 300px;
+    height: 130px;
+  }
+
+  div .food-quote-container .text {
+    font-size: 0.7em;
+  }
+
+  div .food-quote-container .author {
+    font-size: 0.8em;
   }
 
   body header .cont-for-h1 {
@@ -1622,6 +1750,7 @@ div .food-quote-container p  i {
 
   .examples {
     margin-top: 300px;
+    padding-bottom: 10px;
   }
 
   .grub-grapes-img-wrapper img {
@@ -1672,7 +1801,7 @@ div .food-quote-container p  i {
   }
 
   .parallax-2 .h2-wrapper {
-    margin-bottom: 58px;
+    margin-bottom: 40px;
   }
 
   .details-wrapper h4 {
@@ -1680,11 +1809,11 @@ div .food-quote-container p  i {
   }
 
   .img-venue-example {
-    width: 90%;
+    width: 60%;
   }
 
   .example-wrapper {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
 
   .main-page-places h2 {
@@ -1778,6 +1907,7 @@ div .food-quote-container p  i {
 
   .container-for-price {
     display: block;
+    margin-left: 5px;
   }
 
   .price {
@@ -1799,6 +1929,7 @@ div .food-quote-container p  i {
 
   .address {
     font-size: 1em;
+    padding-right: 1px;
   }
 
   .modal-venue-info-wrapper h4 {
@@ -1824,6 +1955,24 @@ div .food-quote-container p  i {
 
   body header h1 {
     font-size: 5em;
+  }
+
+  div .food-quote-container .qoute-text-1 {
+    font-size: 1.5em;
+    margin-top: 300px;
+    height: 110px;
+  }
+
+  div .food-quote-container .text {
+    font-size: 0.7em;
+  }
+
+  div .food-quote-container .author {
+    font-size: 0.8em;
+  }
+
+  .back-to-top-btn-wrapper {
+    margin-bottom: 7px;
   }
 
   body header .cont-for-h1 {
@@ -1869,7 +2018,8 @@ div .food-quote-container p  i {
   }
   
   .examples {
-    margin-top: 550px;
+    margin-top: 200px;
+    padding-bottom: 10px;
   }
 
   .grub-grapes-img-wrapper img {
@@ -1895,10 +2045,6 @@ div .food-quote-container p  i {
     margin-top: 300px;
   }
 
-  .reviews .h2-wrapper {
-    margin-bottom: 25px;
-  }
-
   .text-for-review {
     font: normal 1.3em/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
@@ -1908,37 +2054,41 @@ div .food-quote-container p  i {
   }
 
   .review-wrapper-2 {
-    display: initial;
+    display: none;
   }
 
   .review-wrapper-3 {
-    display: none;
+    display: initial;
   }
 
   .text-for-review {
     text-align: left;
-    font-size: 1.5em;
+    font-size: 1.2em;
   }
 
   .img-for-review {
-    width: 50%;
+    width: 25%;
     margin-top: 10px;
   }
 
   .parallax-2 .h2-wrapper {
-    margin-bottom: 58px;
+    margin-bottom: 20px;
   }
 
-  .details-wrapper h4 {
-    font-size: 2em;
+  .details-wrapper h4 .details-venue-name {
+    font-size: 0.7em;
   }
 
   .img-venue-example {
-    width: 90%;
+    width: 50%;
   }
 
   .example-wrapper {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+  }
+
+  .details-wrapper {
+    margin-top: 0px;
   }
 
   .main-page-places h2 {
@@ -1982,13 +2132,17 @@ div .food-quote-container p  i {
     width: 0%;
   }
 
-  .rating {
+  body main h4 .rating {
     width: 39px;
     height: 22px;
-    font-size: 1.2em;
+    font-size: 0.4em;
     font-weight: bold;
     margin: 0 auto;
     border-radius: 5px 20px 5px;
+  }
+
+  .details-wrapper h5 {
+    font-size: 1.2em;
   }
 
   .container-for-price {
@@ -2022,10 +2176,8 @@ div .food-quote-container p  i {
   }
 
   .address {
-    font-size: 1.2em;
+    font-size: 1em;
   }
-
-  
 
   .modal-venue-info-wrapper h4 {
     font-size: 2.2em; 
@@ -2073,11 +2225,29 @@ div .food-quote-container p  i {
   .all-info-container {
     display: flex;
   }
-
   
+  .container-for-price {
+    display: inline;
+    padding-left: 7px;
+  }
+
+  .price {
+    display: inline-block;
+    font-size: 1.1em;
+  }
+
+  .fa-usd {
+    font-size: 15.4px;
+  }
 
   .venue-img {
     border-radius: 10px;
+  }
+
+  .back-to-search-bar-btn {
+    font: normal 1em sans-serif;
+    width: 35%;
+    height: 38px;
   }
 }
 
@@ -2088,6 +2258,29 @@ div .food-quote-container p  i {
 
   body header h1 {
     font-size: 5em;
+  }
+
+  div .food-quote-container .text {
+    font-size: 0.8em;
+  }
+
+  div .food-quote-container .author {
+    font-size: 0.9em;
+  }
+
+  h4 .welcome-page-venue-rating {
+    background-color: #00B551;
+    color: rgb(0, 0, 0);
+    font: normal 0.7em 'Oswald', sans-serif;
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 5px 20px 5px;
+  }
+
+  .back-to-top-btn-wrapper {
+    margin-bottom: 7px;
   }
 
   body header h6 {
@@ -2113,6 +2306,10 @@ div .food-quote-container p  i {
   form input {
     height: 55px;
     font: normal 1.5em sans-serif;
+  }
+
+  .modal-hours {
+    font-size: 0.6em;
   }
 
   .food, .wine {
@@ -2153,6 +2350,7 @@ div .food-quote-container p  i {
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
     margin-top: 300px;
+    height: 180px;
   }
 
   .reviews .h2-wrapper {
@@ -2177,7 +2375,7 @@ div .food-quote-container p  i {
 
   .text-for-review {
     text-align: left;
-    font-size: 1.7em;
+    font-size: 1.2em;
   }
 
   .img-for-review {
@@ -2206,7 +2404,7 @@ div .food-quote-container p  i {
   }
 
   h3 {
-    font-size: 1em;
+    font-size: 0.9em;
   }
 
   .img-places {
@@ -2214,7 +2412,9 @@ div .food-quote-container p  i {
   }
 
   .back-to-search-bar-btn {
-    width: 50%;
+    font: normal 1em sans-serif;
+    width: 35%;
+    height: 38px;
   }
 
   .hvr-icon-up:before {
@@ -2242,6 +2442,7 @@ div .food-quote-container p  i {
   .map-link {
     display: block;
     margin-top: 3px;
+    width: 100%;
   }
 
   .map-link p {
@@ -2251,10 +2452,6 @@ div .food-quote-container p  i {
 
   .fa-map-o, .fa-car, .fa-usd, .fa-comment {
     margin-right: 3px;
-  }
-
-  .container-for-price {
-    display: initial;
   }
 
   .price {
@@ -2271,7 +2468,9 @@ div .food-quote-container p  i {
   }
 
   .address {
-    display: none;
+    display: inline-block;
+    padding-bottom: 5px;
+    padding-left: 5px;
   }
 
   .container-for-price {
@@ -2288,8 +2487,12 @@ div .food-quote-container p  i {
   }
 
   .container-for-price {
-    display: initial;
-    margin-top: 5px;
+    display: block;
+    margin-left: 5px;
+  }
+
+  .price {
+    display: inline;
   }
 
   body main .data-container h4 {
@@ -2299,8 +2502,18 @@ div .food-quote-container p  i {
   
   body main .data-container h5 {
     font-size: 1em;
-    margin-top: 5px;
+    margin-top: 6px;
+    display: inline-block;
     font-style: italic;
+  }
+
+  .website-wrapper {
+    margin-top: 0px;
+  }
+
+  .modal-website {
+    font: normal 0.7em 'Passion One', cursive, sans-serif;
+    color: #b3454e;
   }
 
   .cont-for-rating {
@@ -2309,11 +2522,14 @@ div .food-quote-container p  i {
     width: 0%;
   }
 
+  .modal-link {
+    margin-left: 25%;
+    display: inline;
+  }
+
   .address {
     font-size: 1em;
   }
-
-  
 
   .modal-venue-info-wrapper h4 {
     font-size: 2.3em; 
@@ -2374,6 +2590,28 @@ div .food-quote-container p  i {
     width: 67%;
   }
 
+  div .food-quote-container .qoute-text-1 {
+    font-size: 1.7em;
+    margin-top: 300px;
+    height: 200px;
+  }
+
+  div .food-quote-container .text {
+    font-size: 1em;
+  }
+
+  div .food-quote-container .author {
+    font-size: 1.2em;
+  }
+
+  .parallax-1 {
+    height: 1400px;
+  }
+
+  .back-to-top-btn-wrapper {
+    margin-bottom: 7px;
+  }
+
   body header h6 {
     font: italic 1.3em sans-serif;
   }
@@ -2391,8 +2629,18 @@ div .food-quote-container p  i {
     width: 38%;
   }
 
+  .all-info-container {
+    display: flex;
+  }
+
+  .map-link {
+    margin-top: 3px;
+    width: 100%;
+    display: block; 
+  }
+
   .back-to-search-bar-btn {
-    width: 40%;
+    width: 48%;
     font: normal 1.7em sans-serif;
   }
 
@@ -2407,13 +2655,37 @@ div .food-quote-container p  i {
   .rating {
     width: 40px;
     font-size: 1em;
+    font-weight: bold;
     margin: 0 auto;
     border-radius: 5px 20px 5px;
   }
 
   .container-for-price {
-    display: initial;
-    margin-top: 5px;
+    display: inline;
+    padding-left: 5px;
+  }
+
+  .price {
+    display: inline-block;
+  }
+
+  .modal-link {
+    margin-left: 200px;
+    display: inline-block;
+  }
+
+  .website-wrapper {
+    margin-top: 0px;
+  }
+
+  .modal-website {
+    font: normal 0.7em 'Passion One', cursive, sans-serif;
+    color: #b3454e;
+  }
+
+  .map-link p {
+    font: normal 1.2em 'Passion One', cursive, sans-serif;
+    display: inline-block;
   }
 
   body main .data-container h4 {
@@ -2422,15 +2694,30 @@ div .food-quote-container p  i {
   }
   
   body main .data-container h5 {
-    font-size: 1.2em;
+    font-size: 1em;
     margin-top: 5px;
+    font-style: italic;
   }
 
   .address {
     font-size: 1em;
-    margin-top: 5p
-    
-    x;
+  }
+
+  .fa-map-o, .fa-car, .fa-usd, .fa-comment {
+    margin-right: 3px;
+  }
+
+  .container-for-image img {
+    border-radius: 10px;
+  }
+
+  .cont-for-rating {
+    vertical-align: text-top;
+  }
+
+  .search-results-wrapper h4 {
+    font-size: 1em;
+    display: inline-block;
   }
 
   .modal-venue-info-wrapper h4 {
@@ -2452,27 +2739,62 @@ div .food-quote-container p  i {
 
 @media screen and (min-width: 1441px) {
   body header h1 {
-    font-size: 5.5em;
+    font-size: 5em;
     margin-left: 2%;
   }
 
-  body header h6 {
-    /* display: block; */
-    font: italic 2.3em sans-serif;
-    /* margin-left: 15%; */
-  }
-  .select-img {
-    width: 9%;
+  .back-to-top-btn-wrapper {
+    margin-bottom: 7px;
   }
 
-  .hvr-icon-up:before {
-    content: "\f01b";
-    position: absolute;
-    right: 3.5em;
-    padding: 0 1px;
-    font-family: FontAwesome;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+  div .food-quote-container .qoute-text-1 {
+    font-size: 1.7em;
+    margin-top: 300px;
+    height: 140px;
+  }
+
+  div .food-quote-container .text {
+    font-size: 1em;
+  }
+
+  div .food-quote-container .author {
+    font-size: 0.9em;
+  }
+
+  body header .cont-for-h1 {
+    width: 67%;
+  }
+
+  body header h6 {
+    font: italic 1.3em sans-serif;
+  }
+
+  .select-img {
+    width: 10%;
+  }
+
+  .food, .wine {
+    font: bold 2em 'Audiowide', cursive, sans-serif;
+    width: 42%;
+  }
+
+  .container-form {
+    width: 38%;
+  }
+
+  .all-info-container {
+    display: flex;
+  }
+
+  .map-link {
+    margin-top: 3px;
+    width: 100%;
+    display: block; 
+  }
+
+  .back-to-search-bar-btn {
+    width: 48%;
+    font: normal 1.7em sans-serif;
   }
 
   .map-btn-wrapper {
@@ -2486,37 +2808,91 @@ div .food-quote-container p  i {
   .rating {
     width: 40px;
     font-size: 1em;
+    font-weight: bold;
     margin: 0 auto;
     border-radius: 5px 20px 5px;
   }
 
   .container-for-price {
-    display: initial;
-    margin-top: 7px;
+    display: inline;
+    padding-left: 5px;
+  }
+
+  .price {
+    display: inline-block;
+  }
+
+  .modal-link {
+    margin-left: 200px;
+    display: inline-block;
+  }
+
+  .website-wrapper {
+    margin-top: 0px;
+  }
+
+  .modal-website {
+    font: normal 0.7em 'Passion One', cursive, sans-serif;
+    color: #b3454e;
+  }
+
+  .map-link p {
+    font: normal 1.2em 'Passion One', cursive, sans-serif;
+    display: inline-block;
   }
 
   body main .data-container h4 {
     font-size: 1.5em;
-    margin-top: 7px;
+    margin-top: 5px;
   }
   
   body main .data-container h5 {
     font-size: 1em;
-    margin-top: 7px;
+    margin-top: 5px;
+    font-style: italic;
   }
 
   .address {
     font-size: 1em;
-    margin-top: 7p
-    
-    x;
+  }
+
+  .fa-map-o, .fa-car, .fa-usd, .fa-comment {
+    margin-right: 3px;
+  }
+
+  .container-for-image img {
+    border-radius: 10px;
+  }
+
+  .cont-for-rating {
+    vertical-align: text-top;
+  }
+
+  .search-results-wrapper h4 {
+    font-size: 1em;
+    display: inline-block;
+  }
+
+  .modal-venue-info-wrapper h4 {
+    font-size: 2.2em; 
+    display: inline-block;
+  }
+
+  .modal-rating-wrapper {
+    display: inline-block;
+  }
+
+  .container-for-rating .modal-rating {
+    width: 56px;
+    height: 30px;
+    font-size: 1.8em;
   }
 }
 
 @media screen and (min-width: 426px) and (max-width: 500px) {
   .modal-link {
     /* display: inline; */
-    float: right;
+    float: right; 
     /* margin-left: 50%; */
   }
 }

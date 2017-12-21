@@ -24,11 +24,11 @@ const venues = {
 												</a>
 											</div>
 										</div>
-										${venues.getVenuePrice(item)}
 										${venues.venueHours(item)}
 										${venues.venueWebsite(item)}
 									</div>
 								</div>
+								${venues.getVenuePrice(item)}
 								<div class="address">	
 									<p class="address-desc">
 										<i class="fa fa-car" aria-hidden="true"></i>
