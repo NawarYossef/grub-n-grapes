@@ -15,7 +15,8 @@ const venues = {
 										${venues.venueType(item)}
 										${venues.ratingForVenue(item)}
 										<div class="map-link col-6">
-											<a src="" class="get-map-link">
+
+											<a href="https://maps.google.com/?q=${venues.printFormattedAddress(item)}" target="_blank" class="get-map-link">
 											<p><i class="fa fa-map-o" aria-hidden="true"></i>Directions</p>
 											</a>
 											<div data-toggle="modal" data-target="#${item.venue.id}" class="modal-link">
@@ -25,7 +26,6 @@ const venues = {
 											</div>
 										</div>
 										${venues.venueHours(item)}
-									
 									</div>
 								</div>
 								${venues.getVenuePrice(item)}
@@ -285,8 +285,7 @@ const venues = {
         };
     	})(marker, content, infoWindow)); 
 		})
-	}
-	
+	}	
 }
 
 module.exports = venues;

@@ -1,7 +1,3 @@
-// modal
-//images for phones 
-//get directions
-// hover on selection for map
 "use strict";
 const venues = require("./venues.js")	
 
@@ -48,7 +44,7 @@ class GrubGrapes {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	2,
+				limit:	30,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -59,7 +55,6 @@ class GrubGrapes {
 			this.responseLength = Object.values(data.response).length;
 			this.responseStatus = data.meta.code;
 			this.results = data.response.groups[0].items;
-	
 			this.StateChange();
 
 		}).fail(() => {
@@ -67,13 +62,10 @@ class GrubGrapes {
 			this.showWelcomPage();
 			this.hideMap();
 			this.showInavlidInputMessage();
-		})
-		
+		})	
 	}
 	
 	StateChange() {
-		// console.log(this.responseStatus)
-		// console.log(this.responseLength)
 		console.log(this.results)
 		if (this.responseLength === 0  || this.results.length === 0 || this.responseStatus !== 200) {
 			this.clearResults();

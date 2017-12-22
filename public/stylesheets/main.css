@@ -326,7 +326,7 @@ body main .venue .map-link, body main .venue .hours-wrapper {
 }
 
 .details-wrapper h4 {
-  font: normal 2.5em 'Oswald', sans-serif;
+  font: normal 2em 'Oswald', sans-serif;
 }
 
 .details-venue-name {
@@ -2897,7 +2897,7 @@ div .food-quote-container p  i {
   }
 
   .modal-venue-info-wrapper h4 {
-    font-size: 2.2em; 
+    font-size: 2em; 
     display: inline-block;
   }
 

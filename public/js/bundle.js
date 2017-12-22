@@ -1,8 +1,4 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-// modal
-//images for phones 
-//get directions
-// hover on selection for map
 "use strict";
 const venues = require("./venues.js")	
 
@@ -49,7 +45,7 @@ class GrubGrapes {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	2,
+				limit:	30,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -60,7 +56,6 @@ class GrubGrapes {
 			this.responseLength = Object.values(data.response).length;
 			this.responseStatus = data.meta.code;
 			this.results = data.response.groups[0].items;
-	
 			this.StateChange();
 
 		}).fail(() => {
@@ -68,13 +63,10 @@ class GrubGrapes {
 			this.showWelcomPage();
 			this.hideMap();
 			this.showInavlidInputMessage();
-		})
-		
+		})	
 	}
 	
 	StateChange() {
-		// console.log(this.responseStatus)
-		// console.log(this.responseLength)
 		console.log(this.results)
 		if (this.responseLength === 0  || this.results.length === 0 || this.responseStatus !== 200) {
 			this.clearResults();
@@ -377,7 +369,8 @@ const venues = {
 										${venues.venueType(item)}
 										${venues.ratingForVenue(item)}
 										<div class="map-link col-6">
-											<a src="" class="get-map-link">
+
+											<a href="https://maps.google.com/?q=${venues.printFormattedAddress(item)}" target="_blank" class="get-map-link">
 											<p><i class="fa fa-map-o" aria-hidden="true"></i>Directions</p>
 											</a>
 											<div data-toggle="modal" data-target="#${item.venue.id}" class="modal-link">
@@ -387,7 +380,6 @@ const venues = {
 											</div>
 										</div>
 										${venues.venueHours(item)}
-									
 									</div>
 								</div>
 								${venues.getVenuePrice(item)}
@@ -647,8 +639,7 @@ const venues = {
         };
     	})(marker, content, infoWindow)); 
 		})
-	}
-	
+	}	
 }
 
 module.exports = venues;
