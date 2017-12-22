@@ -833,6 +833,10 @@ div .food-quote-container p  i {
     padding: 0px;
   }
 
+  .select-img {
+    padding-bottom: 3px;
+  }
+
   body header {
     height: 320px;
   }
@@ -1458,6 +1462,11 @@ div .food-quote-container p  i {
     display: none;
   }
 
+  .select-img {
+    vertical-align: baseline;
+    padding-bottom: 1px;
+  }
+
   .modal-user-photo-wrapper img {
     width: 9%;
   }
@@ -2073,6 +2082,11 @@ div .food-quote-container p  i {
     font-size: 5em;
   }
 
+  .select-img {
+    vertical-align: inherit;
+    padding-bottom: 2px;
+  }
+
   .modal-photo-wrapper img {
     width: 40%;
     box-shadow: 5px 6px 10px #515151;
@@ -2480,6 +2494,7 @@ div .food-quote-container p  i {
 
   .select-img {
     width: 10%;
+    padding-bottom: 4px;
   }
 
   .options {
@@ -2797,6 +2812,7 @@ div .food-quote-container p  i {
 
   .select-img {
     width: 10%;
+    vertical-align: inherit;
   }
 
   .food, .wine {
@@ -2918,6 +2934,10 @@ div .food-quote-container p  i {
   body header h1 {
     font-size: 5em;
     margin-left: 2%;
+  }
+
+  img {
+    vertical-align: inherit;
   }
 
   .modal-photo-wrapper img {
