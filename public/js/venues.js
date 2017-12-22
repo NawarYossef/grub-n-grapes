@@ -25,10 +25,11 @@ const venues = {
 											</div>
 										</div>
 										${venues.venueHours(item)}
-										${venues.venueWebsite(item)}
+									
 									</div>
 								</div>
 								${venues.getVenuePrice(item)}
+								${venues.venueWebsite(item)}
 								<div class="address">	
 									<p class="address-desc">
 										<i class="fa fa-car" aria-hidden="true"></i>
@@ -51,10 +52,7 @@ const venues = {
 											<div class="modal-venue-info-wrapper ">
 												<h4 class="venue-name modal-venue-title">${item.venue.name}</h4>
 												${venues.ratingForModal(item)}
-												${venues.venueWebsite(item)}
-												<div class="modal-reviews-header-title col-12">
-													<h5 class="modal-reviews-header">Reviews</h5>
-												</div>
+												
 											</div>	
 										</div>
 
@@ -136,7 +134,7 @@ const venues = {
 	venueWebsite: (item) => {
 		if (Object.keys(item.venue).includes("url") && item.venue.url.length !== 0) {
 			return (
-				`<div class="website-wrapper col-12">
+				`<div class="website-wrapper">
 					<a href="${item.venue.url}" target="_blank" class="modal-website">
 						<i class="fa fa-external-link" aria-hidden="true"></i>
 						Visit Website

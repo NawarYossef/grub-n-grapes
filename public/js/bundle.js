@@ -3,7 +3,6 @@
 //images for phones 
 //get directions
 // hover on selection for map
-// css for 425px and above (home page)
 "use strict";
 const venues = require("./venues.js")	
 
@@ -22,6 +21,7 @@ class GrubGrapes {
 		this.handleSearchQuery();
 		this.handleSearchForCityFromMainPage();
 		this.headerImageSlideShow();
+		this.changeHeaderDimensionsOnResize();
 		this.changeImageForFoodSelect();
 		this.changeImageForWineSelect();
 		this.addNeonColorForFoodWord();
@@ -49,7 +49,7 @@ class GrubGrapes {
 				radius:	5000,
 				section: venueType,	
 				query: venueType,		
-				limit:	3,
+				limit:	2,
 				time:	"any",
 				tips: 4,
 				venuePhotos: true,
@@ -201,6 +201,36 @@ class GrubGrapes {
 		});
 	}
 	
+	changeHeaderDimensionsOnResize() {
+		$(window).resize(() => {
+			if ($(window).width() <= 320) {
+				$("body header").css("height", "320")
+		
+			} else if ($(window).width() >= 321 && $(window).width() <= 375) {
+				$("body header").css({"height": "315"});
+				
+			}	else if ($(window).width() >= 376 && $(window).width() <= 425) {
+				$("body header").css("height", "322");
+
+			}	else if ($(window).width() >= 426 && $(window).width() <= 600) {
+				$("body header").css("height", "322");	
+
+			}	else if ($(window).width() >= 601 && $(window).width() <= 767) {
+				$("body header").css("height", "520");	
+
+			}	else if ($(window).width() >= 768 && $(window).width() <= 1024) {
+				$("body header").css("height", "700");
+
+			}	else if ($(window).width() >= 1025 && $(window).width() <= 1440) {
+				$("body header").css("height", "700");
+
+			}	else if ($(window).width() >= 1441) {
+				$("body header").css("height", "700");
+			}
+		})
+	}
+
+
 	// display image for radio button when option is selected 
 	changeImageForWineSelect() {
 		$(".wine").click(() => {
@@ -357,10 +387,11 @@ const venues = {
 											</div>
 										</div>
 										${venues.venueHours(item)}
-										${venues.venueWebsite(item)}
+									
 									</div>
 								</div>
 								${venues.getVenuePrice(item)}
+								${venues.venueWebsite(item)}
 								<div class="address">	
 									<p class="address-desc">
 										<i class="fa fa-car" aria-hidden="true"></i>
@@ -383,10 +414,7 @@ const venues = {
 											<div class="modal-venue-info-wrapper ">
 												<h4 class="venue-name modal-venue-title">${item.venue.name}</h4>
 												${venues.ratingForModal(item)}
-												${venues.venueWebsite(item)}
-												<div class="modal-reviews-header-title col-12">
-													<h5 class="modal-reviews-header">Reviews</h5>
-												</div>
+												
 											</div>	
 										</div>
 
@@ -468,7 +496,7 @@ const venues = {
 	venueWebsite: (item) => {
 		if (Object.keys(item.venue).includes("url") && item.venue.url.length !== 0) {
 			return (
-				`<div class="website-wrapper col-12">
+				`<div class="website-wrapper">
 					<a href="${item.venue.url}" target="_blank" class="modal-website">
 						<i class="fa fa-external-link" aria-hidden="true"></i>
 						Visit Website

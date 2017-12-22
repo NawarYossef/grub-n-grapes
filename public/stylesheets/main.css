@@ -13,7 +13,7 @@ body {
 }
 
 body header {
-  width: 100%;
+  /* width: 100%; */
   height: 700px;
   text-align: center;
   background-position: center;
@@ -31,6 +31,10 @@ body header .container {
 body header .cont-for-h1 {
   width: 60%;
   display: block;
+}
+
+.container-for-image img {
+  box-shadow: 5px 6px 10px #515151;
 }
 
 body header h1 {
@@ -81,7 +85,9 @@ header h6 {
   margin: 5px auto 0 auto;
 }
 
-
+a {
+  color: #6d0a86;
+}
 
 .wine {
   color: #FFffff;
@@ -92,7 +98,8 @@ header h6 {
 }
 
 body main .city img {
-  vertical-align: inherit;
+  vertical-align: super;
+  box-shadow: 6px 5px 10px #484848;
 }
 
 .food:hover, .wine:hover {
@@ -211,6 +218,7 @@ h2 {
   width: 100%;
   text-align: center; 
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .grub-grapes-img-wrapper {
@@ -290,12 +298,8 @@ h3 span {
 
 .how-it-works {
   border-top: solid rgb(112, 112, 112) 1px;
-  padding-top: 20px;
   padding-bottom: 20px;
   height: 100%;
-
-  
-  
 }
 
 .how-it-works, .main-page-places, .reviews {
@@ -317,7 +321,9 @@ h3 span {
   color: #cabe86;
 }
 
-
+body main .venue .map-link, body main .venue .hours-wrapper {
+  padding-left: 0px;
+}
 
 .details-wrapper h4 {
   font: normal 2.5em 'Oswald', sans-serif;
@@ -420,10 +426,6 @@ div .food-quote-container p  i {
   float: right;
 }
 /* user reviews section */
-.reviews {
-}
-
-
 
 .review-wrapper {
   margin: 20px 0px 20px 0px;
@@ -538,8 +540,9 @@ div .food-quote-container p  i {
 .container-for-data {
   background-color: #a7a590;
   margin-bottom: 10px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   box-shadow: 1px 5px 5px rgb(211, 211, 211);
+  padding: 10px;
 }
 
 .container-for-data:hover {
@@ -555,7 +558,6 @@ div .food-quote-container p  i {
 
 .data-container {
   margin-left: 10px; 
-  padding-top: 5px;
 }
 
 .sec-img {
@@ -597,13 +599,12 @@ div .food-quote-container p  i {
 }
 
 .container-for-price {
-  margin-top: 3px;
+  margin-top: 6px;
 }
 
 .address {
   margin-top: 5px;
   font: normal 1em "Helvetica Neue", Helvetica, Arial, sans-serif;
-  padding-bottom: 5px;
   padding-left: 5px;
 }
 
@@ -631,7 +632,7 @@ div .food-quote-container p  i {
 .modal-content {
   position: absolute;
   /* background-color: #fffefe; */
-  background-color: #ccb1b1;
+  background-color: #cab3aa;
 }
 
 .modal-reviews-header {
@@ -646,6 +647,7 @@ div .food-quote-container p  i {
 .modal-venue-info-wrapper h4 {
   font: bold normal 2.3em sans-serif;
   display: inline;
+  text-decoration: underline;
 }
 
 .modal-venue-info-wrapper .rating {
@@ -677,7 +679,7 @@ div .food-quote-container p  i {
   text-align: center;
   width: 200px;
   height: 120px;
-  margin-bottom: 80px;
+  margin-bottom: 10px;
 }
 
 .modal-stats {
@@ -701,16 +703,16 @@ div .food-quote-container p  i {
 }
 .modal-photo-wrapper img {
   width: 55%; 
-  height: 180px; 
 }
 
 .modal-text-wrapper {
   margin-bottom: 20px;
   position: relative;
+  margin-top: 5px;
 }
 
 .mdl-text {
-  margin-bottom: 40px;
+  margin-bottom: 13px;
   padding-left: 10px;
   padding-right: 10px;
   font: normal 1.2em sans-serif;
@@ -720,7 +722,7 @@ div .food-quote-container p  i {
 /* add thematic break after each review */ 
 .modal-text-wrapper:after {
   content: "";
-  background: #928f8f;
+  background: #545454;
   position: absolute;
   bottom: 0;
   left: 15%;
@@ -831,6 +833,22 @@ div .food-quote-container p  i {
     padding: 0px;
   }
 
+  body header {
+    height: 320px;
+  }
+
+  .arrow-wrapper {
+    display: none;
+  }
+
+  .modal-reviews-header {
+    font-size: 1.2em;
+  }
+
+  .container-for-image img {
+    box-shadow: 3px 6px 10px #515151;
+  }
+
   div .paragraph {
     font-size: 0.9em;
   }
@@ -872,9 +890,10 @@ div .food-quote-container p  i {
   .form-main {
     height: 60px;
   }
-  .container-form {
+
+  body header .container-form {
     width: 90%;
-    margin-top: 25%;
+    margin-top: 17%;
   }
 
   form input {
@@ -923,6 +942,8 @@ div .food-quote-container p  i {
   div .food-quote-container .qoute-text-1 {
     font-size: 1.5em;
     margin-top: 300px;
+    padding: 10px 10px;
+    height: 190px;
   }
 
   .text-for-review {
@@ -995,10 +1016,6 @@ div .food-quote-container p  i {
     overflow: auto;
   }
 
-  .container-for-image  img {
-    border-radius: 10px;
-  }
-
   .data-container {
     padding-right: 2px; 
   }
@@ -1013,7 +1030,7 @@ div .food-quote-container p  i {
   }
 
   .container-for-price {
-    display: inline;
+    display: inline-block;
     padding-left: 7px;
   }
 
@@ -1077,16 +1094,18 @@ div .food-quote-container p  i {
   }
 
   .website-wrapper {
-    display: none;
+    display: inline;
+    margin-left: 80px;
   }
 
   .modal-venue-info-wrapper h4 {
-    font-size: 1.2em;
+    font-size: 1.5em;
     display: inline-block;
   }
 
   .modal-rating-wrapper {
     display: inline-block;
+    vertical-align: bottom;
   }
 
   .cont-for-rating {
@@ -1097,14 +1116,29 @@ div .food-quote-container p  i {
     width: 44px;
     height: 20px;
     font-size: 1em;
+    font-weight: bold;
   }
 
   .modal-photo-wrapper img {
-    width: 85%;
+    width: 61%;
+    box-shadow: 5px 6px 10px #515151;    
+  }
+
+  .modal-photo-wrapper {
+    margin-bottom: -35px;
+  }
+
+  .modal-user-photo-wrapper img {
+    width: 11%;
   }
 
   .back-to-top-btn-wrapper {
     margin-bottom: 7px;
+  }
+
+  .modal-website {
+    font: normal 0.7em 'Passion One', cursive, sans-serif;
+    color: #b3454e;
   }
 }
 
@@ -1113,8 +1147,21 @@ div .food-quote-container p  i {
     padding: 0px;
   }
 
+  .modal-photo-wrapper {
+    margin-bottom: -30px;
+  }
+
+  .arrow-wrapper {
+    display: none;
+  }
+
+  .modal-user-photo-wrapper img {
+    width: 10%;
+  }
+
   .examples {
     padding-bottom: 5px;
+    margin-top: 339px;
   }
 
   body header .cont-for-h1 {
@@ -1142,7 +1189,15 @@ div .food-quote-container p  i {
 
   .container-form {
     width: 90%;
-    margin-top: 25%;
+    margin-top: 17%;
+  }
+
+  body header {
+    height: 315px;
+  }
+
+  .container-for-image img {
+    box-shadow: 5px 6px 10px #515151;
   }
 
   form input {
@@ -1196,6 +1251,7 @@ div .food-quote-container p  i {
     font-size: 1.5em;
     margin-top: 300px;
     height: 170px;
+    padding: 10px 10px;
   }
 
   div .food-quote-container .text {
@@ -1275,7 +1331,8 @@ div .food-quote-container p  i {
   }
 
   .website-wrapper {
-    margin-top: 0px;
+    display: inline;
+    margin-left: 84px;
   }
 
   .data-container {
@@ -1305,10 +1362,6 @@ div .food-quote-container p  i {
     text-decoration: underline;
   }
 
-  .container-for-image img {
-    border-radius: 10px;
-  }
-
   .cont-for-rating {
     display: inline-block;
   }
@@ -1323,7 +1376,7 @@ div .food-quote-container p  i {
   }
 
   .container-for-price {
-    display: inline;
+    display: inline-block;
     padding-left: 7px;
   }
 
@@ -1375,13 +1428,23 @@ div .food-quote-container p  i {
   }
 
   .container-for-rating .modal-rating {
-    width: 47px;
-    height: 25px;
-    font-size: 1.5em;
+    width: 44px;
+    height: 20px;
+    font-size: 1em;
+    font-weight: bold;
   }
 
   .modal-photo-wrapper img {
-    width: 85%;
+    width: 55%;
+    box-shadow: 5px 6px 10px #515151;
+  }
+
+  .parallax-1 {
+    height: 1200px;
+  }
+
+  .parallax-2 {
+    height: 2005px;
   }
 }
 
@@ -1389,6 +1452,14 @@ div .food-quote-container p  i {
   body header h1 {
     font-size: 3.3em;
     margin-left: 8%;
+  }
+
+  .arrow-wrapper {
+    display: none;
+  }
+
+  .modal-user-photo-wrapper img {
+    width: 9%;
   }
 
   .back-to-top-btn-wrapper {
@@ -1420,22 +1491,22 @@ div .food-quote-container p  i {
   }
 
   .form-main {
-    height: 60px;
+    height: 55px;
   }
   
   .container-form {
-    width: 90%;
-    margin-top: 25%;
+    width: 82%;
+    margin-top: 14%;
   }
 
   .container-form button {
-    height: 55px;
+    height: 46px;
     font-size: 1.3em;
   }
 
   form input {
-    height: 55px;
-    font: normal 1.5em sans-serif;
+    height: 46px;
+    font: normal 1.3em sans-serif;
   }
 
   .food, .wine {
@@ -1447,11 +1518,15 @@ div .food-quote-container p  i {
   }
 
   .options {
-    margin-top: 20px;
+    margin-top: 14px;
   }
 
   .container-form button {
     font: normal 1.5em sans-serif;
+  }
+
+  body header {
+    height: 322px;
   }
 
   .examples {
@@ -1470,7 +1545,11 @@ div .food-quote-container p  i {
   }
 
   h2 {
-    font-size: 2em;
+    font-size: 1.9em;
+  }
+
+  div .paragraph {
+    font-size: 1em;
   }
 
   .description {
@@ -1478,7 +1557,8 @@ div .food-quote-container p  i {
   }
 
   .website-wrapper {
-    margin-top: 0px;
+    display: inline;
+    margin-left: 80px;
   }
   
   .modal-website {
@@ -1489,6 +1569,7 @@ div .food-quote-container p  i {
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
     margin-top: 300px;
+    padding: 10px 10px;
   }
 
   .search-results-wrapper h4 {
@@ -1569,10 +1650,6 @@ div .food-quote-container p  i {
 
   .fa-map-o, .fa-car {
     margin-right: 5px;
-  }
-
-  .container-for-image img {
-    border-radius: 10px;
   }
 
   .data-container {
@@ -1664,10 +1741,24 @@ div .food-quote-container p  i {
     width: 47px;
     height: 25px;
     font-size: 1.5em;
+    font-weight: bold;
   }
 
   .modal-photo-wrapper img {
-    width: 85%;
+    width: 68%;
+    box-shadow: 5px 6px 10px #515151;
+  }
+
+  .modal-photo-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .parallax-1 {
+    height: 1200px;
+  }
+
+  .parallax-2 {
+    height: 2115px;
   }
 }
 
@@ -1676,8 +1767,16 @@ div .food-quote-container p  i {
     height: 100px;
   }
 
+  .arrow-wrapper {
+    display: none;
+  }
+
   body header h1 {
     font-size: 4em;
+  }
+
+  body header {
+    height: 322px;
   }
 
   .back-to-top-btn-wrapper {
@@ -1685,7 +1784,7 @@ div .food-quote-container p  i {
   }
 
   .hours-wrapper {
-    display: none;
+    display: initial;
   }
 
   div .food-quote-container .qoute-text-1 {
@@ -1718,16 +1817,16 @@ div .food-quote-container p  i {
   
   .container-form {
     width: 70%;
-    margin-top: 25%;
+    margin-top: 11%;
   }
 
   .container-form button {
-    height: 55px;
+    height: 49px;
     font-size: 1.3em;
   }
 
   form input {
-    height: 55px;
+    height: 49px;
     font: normal 1.5em sans-serif;
   }
 
@@ -1741,7 +1840,7 @@ div .food-quote-container p  i {
   }
 
   .options {
-    margin-top: 20px;
+    margin-top: 8px;
   }
 
   .container-form button {
@@ -1774,6 +1873,8 @@ div .food-quote-container p  i {
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
     margin-top: 300px;
+    padding: 12px 12px;
+    height: 140px;
   }
 
   .text-for-review {
@@ -1860,8 +1961,9 @@ div .food-quote-container p  i {
   }
 
   .website-wrapper {
-    margin-top: 0px;
-  }
+    display: inline;
+    margin-left: 65px
+  } 
 
   .modal-website {
     font: normal 0.7em 'Passion One', cursive, sans-serif;
@@ -1869,7 +1971,7 @@ div .food-quote-container p  i {
   }
 
   .venue-img {
-    border-radius: 10px;
+    box-shadow: 5px 6px 10px #515151;
   }
 
   .fa-map-o, .fa-car, .fa-usd, .fa-comment {
@@ -1906,7 +2008,7 @@ div .food-quote-container p  i {
   }
 
   .container-for-price {
-    display: block;
+    display: inline-block;
     margin-left: 5px;
   }
 
@@ -1927,13 +2029,18 @@ div .food-quote-container p  i {
     display: inline-block;
   }
 
+  .search-results-wrapper h4 {
+    display: inline-block;
+    font-size: 1em;
+  }
+
   .address {
     font-size: 1em;
     padding-right: 1px;
   }
 
   .modal-venue-info-wrapper h4 {
-    font-size: 2.2em; 
+    font-size: 1.7em;
     display: inline-block;
   }
 
@@ -1945,6 +2052,15 @@ div .food-quote-container p  i {
     width: 47px;
     height: 25px;
     font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  .parallax-1 {
+    height: 1200px;
+  }
+
+  .parallax-2 {
+    height: 2115px;
   }
 }
 
@@ -1955,6 +2071,20 @@ div .food-quote-container p  i {
 
   body header h1 {
     font-size: 5em;
+  }
+
+  .modal-photo-wrapper img {
+    width: 40%;
+    box-shadow: 5px 6px 10px #515151;
+  }
+
+  div .paragraph {
+    font-size: 1em;
+  }
+
+  .website-wrapper {
+    display: inline;
+    margin-left: 63px;
   }
 
   div .food-quote-container .qoute-text-1 {
@@ -1991,7 +2121,11 @@ div .food-quote-container p  i {
   
   .container-form {
     width: 70%;
-    margin-top: 25%;
+    margin-top: 9%;
+  }
+
+  body header {
+    height: 520px;
   }
 
   .container-form button {
@@ -2033,7 +2167,7 @@ div .food-quote-container p  i {
   }
 
   h2 {
-    font-size: 2.5em;
+    font-size: 2em;
   }
 
   .description {
@@ -2043,6 +2177,8 @@ div .food-quote-container p  i {
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
     margin-top: 300px;
+    padding: 10px 10px;
+    height: 120px;
   }
 
   .text-for-review {
@@ -2192,6 +2328,11 @@ div .food-quote-container p  i {
     width: 56px;
     height: 30px;
     font-size: 1.8em;
+    font-weight: bold;
+  }
+
+  .modal-photo-wrapper {  
+    margin-bottom: 15px;
   }
 
   .fa-map-o, .fa-car, .fa-usd, .fa-comment {
@@ -2227,8 +2368,16 @@ div .food-quote-container p  i {
   }
   
   .container-for-price {
-    display: inline;
+    display: inline-block;
     padding-left: 7px;
+  }
+
+  .parallax-1 {
+    height: 1150px;
+  }
+
+  .parallax-2 {
+    height: 2115px;
   }
 
   .price {
@@ -2238,10 +2387,6 @@ div .food-quote-container p  i {
 
   .fa-usd {
     font-size: 15.4px;
-  }
-
-  .venue-img {
-    border-radius: 10px;
   }
 
   .back-to-search-bar-btn {
@@ -2258,6 +2403,22 @@ div .food-quote-container p  i {
 
   body header h1 {
     font-size: 5em;
+  }
+
+  .parallax-1 {
+    height: 1350px;
+  }
+
+  .parallax-2 {
+    height: 2100px;
+  }
+  .modal-photo-wrapper img {
+    width: 40%;
+    box-shadow: 5px 6px 10px #515151;
+  }
+
+  .modal-photo-wrapper {
+    margin-bottom: -2px;
   }
 
   div .food-quote-container .text {
@@ -2326,11 +2487,11 @@ div .food-quote-container p  i {
   }
   
   .examples {
-    margin-top: 550px;
+    margin-top: 490px;
   }
 
   .grub-grapes-img-wrapper img {
-    width: 20%;
+    width: 18%;
   }
 
   .h2-wrapper {
@@ -2340,7 +2501,7 @@ div .food-quote-container p  i {
   }
 
   h2 {
-    font-size: 2.5em;
+    font-size: 2.1em;
   }
 
   .description {
@@ -2350,7 +2511,8 @@ div .food-quote-container p  i {
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
     margin-top: 300px;
-    height: 180px;
+    height: 200px;
+    padding: 10px 10px;
   }
 
   .reviews .h2-wrapper {
@@ -2375,7 +2537,7 @@ div .food-quote-container p  i {
 
   .text-for-review {
     text-align: left;
-    font-size: 1.2em;
+    font-size: 1.3em;
   }
 
   .img-for-review {
@@ -2413,7 +2575,7 @@ div .food-quote-container p  i {
 
   .back-to-search-bar-btn {
     font: normal 1em sans-serif;
-    width: 35%;
+    width: 30%;
     height: 38px;
   }
 
@@ -2425,10 +2587,6 @@ div .food-quote-container p  i {
     font-family: FontAwesome;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-  }
-
-  .container-for-image img {
-    border-radius: 10px;
   }
 
   .map-btn-wrapper {
@@ -2487,7 +2645,7 @@ div .food-quote-container p  i {
   }
 
   .container-for-price {
-    display: block;
+    display: inline-block;
     margin-left: 5px;
   }
 
@@ -2508,8 +2666,10 @@ div .food-quote-container p  i {
   }
 
   .website-wrapper {
-    margin-top: 0px;
+    display: inline;
+    margin-left: 80px;
   }
+  
 
   .modal-website {
     font: normal 0.7em 'Passion One', cursive, sans-serif;
@@ -2523,7 +2683,7 @@ div .food-quote-container p  i {
   }
 
   .modal-link {
-    margin-left: 25%;
+    margin-left: 19%;
     display: inline;
   }
 
@@ -2532,7 +2692,7 @@ div .food-quote-container p  i {
   }
 
   .modal-venue-info-wrapper h4 {
-    font-size: 2.3em; 
+    font-size: 1.9em;
     display: inline-block;
   }
 
@@ -2544,6 +2704,7 @@ div .food-quote-container p  i {
     width: 56px;
     height: 30px;
     font-size: 1.8em;
+    font-weight: bold;
   }
 
   .all-info-container {
@@ -2586,6 +2747,11 @@ div .food-quote-container p  i {
     margin-left: 2%;
   }
 
+  .modal-photo-wrapper img {
+    width: 47%;
+    box-shadow: 5px 6px 10px #515151;
+  }
+
   body header .cont-for-h1 {
     width: 67%;
   }
@@ -2593,8 +2759,21 @@ div .food-quote-container p  i {
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
     margin-top: 300px;
-    height: 200px;
+    height: 220px;
+    padding: 12px 12px;
   }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  .examples {
+    padding-bottom: 10px;
+  }
+
+  .grub-grapes-img-wrapper img {
+    width: 12%;
+  } 
 
   div .food-quote-container .text {
     font-size: 1em;
@@ -2640,7 +2819,7 @@ div .food-quote-container p  i {
   }
 
   .back-to-search-bar-btn {
-    width: 48%;
+    width: 43%;
     font: normal 1.7em sans-serif;
   }
 
@@ -2661,7 +2840,7 @@ div .food-quote-container p  i {
   }
 
   .container-for-price {
-    display: inline;
+    display: inline-block;
     padding-left: 5px;
   }
 
@@ -2670,12 +2849,13 @@ div .food-quote-container p  i {
   }
 
   .modal-link {
-    margin-left: 200px;
+    margin-left: 152px;
     display: inline-block;
   }
 
   .website-wrapper {
-    margin-top: 0px;
+    display: inline;
+    margin-left: 80px;
   }
 
   .modal-website {
@@ -2707,10 +2887,6 @@ div .food-quote-container p  i {
     margin-right: 3px;
   }
 
-  .container-for-image img {
-    border-radius: 10px;
-  }
-
   .cont-for-rating {
     vertical-align: text-top;
   }
@@ -2733,6 +2909,7 @@ div .food-quote-container p  i {
     width: 56px;
     height: 30px;
     font-size: 1.8em;
+    font-weight: bold;
   }
 }
 
@@ -2743,14 +2920,24 @@ div .food-quote-container p  i {
     margin-left: 2%;
   }
 
+  .modal-photo-wrapper img {
+    width: 45%;
+    box-shadow: 5px 6px 10px #515151;
+  }
+
   .back-to-top-btn-wrapper {
     margin-bottom: 7px;
+  }
+
+  .examples {
+    padding-bottom: 10px;
   }
 
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
     margin-top: 300px;
-    height: 140px;
+    height: 166px;
+    padding: 10px 10px;
   }
 
   div .food-quote-container .text {
@@ -2828,7 +3015,8 @@ div .food-quote-container p  i {
   }
 
   .website-wrapper {
-    margin-top: 0px;
+    display: inline;
+    margin-left: 80px;
   }
 
   .modal-website {
@@ -2860,10 +3048,6 @@ div .food-quote-container p  i {
     margin-right: 3px;
   }
 
-  .container-for-image img {
-    border-radius: 10px;
-  }
-
   .cont-for-rating {
     vertical-align: text-top;
   }
@@ -2891,33 +3075,28 @@ div .food-quote-container p  i {
 
 @media screen and (min-width: 426px) and (max-width: 500px) {
   .modal-link {
-    /* display: inline; */
     float: right; 
-    /* margin-left: 50%; */
   }
 }
 
 @media screen and (min-width: 501px) and (max-width: 600px) {
   .modal-link {
     display: inline;
-    margin-left: 50%
+    margin-left: 48%
   }
 }
 
-/* @media screen and (min-width: 425px) and (max-width: 500px) {
+@media screen and (min-width: 425px) and (max-width: 500px) {
   .modal-photo-wrapper img {
-    width: 70%;
+    width: 60%;
+    box-shadow: 5px 6px 10px #515151;
   }
-} */
-/* 
-@media screen and (min-width: 501px) and (max-width: 600px) {
-  .modal-photo-wrapper img {
-    width: 68%;
-  }
-} */
+}
 
-@media screen and (min-width: 601px)  {
+
+@media screen and (min-width: 500px) and (max-width: 600px)  {
   .modal-photo-wrapper img {
-    width: 55%;
+    width: 50%;
+    box-shadow: 5px 6px 10px #515151;
   }
 }
