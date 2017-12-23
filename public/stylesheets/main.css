@@ -1071,7 +1071,7 @@ div .food-quote-container p  i {
     margin-top: 3px;
   }
 
-  .fa-map-o, .fa-car, .fa-usd, .fa-comment {
+  .fa-map-o, .fa-usd, .fa-comment {
     margin-right: 3px;
   }
 
@@ -1418,7 +1418,7 @@ div .food-quote-container p  i {
 
   
 
-  .fa-map-o, .fa-car, .fa-usd {
+  .fa-map-o, .fa-usd {
     margin-right: 5px;
   }
 
@@ -1707,7 +1707,7 @@ div .food-quote-container p  i {
     display: inline-block;
   }
 
-  .fa-map-o, .fa-car, .fa-usd, .fa-comment {
+  .fa-map-o, .fa-usd, .fa-comment {
     margin-right: 3px;
   }
 
