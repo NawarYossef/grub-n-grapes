@@ -19,8 +19,8 @@ const venues = {
 											<a href="https://maps.google.com/?q=${venues.printFormattedAddress(item)}" target="_blank" class="get-map-link">
 											<p><i class="fa fa-map-o" aria-hidden="true"></i>Directions</p>
 											</a>
-											<div data-toggle="modal" data-target="#${item.venue.id}" class="modal-link">
-												<a src="" class="get-details-link">
+											<div class="modal-link">
+												<a href="#" data-toggle="modal" data-target="#${item.venue.id}" class="get-details-link">
 													<p><i class="fa fa-comment" aria-hidden="true"></i>Reviews</p>
 												</a>
 											</div>
@@ -40,7 +40,7 @@ const venues = {
 							
 
 							<!-- modal -->
-							<div class="modal  fade" id="${item.venue.id}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							<div class="modal fade" id="${item.venue.id}"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 								<div class="modal-dialog " role="document">
 									<div class="modal-content">
 
