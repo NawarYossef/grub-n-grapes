@@ -194,7 +194,7 @@ input {
 /* arrow scroll down */
 .fa-arrow-circle-down {
   /* background-color: #ffffff; */
-  color: #4a2541;
+  color: #2f1829;
   margin-top: 80px;
   font-size: 4em;
 }
@@ -764,7 +764,7 @@ div .food-quote-container p  i {
 
 
 #map {
-  height: 600px;
+  height: 650px;
   background-color : grey;
 }
 
@@ -1193,7 +1193,7 @@ div .food-quote-container p  i {
 
   .container-form {
     width: 90%;
-    margin-top: 17%;
+    margin-top: 12%;
   }
 
   body header {
@@ -1826,7 +1826,7 @@ div .food-quote-container p  i {
   
   .container-form {
     width: 70%;
-    margin-top: 11%;
+    margin-top: 28%;
   }
 
   .container-form button {
@@ -2778,6 +2778,18 @@ div .food-quote-container p  i {
     padding: 12px 12px;
   }
 
+  .parallax-1 {
+    height: 1280px;
+  }
+
+  .parallax-2 {
+    height: 2000px;
+  }
+
+  .examples {
+    margin-top: 500px;
+  }
+
   h2 {
     font-size: 2em;
   }
@@ -2796,10 +2808,6 @@ div .food-quote-container p  i {
 
   div .food-quote-container .author {
     font-size: 1.2em;
-  }
-
-  .parallax-1 {
-    height: 1400px;
   }
 
   .back-to-top-btn-wrapper {
@@ -3119,4 +3127,20 @@ div .food-quote-container p  i {
     width: 50%;
     box-shadow: 5px 6px 10px #515151;
   }
+}
+
+
+@media screen and (min-width: 1441px) and (max-width: 1700px) {
+  .parallax-1 {
+    height: 1280px;
+  }
+
+  .parallax-2 {
+    height: 2000px;
+  }
+
+  .examples {
+    margin-top: 300px;
+  }
+
 }

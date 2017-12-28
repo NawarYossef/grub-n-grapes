@@ -196,25 +196,24 @@ class GrubGrapes {
 	changeHeaderDimensionsOnResize() {
 		$(window).resize(() => {
 			if ($(window).width() <= 320) {
-				$("body header").css("height", "320")
-		
+				$("body header").css("height", "382")
 			} else if ($(window).width() >= 321 && $(window).width() <= 375) {
-				$("body header").css({"height": "315"});
+				$("body header").css({"height": "440px"});
 				
 			}	else if ($(window).width() >= 376 && $(window).width() <= 425) {
-				$("body header").css("height", "322");
+				$("body header").css("height", "469px");
 
 			}	else if ($(window).width() >= 426 && $(window).width() <= 600) {
-				$("body header").css("height", "322");	
+				$("body header").css("height", "588px");	
 
 			}	else if ($(window).width() >= 601 && $(window).width() <= 767) {
-				$("body header").css("height", "520");	
+				$("body header").css("height", "609px");	
 
 			}	else if ($(window).width() >= 768 && $(window).width() <= 1024) {
-				$("body header").css("height", "700");
+				$("body header").css("height", "796px");
 
 			}	else if ($(window).width() >= 1025 && $(window).width() <= 1440) {
-				$("body header").css("height", "700");
+				$("body header").css("height", "1174px");
 
 			}	else if ($(window).width() >= 1441) {
 				$("body header").css("height", "700");
