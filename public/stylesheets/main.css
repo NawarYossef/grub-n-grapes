@@ -2430,11 +2430,14 @@ div .food-quote-container p  i {
 
   .parallax-1 {
     height: 1350px;
+    background-image: url("../images/parallax-1-small.png");
   }
 
   .parallax-2 {
     height: 2100px;
+    background-image: url("../images/parallax-2-small.jpg");
   }
+
   .modal-photo-wrapper img {
     width: 40%;
     box-shadow: 5px 6px 10px #515151;
