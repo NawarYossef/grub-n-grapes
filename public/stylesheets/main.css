@@ -22,6 +22,10 @@ body header {
   background-repeat: no-repeat;
 }
 
+.header-wrapper {
+  height: 700px;
+}
+
 body header .container {
   width: 100%;
   height: 80px;
@@ -195,7 +199,7 @@ input {
 /* arrow scroll down */
 .fa-arrow-circle-down {
   /* background-color: #ffffff; */
-  color: #2f1829;
+  color: #0f080d;
   margin-top: 80px;
   font-size: 4em;
 }

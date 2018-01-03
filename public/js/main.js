@@ -212,7 +212,7 @@ class GrubGrapes {
 				$("body header").css("height", "796px");
 
 			}	else if ($(window).width() >= 1025 && $(window).width() <= 1440) {
-				$("body header").css("height", "1174px");
+				$("body header").css("height", "796px");
 
 			}	else if ($(window).width() >= 1441) {
 				$("body header").css("height", "700");
