@@ -2428,6 +2428,11 @@ div .food-quote-container p  i {
     font-size: 5em;
   }
 
+  body header .cont-for-h1 {
+    width: 88%;
+    display: block;
+  }
+   
   .parallax-1 {
     height: 1350px;
     background-image: url("../images/parallax-1-small.png");
