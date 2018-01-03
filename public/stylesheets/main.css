@@ -2395,10 +2395,12 @@ div .food-quote-container p  i {
 
   .parallax-1 {
     height: 1150px;
+    background-image: url("../images/parallax-city-img-small.jpg");
   }
 
   .parallax-2 {
     height: 2115px;
+    background-image: url("../images/parallax-2-small.jpg");
   }
 
   .price {
