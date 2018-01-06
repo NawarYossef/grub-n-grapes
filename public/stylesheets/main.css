@@ -24,7 +24,7 @@ body header {
 
 body header .container {
   width: 100%;
-  height: 80px;
+  height: 66px;
   /* text-align: center; */
   background: rgba(0,0,0,0.41); 
 }
@@ -871,12 +871,12 @@ div .food-quote-container p  i {
   }
 
   .parallax-1 {
-    height: 1200px;
+    height: 1097px;
     background-image: url("../images/parallax-1-small.png");
   }
 
   .parallax-2 {
-    height: 2000px;
+    height: 1700px;
     background-image: url("../images/parallax-2-small.jpg");
   }
 
@@ -948,7 +948,7 @@ div .food-quote-container p  i {
 
   div .food-quote-container .qoute-text-1 {
     font-size: 1.5em;
-    margin-top: 300px;
+    margin-top: 199px;
     padding: 10px 10px;
     height: 190px;
   }
@@ -991,7 +991,7 @@ div .food-quote-container p  i {
 
   .examples {
     padding-bottom: 10px;
-    margin-top: 300px;
+    margin-top: 198px;
   }
 
   h3 {
@@ -1152,6 +1152,7 @@ div .food-quote-container p  i {
 @media screen and (min-width: 321px) and (max-width: 375px) {
   body header .container {
     padding: 0px;
+    height: 69px;
   }
 
   .modal-photo-wrapper {
@@ -1168,7 +1169,7 @@ div .food-quote-container p  i {
 
   .examples {
     padding-bottom: 5px;
-    margin-top: 339px;
+    margin-top: 155px;
   }
 
   body header .cont-for-h1 {
@@ -1256,7 +1257,7 @@ div .food-quote-container p  i {
 
   div .food-quote-container .qoute-text-1 {
     font-size: 1.5em;
-    margin-top: 300px;
+    margin-top: 202px;
     height: 170px;
     padding: 10px 10px;
   }
@@ -1447,12 +1448,12 @@ div .food-quote-container p  i {
   }
 
   .parallax-1 {
-    height: 1200px;
+    height: 1099px;
     background-image: url("../images/parallax-1-small.png");
   }
 
   .parallax-2 {
-    height: 2005px;
+    height: 1900px;
     background-image: url("../images/parallax-2-small.jpg");
   }
 }
@@ -1474,6 +1475,10 @@ div .food-quote-container p  i {
 
   .modal-user-photo-wrapper img {
     width: 9%;
+  }
+
+  body header .container {
+    height: 75px;
   }
 
   .back-to-top-btn-wrapper {
@@ -1582,7 +1587,7 @@ div .food-quote-container p  i {
 
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
-    margin-top: 300px;
+    margin-top: 234px;
     padding: 10px 10px;
   }
 
@@ -1768,19 +1773,19 @@ div .food-quote-container p  i {
   }
 
   .parallax-1 {
-    height: 1200px;
+    height: 1100px;
     background-image: url("../images/parallax-1-small.png");
   }
 
   .parallax-2 {
     height: 2115px;
     background-image: url("../images/parallax-2-small.jpg");
-  }
+  } 
 }
 
 @media screen and (min-width: 426px) and (max-width: 600px) {
   body header .container {
-    height: 100px;
+    height: 93px;
   }
 
   .arrow-wrapper {
@@ -1888,7 +1893,7 @@ div .food-quote-container p  i {
 
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
-    margin-top: 300px;
+    margin-top: 250px;
     padding: 12px 12px;
     height: 140px;
   }
@@ -2073,16 +2078,18 @@ div .food-quote-container p  i {
 
   .parallax-1 {
     height: 1200px;
+    background-image: url(../images/parallax-1-small.png);
   }
 
   .parallax-2 {
     height: 2115px;
+    background-image: url(../images/parallax-2-small.jpg);
   }
 }
 
 @media screen and (min-width: 601px) and (max-width: 766px) {
   body header .container {
-    height: 100px;
+    height: 110px;
   }
 
   body header h1 {
@@ -2173,7 +2180,7 @@ div .food-quote-container p  i {
   }
   
   .examples {
-    margin-top: 200px;
+    margin-top: 350px;
     padding-bottom: 10px;
   }
 
@@ -2197,7 +2204,7 @@ div .food-quote-container p  i {
 
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
-    margin-top: 300px;
+    margin-top: 200px;
     padding: 10px 10px;
     height: 120px;
   }
@@ -2394,7 +2401,7 @@ div .food-quote-container p  i {
   }
 
   .parallax-1 {
-    height: 1150px;
+    height: 800px;
     background-image: url("../images/parallax-1-small.png");
   }
 
@@ -2421,7 +2428,11 @@ div .food-quote-container p  i {
 
 @media screen and (min-width: 767px) and (max-width: 1024px) {
   body header .container {
-    height: 100px;
+    height: 110px;
+  }
+
+  body header .container {
+    height: 75px;
   }
 
   body header h1 {
@@ -2434,12 +2445,12 @@ div .food-quote-container p  i {
   }
    
   .parallax-1 {
-    height: 1350px;
+    height: 900px;
     background-image: url("../images/parallax-1-small.png");
   }
 
   .parallax-2 {
-    height: 2100px;
+    height: 1600px;
     background-image: url("../images/parallax-3-small.jpg");
   }
 
@@ -2519,7 +2530,7 @@ div .food-quote-container p  i {
   }
   
   .examples {
-    margin-top: 490px;
+    margin-top: 350px;
   }
 
   .grub-grapes-img-wrapper img {
@@ -2542,7 +2553,7 @@ div .food-quote-container p  i {
 
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
-    margin-top: 300px;
+    margin-top: 200px;
     height: 200px;
     padding: 10px 10px;
   }
@@ -2779,6 +2790,10 @@ div .food-quote-container p  i {
     margin-left: 2%;
   }
 
+  body header .container {
+    height: 83px;
+  }
+
   .modal-photo-wrapper img {
     width: 47%;
     box-shadow: 5px 6px 10px #515151;
@@ -2796,15 +2811,15 @@ div .food-quote-container p  i {
   }
 
   .parallax-1 {
-    height: 1280px;
+    height: 1000px;
   }
 
   .parallax-2 {
-    height: 2000px;
+    height: 1700px;
   }
 
   .examples {
-    margin-top: 500px;
+    margin-top: 300px;
   }
 
   h2 {
@@ -2959,6 +2974,10 @@ div .food-quote-container p  i {
   body header h1 {
     font-size: 5em;
     margin-left: 2%;
+  }
+
+  body header .container {
+    height: 83px;
   }
 
   img {
@@ -3149,11 +3168,11 @@ div .food-quote-container p  i {
 
 @media screen and (min-width: 1441px) and (max-width: 1700px) {
   .parallax-1 {
-    height: 1280px;
+    height: 700px
   }
 
   .parallax-2 {
-    height: 2000px;
+    height: 900px;
   }
 
   .examples {

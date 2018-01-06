@@ -304,7 +304,7 @@ class GrubGrapes {
 	
 	runFixedMapOnScroll() {
 		// if viewport is for ipad and larger screens
-		if ($(window).width() >= 767) {
+		if ($(window).width() >= 767 && $(window).width() < 1441) {
 			$(window).scroll(app.setupMapFixedPositionOnScroll);
 		} else {
 			this.hideMap();
