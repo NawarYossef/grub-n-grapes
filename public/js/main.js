@@ -301,7 +301,7 @@ class GrubGrapes {
 				'top': 'auto',
     });
 	}
-	
+		
 	runFixedMapOnScroll() {
 		// if viewport is for ipad and larger screens
 		if ($(window).width() >= 767 && $(window).width() < 1441) {
