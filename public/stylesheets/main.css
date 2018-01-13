@@ -24,9 +24,9 @@ body header {
 
 body header .container {
   width: 100%;
-  height: 63px;
-  /* text-align: center; */
+  display: inline-block;
   background: rgba(0,0,0,0.41); 
+  padding: 10px;  
 }
 
 body header .cont-for-h1 {
@@ -60,6 +60,7 @@ header h6 {
   display: inline;
   font: italic 1.2em sans-serif;
   color: #ffffff;
+  margin-bottom: 3%;
 }
 
 .first-word {
@@ -356,10 +357,7 @@ body main .venue .map-link, body main .venue .hours-wrapper {
 div .food-quote-container .qoute-text-1 {
   font: normal 2.5em sans-serif;
   color: #ffffff;
-  background-color: rgba(0,0,0,0.6);
-  margin: 400px auto 0 auto;
   float: none;
-  height: 320px;
   word-wrap: break-word
 }
 
@@ -425,6 +423,7 @@ div .food-quote-container p  i {
 
 .author {
   float: right;
+  margin-bottom: 2%;
 }
 /* user reviews section */
 
@@ -620,8 +619,8 @@ div .food-quote-container p  i {
 div .food-quote-container {
   padding-left: 1.04166666%;
   padding-right: 1.04166666%;
-  width: 100%;
   display: inline-block;
+  background-color: rgba(0,0,0,0.6);
 }
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* styles for Modal
@@ -955,9 +954,11 @@ div .food-quote-container {
 
   div .food-quote-container .qoute-text-1 {
     font-size: 1.5em;
-    margin-top: 115px;
-    padding: 10px 10px;
-    height: 183px;
+    padding: 10px;
+  }
+
+  div .food-quote-container {
+    margin-top: 120px;
   }
 
   .text-for-review {
@@ -1158,17 +1159,16 @@ div .food-quote-container {
 }
 
 @media screen and (min-width: 321px) and (max-width: 375px) {
-  body header .container {
-    padding: 0px;
-    height: 69px;
-  }
-
   .modal-photo-wrapper {
     margin-bottom: -30px;
   }
 
   .arrow-wrapper {
     display: none;
+  }
+
+  div .food-quote-container {
+    margin-top: 130px;
   }
 
   .modal-user-photo-wrapper img {
@@ -1268,9 +1268,7 @@ div .food-quote-container {
 
   div .food-quote-container .qoute-text-1 {
     font-size: 1.5em;
-    margin-top: 150px;
-    height: 180px;
-    padding: 17px 10px;
+    padding: 10px;
   }
 
   div .food-quote-container .text {
@@ -1488,22 +1486,12 @@ div .food-quote-container {
     width: 9%;
   }
 
-  body header .container {
-    height: 75px;
-  }
-
   .back-to-top-btn-wrapper {
     margin-bottom: 7px;
   }
 
   body header .cont-for-h1 {
     width: 80%;
-  }
-
-  div .food-quote-container .qoute-text-1 {
-    font-size: 1.5em;
-    margin-top: 300px;
-    height: 143px;
   }
 
   div .food-quote-container .text {
@@ -1601,10 +1589,11 @@ div .food-quote-container {
 
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
-    margin-top: 130px;
-    padding: 10px 10px;
-    display: inline-table;
-    height: 0px;
+    padding: 10px;
+  }
+
+  div .food-quote-container {
+    margin-top: 140px;
   }
 
   .search-results-wrapper h4 {
@@ -1800,10 +1789,6 @@ div .food-quote-container {
 }
 
 @media screen and (min-width: 426px) and (max-width: 600px) {
-  body header .container {
-    height: 92px;
-  }
-
   .arrow-wrapper {
     display: none;
   }
@@ -1822,12 +1807,6 @@ div .food-quote-container {
 
   .hours-wrapper {
     display: initial;
-  }
-
-  div .food-quote-container .qoute-text-1 {
-    font-size: 1.5em;
-    margin-top: 300px;
-    height: 130px;
   }
 
   div .food-quote-container .text {
@@ -1910,9 +1889,11 @@ div .food-quote-container {
 
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
-    margin-top: 120px;
-    padding: 12px 12px;
-    height: 140px;
+    padding: 12px;
+  }
+
+  div .food-quote-container {
+    margin-top: 120px; 
   }
 
   .text-for-review {
@@ -2105,10 +2086,6 @@ div .food-quote-container {
 }
 
 @media screen and (min-width: 601px) and (max-width: 766px) {
-  body header .container {
-    height: 110px;
-  }
-
   body header h1 {
     font-size: 5em;
   }
@@ -2132,18 +2109,13 @@ div .food-quote-container {
     margin-left: 63px;
   }
 
-  div .food-quote-container .qoute-text-1 {
-    font-size: 1.5em;
-    margin-top: 300px;
-    height: 110px;
-  }
-
   div .food-quote-container .text {
     font-size: 0.7em;
   }
 
   div .food-quote-container .author {
     font-size: 0.8em;
+    margin-bottom: 1.5%;
   }
 
   .back-to-top-btn-wrapper {
@@ -2222,9 +2194,11 @@ div .food-quote-container {
 
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
-    margin-top: 120px;
-    padding: 10px 10px;
-    height: 120px;
+    margin-top: 2%;
+  }
+
+  div .food-quote-container {
+    margin-top: 130px;  
   }
 
   .text-for-review {
@@ -2445,16 +2419,12 @@ div .food-quote-container {
 }
 
 @media screen and (min-width: 767px) and (max-width: 1024px) {
-  body header .container {
-    height: 110px;
-  }
-
-  body header .container {
-    height: 111px;
-  }
-
   body header h1 {
     font-size: 5em;
+  }
+
+  div .food-quote-container {
+    margin-top: 130px;
   }
 
   body header .cont-for-h1 {
@@ -2572,9 +2542,13 @@ div .food-quote-container {
 
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
-    margin-top: 120px;
-    height: 200px;
-    padding: 10px 10px;
+    padding: 10px;
+    margin: auto;
+    width: 100%;
+  }
+
+  .author {
+      margin-bottom: 1%;
   }
 
   .reviews .h2-wrapper {
@@ -2809,10 +2783,6 @@ div .food-quote-container {
     margin-left: 2%;
   }
 
-  body header .container {
-    height: 83px;
-  }
-
   .modal-photo-wrapper img {
     width: 47%;
     box-shadow: 5px 6px 10px #515151;
@@ -2824,9 +2794,17 @@ div .food-quote-container {
 
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
-    margin-top: 180px;
-    height: 220px;
-    padding: 12px 12px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  div .food-quote-container {
+    margin: 160px 25% 0 25%;
+    width: 50%;
+  }
+
+  .author {
+    margin-bottom: 1%;
   }
 
   .parallax-1 {
@@ -2995,10 +2973,6 @@ div .food-quote-container {
     margin-left: 2%;
   }
 
-  body header .container {
-    height: 83px;
-  }
-
   img {
     vertical-align: inherit;
   }
@@ -3018,9 +2992,13 @@ div .food-quote-container {
 
   div .food-quote-container .qoute-text-1 {
     font-size: 1.7em;
-    margin-top: 300px;
-    height: 166px;
-    padding: 10px 10px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .author {
+    float: right;
+    margin-bottom: 1.5%;
   }
 
   div .food-quote-container .text {
@@ -3191,7 +3169,8 @@ div .food-quote-container {
   }
 
   div .food-quote-container {
-    margin-top: -58px;
+    margin: 100px 25% 0 25%;
+    width: 50%;
   }
 
   .parallax-2 {
