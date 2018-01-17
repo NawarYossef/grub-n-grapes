@@ -51,7 +51,6 @@ class GrubGrapes {
 			}
 
 		}).done((data) => {
-
 			this.responseLength = Object.values(data.response).length;
 			this.responseStatus = data.meta.code;
 			this.results = data.response.groups[0].items;

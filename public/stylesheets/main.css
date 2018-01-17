@@ -5,6 +5,7 @@
 }
 
 body {
+  color: #4d4d4d;
   width: 100%; 
   /* background-color: #beb29e; */
   /* background-color: #dedede; */
@@ -211,7 +212,7 @@ input {
 h2 {
   display: inline-block;
   font: normal 3em 'Oswald', sans-serif;
-  color: rgb(49, 46, 46);
+  color: #4d4d4d;
   text-decoration: underline;
   /* border-bottom: solid rgb(92, 92, 92) 1px; */
 }
@@ -299,13 +300,13 @@ h3 span {
 }
 
 .how-it-works {
-  border-top: solid rgb(112, 112, 112) 1px;
+  /* border-top: solid rgb(112, 112, 112) 1px; */
   padding-bottom: 20px;
   height: 100%;
 }
 
 .how-it-works, .main-page-places, .reviews {
-  background-color: #a7967b;
+  background-color: #e2dbcf;
   /* background-color: #c7bba7; */
 }
 .main-page-places {
@@ -386,7 +387,7 @@ h4 .welcome-page-venue-rating {
 }
 /* parallax */
 .parallax-1 {
-  background-image: url("../images/parallax-city-img.jpg");
+  background-image: url("../images/canva.png");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -538,7 +539,7 @@ div .food-quote-container p  i {
 }
 
 .container-for-data {
-  background-color: #a7a590;
+  background-color: #c2c1b9;
   margin-bottom: 10px;
   /* border-radius: 10px; */
   box-shadow: 1px 5px 5px rgb(211, 211, 211);
@@ -620,7 +621,7 @@ div .food-quote-container {
   padding-left: 1.04166666%;
   padding-right: 1.04166666%;
   display: inline-block;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.7);
 }
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* styles for Modal
