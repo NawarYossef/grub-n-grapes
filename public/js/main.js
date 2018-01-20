@@ -180,7 +180,6 @@ class GrubGrapes {
 		$('header').vegas({
 			slides: [
 				{src: 'images/background1.jpg'},
-				{src: 'images/background3.jpg'},
 				{src: 'images/background2.jpg'},
 				{src: 'images/background4.jpg'}
 			],
