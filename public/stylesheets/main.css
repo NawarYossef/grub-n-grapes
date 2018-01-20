@@ -446,6 +446,7 @@ div .food-quote-container p  i {
 .img-for-review {
   width: 30%;
   border-radius: 50%;
+  box-shadow: 5px 6px 10px;
 }
 
 .back-to-top-btn-wrapper {
