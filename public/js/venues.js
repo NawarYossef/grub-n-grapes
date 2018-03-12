@@ -112,7 +112,7 @@ const venues = {
 		if (item !== undefined && Object.keys(item).includes("photo") && Object.keys(item.photo).length !== 0) {
 			 return (
 				`<div class="modal-user-photo-wrapper">
-					<img src="${item.user.photo.prefix}50x50${item.user.photo.suffix}" class="modal-user-photo"/>
+					<img src="${item.user.photo.prefix}100x100${item.user.photo.suffix}" class="modal-user-photo"/>
 				</div>`
 			 )
 		} 

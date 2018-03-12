@@ -2,70 +2,69 @@
 "use strict";
 const venues = require("./venues.js")	
 
-class GrubGrapes {
-	constructor() {
-		this.searchQuery = '';
-		this.cityName = '';
-		this.responseStatus = 0;
-		this.responseLength = 0;
-		this.results = '';
-	}
+	class GrubGrapes {
+		constructor() {
+			this.searchQuery = '';
+			this.cityName = '';
+			this.responseStatus = 0;
+			this.responseLength = 0;
+			this.results = '';
+		}
 
-	init() {
-		this.animateHeaderText();
-		this.hideMap();
-		this.handleSearchQuery();
-		this.handleSearchForCityFromMainPage();
-		this.headerImageSlideShow();
-		this.changeHeaderDimensionsOnResize();
-		this.changeImageForFoodSelect();
-		this.changeImageForWineSelect();
-		this.addNeonColorForFoodWord();
-		this.addNeonColorForWineWord();
-		this.defaultFoodOptionColor();
-		this.bounceHeaderArrow();
-		this.arrowScrollDown();
-		this.runFixedMapOnScroll();
-		this.scrollToHeader();
-	}
-
-	getDataFromApi(cityName, venueType) {
-		const url = "https://api.foursquare.com/v2/venues/explore";
-		const id = "CF2LRN214ZC311Z1IHDGZBMA5MHRSH1C2X5UEHU3DOZTRXBM";
-		const secret = "NKH0WYKFHDBBONXDQRYCA0GFI3GO45GI1EHPUZGSJN25EJRX";  
-	
-		$.ajax({
-			method: 'GET',
-			url: url,
-			data: {	
-				client_id: id,
-				client_secret: secret,
-				v: Date.now(),
-				near: cityName,
-				radius:	5000,
-				section: venueType,	
-				query: venueType,		
-				limit:	30,
-				time:	"any",
-				tips: 4,
-				venuePhotos: true,
-			}
-
-		}).done((data) => {
-
-			this.responseLength = Object.values(data.response).length;
-			this.responseStatus = data.meta.code;
-			this.results = data.response.groups[0].items;
-			this.StateChange();
-
-		}).fail(() => {
-			this.clearResults();
-			this.showWelcomPage();
+		init() {
+			this.animateHeaderText();
 			this.hideMap();
-			this.showInavlidInputMessage();
-		})	
-	}
-	
+			this.handleSearchQuery();
+			this.handleSearchForCityFromMainPage();
+			this.headerImageSlideShow();
+			this.changeHeaderDimensionsOnResize();
+			this.changeImageForFoodSelect();
+			this.changeImageForWineSelect();
+			this.addNeonColorForFoodWord();
+			this.addNeonColorForWineWord();
+			this.defaultFoodOptionColor();
+			this.bounceHeaderArrow();
+			this.arrowScrollDown();
+			this.runFixedMapOnScroll();
+			this.scrollToHeader();
+		}
+
+		getDataFromApi(cityName, venueType) {
+			const url = "https://api.foursquare.com/v2/venues/explore";
+			const id = "CF2LRN214ZC311Z1IHDGZBMA5MHRSH1C2X5UEHU3DOZTRXBM";
+			const secret = "NKH0WYKFHDBBONXDQRYCA0GFI3GO45GI1EHPUZGSJN25EJRX";  
+		
+			$.ajax({
+				method: 'GET',
+				url: url,
+				data: {	
+					client_id: id,
+					client_secret: secret,
+					v: Date.now(),
+					near: cityName,
+					radius:	5000,
+					section: venueType,	
+					query: venueType,		
+					limit:	30,
+					time:	"any",
+					tips: 4,
+					venuePhotos: true,
+				}
+
+			}).done((data) => {
+				this.responseLength = Object.values(data.response).length;
+				this.responseStatus = data.meta.code;
+				this.results = data.response.groups[0].items;
+				this.StateChange();
+
+			}).fail(() => {
+				this.clearResults();
+				this.showWelcomPage();
+				this.hideMap();
+				this.showInavlidInputMessage();
+			})	
+		}
+		
 	StateChange() {
 		console.log(this.results)
 		if (this.responseLength === 0  || this.results.length === 0 || this.responseStatus !== 200) {
@@ -182,7 +181,6 @@ class GrubGrapes {
 		$('header').vegas({
 			slides: [
 				{src: 'images/background1.jpg'},
-				{src: 'images/background3.jpg'},
 				{src: 'images/background2.jpg'},
 				{src: 'images/background4.jpg'}
 			],
@@ -302,7 +300,7 @@ class GrubGrapes {
 				'top': 'auto',
     });
 	}
-	
+		
 	runFixedMapOnScroll() {
 		// if viewport is for ipad and larger screens
 		if ($(window).width() >= 767 && $(window).width() < 1441) {
@@ -465,7 +463,7 @@ const venues = {
 		if (item !== undefined && Object.keys(item).includes("photo") && Object.keys(item.photo).length !== 0) {
 			 return (
 				`<div class="modal-user-photo-wrapper">
-					<img src="${item.user.photo.prefix}50x50${item.user.photo.suffix}" class="modal-user-photo"/>
+					<img src="${item.user.photo.prefix}100x100${item.user.photo.suffix}" class="modal-user-photo"/>
 				</div>`
 			 )
 		} 
