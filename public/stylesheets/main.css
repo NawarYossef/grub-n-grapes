@@ -147,7 +147,7 @@ input {
   font: normal 1.7em sans-serif;
   color: #ffffff;
   background-color: #c9171e;
-  width: 25%;
+  width: 14%;
   height: 45px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -905,6 +905,7 @@ div .food-quote-container {
 
   .container-form button {
     height: 43px;
+    width: 18%;
     font: normal 1.2em sans-serif;
     /* border-radius: 10px 10px; */
   }
@@ -1210,13 +1211,13 @@ div .food-quote-container {
 
   form input {
     height: 45px;
+    width: 80%;
     font: normal 1.2em sans-serif;
-    border-radius: 0px;
   }
 
   .container-form button {
     height: 45px;
-    border-radius: 0px;
+    width: 18%;
     font: normal 1.2em sans-serif;
   }
 
@@ -1511,12 +1512,14 @@ div .food-quote-container {
 
   .container-form button {
     height: 45px;
+    width: 18%;
     font-size: 1.3em;
     font: normal 1.5em sans-serif;
   }
 
   form input {
     height: 45px;
+    width: 80%;
     font: normal 1.3em sans-serif;
   }
 
@@ -1832,18 +1835,20 @@ div .food-quote-container {
 
   form input {
     height: 45px;
+    width: 80%;
     font: normal 1.5em sans-serif;
   }
 
   .food,
   .wine {
-    font: bold 2.2em "Audiowide", cursive, sans-serif;
+    font: bold 1.7em "Audiowide", cursive, sans-serif;
     width: 40%;
   }
 
   .select-img {
     width: 10%;
-    vertical-align: inherit;
+    vertical-align: baseline;
+    padding-bottom: 2px;
   }
 
   .options {
@@ -1853,6 +1858,7 @@ div .food-quote-container {
   .container-form button {
     font: normal 1.5em sans-serif;
     height: 45px;
+    width: 18%;
   }
 
   .examples {
@@ -2081,7 +2087,7 @@ div .food-quote-container {
   }
 }
 
-@media screen and (min-width: 601px) and (max-width: 766px) {
+@media screen and (min-width: 600px) and (max-width: 768px) {
   body header h1 {
     font-size: 5em;
   }
@@ -2133,27 +2139,29 @@ div .food-quote-container {
   }
 
   .container-form {
-    width: 70%;
-    margin-top: 9%;
+    width: 86%;
+    margin-top: 24%;
   }
 
   body header {
-    height: 520px;
+    height: 778px;
   }
 
   .container-form button {
     height: 55px;
+    width: 16%;
     font-size: 1.5em;
   }
 
   form input {
     height: 55px;
+    width: 80%;
     font: normal 1.5em sans-serif;
   }
 
   .food,
   .wine {
-    font: bold 2em "Audiowide", cursive, sans-serif;
+    font: bold 2.7em "Audiowide", cursive, sans-serif;
     width: 40%;
   }
 
@@ -2418,7 +2426,7 @@ div .food-quote-container {
   }
 }
 
-@media screen and (min-width: 767px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   body header h1 {
     font-size: 5em;
   }
@@ -2485,7 +2493,7 @@ div .food-quote-container {
   }
 
   .container-form {
-    width: 50%;
+    width: 82%;
     margin-top: 25%;
   }
 
@@ -2505,13 +2513,13 @@ div .food-quote-container {
 
   .food,
   .wine {
-    font: bold 2em "Audiowide", cursive, sans-serif;
+    font: bold 2.8em "Audiowide", cursive, sans-serif;
     width: 40%;
   }
 
   .select-img {
-    width: 10%;
-    padding-bottom: 4px;
+    width: 9%;
+    /* padding-bottom: 2px; */
   }
 
   .options {
@@ -2757,7 +2765,7 @@ div .food-quote-container {
   } */
 }
 
-@media screen and (min-width: 1025px) and (max-width: 1200px) {
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
   .hvr-icon-up:before {
     content: "\f01b";
     position: absolute;
@@ -2769,7 +2777,7 @@ div .food-quote-container {
   }
 }
 
-@media screen and (min-width: 1201px) and (max-width: 1440px) {
+@media screen and (min-width: 1200px) and (max-width: 1440px) {
   .hvr-icon-up:before {
     content: "\f01b";
     position: absolute;
@@ -2785,7 +2793,7 @@ div .food-quote-container {
   }
 }
 
-@media screen and (min-width: 1025px) and (max-width: 1440px) {
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
   body header h1 {
     font-size: 5em;
     margin-left: 2%;
@@ -2856,18 +2864,19 @@ div .food-quote-container {
   }
 
   .select-img {
-    width: 7%;
+    width: 5%;
     vertical-align: inherit;
+    padding-bottom: 2px;
   }
 
   .food,
   .wine {
-    font: bold 2em "Audiowide", cursive, sans-serif;
+    font: bold 2.3em "Audiowide", cursive, sans-serif;
     width: 42%;
   }
 
   .container-form {
-    width: 51%;
+    width: 65%;
   }
 
   .all-info-container {
@@ -3180,7 +3189,7 @@ div .food-quote-container {
   }
 }
 
-@media screen and (min-width: 1441px) and (max-width: 1700px) {
+@media screen and (min-width: 1440px) and (max-width: 1700px) {
   .parallax-1 {
     height: 900px;
   }
