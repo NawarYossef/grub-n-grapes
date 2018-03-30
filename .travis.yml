@@ -1,0 +1,9 @@
+language: node_js
+node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: MtPOuVW54o59Jgu1jukJtEGF9fAn26UJ1KDWRsiuqwsvyLi1vJRVlZ8txn+r9mMLzKO+7if1goZeAuP32X3kR1y/lBZk2/Dl8TTz4S3ToofFK+sRQzu5cAgMu1b7a7UOVe7xwzNC/amEtBFCLpETI8FT0tNBERSdjHRSjwp3PK442BSoSw67lF1KMCm3BISbcor0vgbdVcXfb+4VaVcnb0nQTaQX2DSZaWogtnQs5W1K/4rDk8kwIcn/x7lBRvqcLT9M+slLBtmXs5KRmVwXdErfZ0cElQ6dEuIg3uMryxhDU2VUiakJOCyOMZ4uFruE8EX/atu3vcyB9oZXj/IICE9cInA1SgYfH9V7VtVzAeDNikXDLLkGkIHvzp1pRoBvZ+xfMnTWGDOQE+JrvFvbz34hrQKLI3FXnFKhciaLjOODR/FDcI3c9wWtK93mPz+W7z3HWQLWgz+yafShy/putl8oFG0x+H3L6TfSoQk48E8CdeoF428IKik880lXzxhSOuSk8Covsa7PuSPe/RJJaKLOpHC+5bUuSqsDDbt1xb6sWrii+K5E7dBWTNnQmdhHXuFuFXsHHqJDPyd6mHBZhCKdA5WYfiCzasUkG1MEE4W8QKYzgbo1NisBqQt14h0UY5luHFyI9injqmcp5mVLGgPPw05eKq0Qqd9OCsyzDTA=
+  app: grub-n-grapes
+  on:
+    repo: NawarYossef/grub-n-grapes
