@@ -1,289 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title>Grub N Grapes</title>
-	<link rel="icon" type="image" href="images/grapes-icon.png" />
-	<meta charset="utf-8" />
-	<meta property="og:image:type" content="image/background1.jpg">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css?family=Passion+One|Audiowide|Oswald" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="stylesheets/animate.min.css">
-	<link rel="stylesheet" href="stylesheets/vegas/vegas.min.css">
-	<link href="stylesheets/hover.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+  <title>Grub N Grapes</title>
+  <link rel="icon" type="image" href="images/grapes-icon.png" />
+  <meta charset="utf-8" />
+  <meta property="og:image:type" content="image/background1.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Passion+One|Audiowide|Oswald" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="stylesheets/animate.min.css">
+  <link rel="stylesheet" href="stylesheets/vegas/vegas.min.css">
+  <link href="stylesheets/hover.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 </head>
+
 <body>
-	<header>
-		<div class="header-wrapper">
-			<div class="container">
-					<div class="cont-for-h1">
-						<a href="https://grub-n-grapes.herokuapp.com" class"page-heading" role="link" aria-label="back to home page">
-							<h1 role="none">
-								<span class="first-word tlt">Grub</span>
-								<span class="second-word tlt">n</span>
-								<span class="third-word tlt">Grapes</span>
-							</h1>
-						</a>
-						<h6 class="tlt" role="none">find the best food and wine venues</h6>
-					</div>
-			</div>
+  <header>
+    <div class="header-wrapper">
+      <div class="container">
+        <div class="cont-for-h1">
+          <a href="https://grub-n-grapes.herokuapp.com" class "page-heading" role="link" aria-label="back to home page">
+            <h1 role="none">
+              <span class="first-word tlt">Grub</span>
+              <span class="second-word tlt">n</span>
+              <span class="third-word tlt">Grapes</span>
+            </h1>
+          </a>
+          <h6 class="tlt" role="none">find the best food and wine venues</h6>
+        </div>
+      </div>
 
-			<div class="container-form">
-				<form class="form-main" role="form">
-					<input type="text" name="city" id="user-input" placeholder="Type a city name..." aria-label="type a city name"/>
-					<button class="search-btn " aria-label="submit">Go</button>
-				</form>
+      <div class="container-form">
+        <form class="form-main" role="form">
+          <input type="text" name="city" id="user-input" placeholder="Type a city name..." aria-label="type a city name" />
+          <button class="search-btn " aria-label="submit">Go</button>
+        </form>
 
-				<form class="options">
-					<div class="food" >
-						<img class="food-option select-img" src="images/option-selected.png" role="none">
-						<span class="">Grub</span>
-					</div>
-					<div class="wine">
-						<img class="wine-option select-img" src="images/option-unselected.png" role="none">
-						<span>Grapes</span>
-					</div>	
-				</form>
-			</div>
-			<div class="arrow-wrapper">
-				<a href="#main" class="arrow" role="link" aria-label="scroll down"><i class="fa fa-arrow-circle-down smooth-container" aria-hidden="true"></i></a>
-			</div>
-		</div>
-	</header>
-	
-	<main role="main" id="main"> 
-		<script>
-			$(document).ready(function() {
-				function init() {
-					const input = document.getElementById('user-input');
-					const autocomplete = new google.maps.places.Autocomplete(input);
-				}
-				google.maps.event.addDomListener(window, 'load', init);	
-			});	
-		</script>
+        <form class="options">
+          <div class="food">
+            <img class="food-option select-img" src="images/option-selected.png" role="none">
+            <span class="">Grub</span>
+          </div>
+          <div class="wine">
+            <img class="wine-option select-img" src="images/option-unselected.png" role="none">
+            <span>Grapes</span>
+          </div>
+        </form>
+      </div>
+      <div class="arrow-wrapper">
+        <a href="#main" class="arrow" role="link" aria-label="scroll down">
+          <i class="fa fa-arrow-circle-down smooth-container" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </header>
 
-		<section class="welcome-page-info">
-			<div class="col-12 how-it-works">
-				<div class="h2-wrapper">
-					<h2>How It Works</h2>
-				</div>
-				<div class="col-4 description">
-					<div class="grub-grapes-img-wrapper col-12">
-						<img src="./images/grub-icon.png" role="none">
-						<img src="./images/grapes-icon.png" role="none">
-					</div>
-					<div class="description-paragraph-1 col-12">
-						<p class="paragraph">
-							Type a city name then choose Grub or Grapes option to find your favorite restaurants or wine venues.
-						</p>
-					</div>
-				</div>
+  <main role="main" id="main">
+    <script>
+      $(document).ready(function () {
+        function init() {
+          const input = document.getElementById('user-input');
+          const autocomplete = new google.maps.places.Autocomplete(input);
+        }
+        google.maps.event.addDomListener(window, 'load', init);
+      });	
+    </script>
 
-				<div class="col-4 description">
-					<div class="grub-grapes-img-wrapper col-12">
-						<img src="./images/document-icon.png" role="none">
-					</div>
-					<div class="description-paragraph-2 col-12">
-						<p  class="paragraph">
-							Find top rated venues wihtin 100 mile radius of your city of choice. Get the location, address and price point.
-						</p>
-					</div>
-				</div>
-				<div class="col-4 description">
-					<div class="grub-grapes-img-wrapper col-12">
-						<img src="./images/reviews-icon.png" role="none">
-					</div>
-					<div class="description-paragraph-3 col-12">
-						<p  class="paragraph">
-							Get the most detailed and thorough user reviews includes photos, ratings, stats and recommendations.
-						</p>
-					</div>
-				</div>
-			</div>
+    <section class="welcome-page-info">
+      <div class="col-12 how-it-works">
+        <div class="h2-wrapper">
+          <h2>How It Works</h2>
+        </div>
+        <div class="col-4 description">
+          <div class="grub-grapes-img-wrapper col-12">
+            <img src="./images/food-icon.png" role="none">
+            <!-- <img src="./images/wine-icon.png" role="none"> -->
+            <!-- <img src="./images/grapes-icon.png" role="none"> -->
+          </div>
+          <div class="description-paragraph-1 col-12">
+            <p class="paragraph">
+              Type a city name then choose Grub or Grapes option to find your favorite restaurants or wine venues.
+            </p>
+          </div>
+        </div>
 
-			<div class="parallax-1">
-				<div class="food-quote-container">
-					<div class="qoute-text-1 col-6">
-						<p class="text">
-							<i class="fa fa-quote-left" aria-hidden="true"></i>
-							Good food is to be enjoyed. Going to a restaurant is one of my keenest pleasures. 
-							Meeting someplace with old and new friends, ordering wine, eating food, surrounded by strangers, I think is the core of what it means to live a civilised life.
-							<i class="fa fa-quote-right" aria-hidden="true"></i>
-						</p>
-						<p class="author">
-							Adam Gopnik
-						</p>
-					</div>
-				</div>
-			</div>
+        <div class="col-4 description">
+          <div class="grub-grapes-img-wrapper col-12">
+            <img src="./images/screen5-image.jpg" role="none">
+          </div>
+          <div class="description-paragraph-2 col-12">
+            <p class="paragraph">
+              Find top rated venues within an 100 mile radius of your city of choice. Get the location, address and price point.
+            </p>
+          </div>
+        </div>
+        <div class="col-4 description">
+          <div class="grub-grapes-img-wrapper col-12">
+            <img src="./images/users2-img.png" role="none">
+          </div>
+          <div class="description-paragraph-3 col-12">
+            <p class="paragraph">
+              Get the most detailed and thorough user reviews includes photos, ratings, stats and recommendations.
+            </p>
+          </div>
+        </div>
+      </div>
 
-			<section class="reviews col-12">
-				<div class="h2-wrapper">
-					<h2>Get The Reviews When You Need Them</h2>
-				</div>
-				<div class="review-wrapper col-12">
-					<div class="user-img-wrapper col-6">
-						<img src="./images/user-female.jpg" class="img-for-review" role="none">
-					</div>
-					<div class="container-for-review col-6">
-						<p class="text-for-review">
-							"This is BY FAR the best place in Madrid. Love coming back here every time. The food is great. Everyone tells you to get the patatas bravas, and you should! But the pintxos morunos (lamb skewers) are perfection."
-						</p>
-					</div>
-				</div>
-				<div class="review-wrapper review-wrapper-2 col-12">
-					<div class="container-for-review col-6">
-						<p class="text-for-review">
-							"Good choice of wines, but don't expect wide range of dishes. Always a brilliant atmosphere (and always rammed!) whether you're in the dark candlelit cellars or out on the patio."
-						</p>
-					</div>
-					<div class="user-img-wrapper col-6">
-						<img src="./images/user-male.jpg" class="img-for-review" role="none">
-					</div>
-				</div>
-				<div class="review-wrapper review-wrapper-3 col-12">
-					<div class="user-img-wrapper col-6">
-						<img src="./images/user-male.jpg" class="img-for-review" role="none">
-					</div>
-					<div class="container-for-review col-6">
-						<p class="text-for-review">
-							"This is BY FAR the best place in Madrid. Love coming back here every time. The food is great. Everyone tells you to get the patatas bravas, and you should! But the pintxos morunos (lamb skewers) are perfection."
-						</p>
-					</div>
-				</div>
-			</section>
+      <!-- <div class="col-12">
+        <hr>
+      </div> -->
 
-			<div class="parallax-2 col-12">
-				<div class="examples">
-						<div class="h2-wrapper">
-							<h2>The Best Venues Anywhere You Want</h2>
-						</div>
-					<div class="col-6 example-wrapper">
-						<div class="img-venue-wrapper">
-							<img class="img-venue-example" src="./images/san-francisco-food.jpg" role="none">
-						</div>
-						<div class="details-wrapper">
-							<h4>
-								<span class="details-venue-name">
-								Spontini
-								</span>
-								<p class="rating welcome-page-venue-rating">9.5</p>
-							</h4>
-							<h5>Pizza Place - </h5>
-							<h5>Milan</h5>
-							<p class="hours">
-								Closed at 11:00PM
-							</p>
-							<p class="costumer-count">
-								Last month checkins: 1203 Customers
-							</p>
-						</div>
-					</div>
+      <div class="main-page-places col-12">
+        <div class="h2-wrapper cities-heading">
+          <h2>Find Your Favorite City</h2>
+        </div>
 
-					<div class="col-6">
-						<div class="img-venue-wrapper">
-							<img class="img-venue-example " src="./images/london-wine.jpg" role="none">
-						</div>
-						<div class="details-wrapper">
-							<h4>
-								<span class="details-venue-name">
-								Vetro by Dalla Terra
-								</span>
-								<p class="rating welcome-page-venue-rating">9.7</p>
-							</h4>
-							<h5>Wine Bar - </h5>
-							<h5>Melbourne</h5>
-							<p class="hours">
-								Closed at 2:00PM
-							</p>
-							<p class="costumer-count">
-								Last month checkins: 1363 Customers
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+        <div class="row cities-wrapper">
+          <div class="city col-3">
+            <img class="img-places" src="./images/new-york-places.jpeg" role="none">
+            <h3>
+              <span>New York</span>
+            </h3>
+          </div>
+          <div class="city col-3">
+            <img class="img-places" src="./images/cape-town-places.jpeg" role="none">
+            <h3>
+              <span>Cape Town</span>
+            </h3>
+          </div>
+          <div class="city col-3">
+            <img class="img-places" src="./images/dubai-places.jpeg" role="none">
+            <h3>
+              <span>Dubai</span>
+            </h3>
+          </div>
+          <div class="city col-3">
+            <img class="img-places" src="./images/berlin-places.jpeg" role="none">
+            <h3>
+              <span>Berlin</span>
+            </h3>
+          </div>
 
-			<div class="main-page-places col-12">
-				<div class="h2-wrapper cities-heading">
-					<h2>Choose Your Favorite City</h2>
-				</div>	
+          <div class="city col-3">
+            <img class="img-places" src="./images/tokyo-places.jpg" role="none">
+            <h3>
+              <span>Tokyo</span>
+            </h3>
+          </div>
+          <div class="city col-3">
+            <img class="img-places" src="./images/san-francisco-places.jpg" role="none">
+            <h3>
+              <span>San Francisco</span>
+            </h3>
+          </div>
+          <div class="city col-3">
+            <img class="img-places" src="./images/melbourne-places.jpg" role="none">
+            <h3>
+              <span>Melbourne</span>
+            </h3>
+          </div>
+          <div class="city col-3">
+            <img class="img-places" src="./images/moscow-places.jpg" role="none">
+            <h3>
+              <span>Moscow</span>
+            </h3>
+          </div>
 
-				<div class="row cities-wrapper">
-					<div class="city col-3">
-						<img class="img-places" src="./images/new-york-places.jpeg" role="none">
-						<h3><span>New York</span></h3>
-					</div>
-					<div class="city col-3">
-						<img class="img-places" src="./images/cape-town-places.jpeg" role="none">
-						<h3><span>Cape Town</span></h3>
-					</div>
-					<div class="city col-3">
-						<img class="img-places" src="./images/dubai-places.jpeg" role="none">
-						<h3><span>Dubai</span></h3>
-					</div>
-					<div class="city col-3">
-						<img class="img-places" src="./images/berlin-places.jpeg" role="none">
-						<h3><span>Berlin</span></h3>
-					</div>
-		
-					<div class="city col-3">
-						<img class="img-places" src="./images/tokyo-places.jpg" role="none">
-						<h3><span>Tokyo</span></h3>
-					</div>
-					<div class="city col-3">
-						<img class="img-places" src="./images/san-francisco-places.jpg" role="none">
-						<h3><span>San Francisco</span></h3>
-					</div>
-					<div class="city col-3">
-						<img class="img-places" src="./images/melbourne-places.jpg" role="none">
-						<h3><span>Melbourne</span></h3>
-					</div>
-					<div class="city col-3">
-						<img class="img-places" src="./images/moscow-places.jpg" role="none">
-						<h3><span>Moscow</span></h3>
-					</div>
+          <div class="city col-3">
+            <img class="img-places" src="./images/boulder-places.jpg" role="none">
+            <h3>
+              <span>Boulder</span>
+            </h3>
+          </div>
+          <div class="city col-3">
+            <img class="img-places" src="./images/madrid-places.jpg" role="none">
+            <h3>
+              <span>Madrid</span>
+            </h3>
+          </div>
+          <div class="city col-3">
+            <img class="img-places" src="./images/copenhagen-places.jpeg" role="none">
+            <h3>
+              <span>Copenhagen</span>
+            </h3>
+          </div>
+          <div class="city col-3">
+            <img class="img-places" src="./images/paris-places.jpg" role="none">
+            <h3>
+              <span>Paris</span>
+            </h3>
+          </div>
+        </div>
 
-					<div class="city col-3">
-						<img class="img-places" src="./images/boulder-places.jpg" role="none">
-						<h3><span>Boulder</span></h3>
-					</div>
-					<div class="city col-3">
-						<img class="img-places" src="./images/madrid-places.jpg" role="none">
-						<h3><span>Madrid</span></h3>
-					</div>
-					<div class="city col-3">
-						<img class="img-places" src="./images/copenhagen-places.jpeg" role="none">
-						<h3><span>Copenhagen</span></h3>
-					</div>
-					<div class="city col-3">
-						<img class="img-places" src="./images/paris-places.jpg" role="none">
-						<h3><span>Paris</span></h3>
-					</div>
-				</div>
-
-				<div class="back-to-top-btn-wrapper col-12">
+        <!-- <div class="back-to-top-btn-wrapper col-12">
 						<button class="back-to-search-bar-btn hvr-icon-up">Back To Search Bar</button>
-				</div>
-			</div>
-		</section>
+				</div> -->
+      </div>
+    </section>
+    <!-- <footer class="col-12">
+      <div class="contacts col-12">
+        <ul class="">
+          <li class="">
+            <a href="https://www.linkedin.com/in/nawar-yossef-78924211a/" target="_blank" name="linkedin" role="presentation">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </li>
+          <li class="">
+            <a href="https://github.com/NawarYossef" target="_blank" name="github">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li class="">
+            <a href="#" name="personal-website">
+              <i class="fas fa-shopping-bag"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12">
+        <p class="copyright">copyright
+          <i class="far fa-copyright"></i>
+          <span>2018</span> Nawar Yossef </p>
+      </div>
+    </footer> -->
 
-		<!-- search results -->
-		<div class="all-results row col-6"></div>
-		
-		<div class="map-container col-6" >
-			<div class="map-wrapper">
-				<div class="map-wrap sticker " id="map">
-				</div>
-			</div>
-		</div>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxbrnP5jd_Uq6TwZ9frPsnqhD2_wgIAnU&v=3.exp&libraries=places"></script>
-	<script src="js/vegas/vegas.min.js"></script>
-	<script src="js/jquery.lettering-0.6.1.min.js"></script>
-	<script src="js/jquery.textillate.js"></script>
-	<script type="text/javascript" src="js/bundle.js"></script> 
+    <!-- search results -->
+    <div class="all-results row col-6"></div>
+
+    <div class="map-container col-6">
+      <div class="map-wrapper">
+        <div class="map-wrap sticker " id="map">
+        </div>
+      </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxbrnP5jd_Uq6TwZ9frPsnqhD2_wgIAnU&v=3.exp&libraries=places"></script>
+    <script src="js/vegas/vegas.min.js"></script>
+    <script src="js/jquery.lettering-0.6.1.min.js"></script>
+    <script src="js/jquery.textillate.js"></script>
+    <script type="text/javascript" src="js/bundle.js"></script>
 </body>
