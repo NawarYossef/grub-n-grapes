@@ -294,7 +294,6 @@ h3 span {
 }
 
 .how-it-works {
-  /* border-top: solid rgb(112, 112, 112) 1px; */
   padding: 65px;
   padding-top: 20px;
   height: 100%;
@@ -304,7 +303,6 @@ h3 span {
 .main-page-places,
 .reviews {
   background-color: #f5f5f5;
-  /* background-color: #c7bba7; */
 }
 .main-page-places {
   text-align: center;
@@ -550,7 +548,7 @@ div .food-quote-container p i {
 }
 
 .container-for-data {
-  background-color: #c2c1b9;
+  background-color: #ddd;
   margin-bottom: 10px;
   /* border-radius: 10px; */
   box-shadow: 1px 5px 5px rgb(211, 211, 211);
